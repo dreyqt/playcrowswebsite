@@ -1,5 +1,6 @@
 import type { ReactNode } from 'react'
 import heroVideo from './assets/hero.mp4'
+import heroPoster from './assets/image-1.png'
 import referralBanner from './assets/events/referral-event.png'
 
 export type Page =
@@ -12,6 +13,7 @@ export type Page =
 export const HERO_SLIDES = [
   {
     video: heroVideo,
+    img: heroPoster,
     title: 'PLAYCROWS',
     subtitle: 'Your Ultimate Night Crows Private Server Experience.',
   }
