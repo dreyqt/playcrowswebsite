@@ -1,0 +1,10 @@
+{
+  "description": "A sleek, minimalist website offering Night Crows private server info, downloads, community access, and donation support for dedicated MMORPG players.",
+  "robots": {
+    "index": false
+  },
+  "accessibility": {
+    "addBypassLinks": false,
+    "ignoreReducedMotion": false
+  }
+}
