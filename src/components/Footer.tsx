@@ -9,7 +9,7 @@ export function Footer({ navigate, goHome }: { navigate: (p: Page) => void; goHo
     { label: 'Game Information', action: () => { goHome(); setTimeout(() => document.getElementById('game-info')?.scrollIntoView({ behavior: 'smooth' }), 100) } },
     { label: 'Donation Center', action: () => { goHome(); setTimeout(() => document.getElementById('donation')?.scrollIntoView({ behavior: 'smooth' }), 100) } },
     { label: 'Rules', action: () => { goHome(); setTimeout(() => document.getElementById('rules')?.scrollIntoView({ behavior: 'smooth' }), 100) } },
-    { label: 'Discord', action: () => window.open('https://discord.gg/ayxHdychr', '_blank') },
+    { label: 'Discord', action: () => {} },
   ]
 
   return (
@@ -20,10 +20,10 @@ export function Footer({ navigate, goHome }: { navigate: (p: Page) => void; goHo
             <img src={logoImg} alt="PLAYCROWS" className="w-12 h-12 object-contain" />
             <p className="font-inter font-light" style={{ fontSize: 13, maxWidth: 200, lineHeight: 1.8, color: '#1E3048' }}>The Ultimate Night Crows Private Server Experience</p>
             <div className="flex gap-3 mt-2">
-              <a href="https://discord.gg/ayxHdychr" target="_blank" rel="noopener noreferrer" title="Discord" className="flex items-center justify-center no-underline transition-colors duration-200" style={{ width: 36, height: 36, border: '1px solid rgba(59,158,255,0.2)', color: '#5865F2' }} onMouseEnter={e => { (e.currentTarget as HTMLAnchorElement).style.borderColor = '#5865F2'; (e.currentTarget as HTMLAnchorElement).style.background = 'rgba(88,101,242,0.1)' }} onMouseLeave={e => { (e.currentTarget as HTMLAnchorElement).style.borderColor = 'rgba(59,158,255,0.2)'; (e.currentTarget as HTMLAnchorElement).style.background = 'transparent' }}>
+              <a href="#" title="Discord" className="flex items-center justify-center no-underline transition-colors duration-200" style={{ width: 36, height: 36, border: '1px solid rgba(59,158,255,0.2)', color: '#5865F2' }} onMouseEnter={e => { (e.currentTarget as HTMLAnchorElement).style.borderColor = '#5865F2'; (e.currentTarget as HTMLAnchorElement).style.background = 'rgba(88,101,242,0.1)' }} onMouseLeave={e => { (e.currentTarget as HTMLAnchorElement).style.borderColor = 'rgba(59,158,255,0.2)'; (e.currentTarget as HTMLAnchorElement).style.background = 'transparent' }}>
                 <IcoDiscordSmall />
               </a>
-              <a href="https://www.facebook.com/PlayCrows" target="_blank" rel="noopener noreferrer" title="Facebook" className="flex items-center justify-center no-underline transition-colors duration-200" style={{ width: 36, height: 36, border: '1px solid rgba(59,158,255,0.2)', color: '#1877F2' }} onMouseEnter={e => { (e.currentTarget as HTMLAnchorElement).style.borderColor = '#1877F2'; (e.currentTarget as HTMLAnchorElement).style.background = 'rgba(24,119,242,0.1)' }} onMouseLeave={e => { (e.currentTarget as HTMLAnchorElement).style.borderColor = 'rgba(59,158,255,0.2)'; (e.currentTarget as HTMLAnchorElement).style.background = 'transparent' }}>
+              <a href="#" title="Facebook" className="flex items-center justify-center no-underline transition-colors duration-200" style={{ width: 36, height: 36, border: '1px solid rgba(59,158,255,0.2)', color: '#1877F2' }} onMouseEnter={e => { (e.currentTarget as HTMLAnchorElement).style.borderColor = '#1877F2'; (e.currentTarget as HTMLAnchorElement).style.background = 'rgba(24,119,242,0.1)' }} onMouseLeave={e => { (e.currentTarget as HTMLAnchorElement).style.borderColor = 'rgba(59,158,255,0.2)'; (e.currentTarget as HTMLAnchorElement).style.background = 'transparent' }}>
                 <IcoFacebook />
               </a>
             </div>

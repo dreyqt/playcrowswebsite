@@ -47,7 +47,7 @@ function ContentFeedback() {
       <p>Thank you for all of your feedback and continued support. {"We'll"} keep listening and making improvements to provide the best experience possible.</p>
       <p>See you in-game!</p>
       <div style={{ marginTop: 28 }}>
-        <a href="https://playcrowsweb.vercel.app/" target="_blank" rel="noopener noreferrer" className="btn-primary inline-block no-underline" style={{ fontSize: 13 }}>
+        <a href="#" className="btn-primary inline-block no-underline" style={{ fontSize: 13 }}>
           <span>Donation Center</span>
         </a>
       </div>
@@ -105,9 +105,7 @@ function ContentReferralEvent() {
 
       <div style={{ marginTop: 30 }}>
         <a
-          href="https://forms.gle/eictLSFZtFsCbm7Z6"
-          target="_blank"
-          rel="noopener noreferrer"
+          href="#"
           className="btn-primary"
         >
           Submit Your Claim
@@ -146,7 +144,7 @@ function ContentEarlyDonation() {
       <p>Thank you for supporting PlayCrows! Every contribution helps us improve the server and prepare for an even better launch experience.</p>
       <p>See you all at launch!</p>
       <div style={{ marginTop: 28 }}>
-        <a href="https://playcrowsweb.vercel.app/" target="_blank" rel="noopener noreferrer" className="btn-primary inline-block no-underline" style={{ fontSize: 13 }}>
+        <a href="#" className="btn-primary inline-block no-underline" style={{ fontSize: 13 }}>
           <span>Donate Now</span>
         </a>
       </div>
@@ -176,7 +174,7 @@ function ContentLive() {
       <p>Thank you to everyone who supported us throughout the beta. Your feedback helped shape PlayCrows into what it is today.</p>
       <p>The server is now <strong style={{ color: '#5BC8FF' }}>ONLINE!</strong></p>
       <div style={{ marginTop: 28 }}>
-        <a href="http://download.playcrows.com/p/PlayPC-en.zip" className="btn-primary inline-block no-underline" style={{ fontSize: 13 }}>
+        <a href="#" className="btn-primary inline-block no-underline" style={{ fontSize: 13 }}>
           <span>Download & Play Now</span>
         </a>
       </div>
@@ -204,7 +202,7 @@ function ContentStream() {
       <p>Get your stream ready, invite your friends, and join us as we celebrate the official launch of PlayCrows!</p>
       <p>See you on the battlefield!</p>
       <div style={{ marginTop: 28 }}>
-        <a href="https://discord.com/channels/1527607490840100955/1532456047271215306" target="_blank" rel="noopener noreferrer" className="btn-primary inline-block no-underline" style={{ fontSize: 13 }}>
+        <a href="#" className="btn-primary inline-block no-underline" style={{ fontSize: 13 }}>
           <span>Share Your Stream</span>
         </a>
       </div>
@@ -218,7 +216,7 @@ function ContentServerRates() {
       <p>Full server rates and feature details will be published here. Stay tuned for the official announcement.</p>
       <p>Join our Discord for the latest updates and announcements.</p>
       <div style={{ marginTop: 28 }}>
-        <a href="https://discord.gg/ayxHdychr" target="_blank" rel="noopener noreferrer" className="btn-primary inline-block no-underline" style={{ fontSize: 13 }}>
+        <a href="#" className="btn-primary inline-block no-underline" style={{ fontSize: 13 }}>
           <span>Join Discord</span>
         </a>
       </div>

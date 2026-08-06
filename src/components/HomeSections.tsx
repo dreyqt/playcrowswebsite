@@ -1,5 +1,9 @@
 import { useEffect, useState } from 'react'
 import logoImg from '../assets/logo_playcrows.png'
+import thumbAnnouncement from '../assets/announcement.png'
+import thumbUpdate from '../assets/update.png'
+import thumbGameInfo from '../assets/game.png'
+import thumbSupport from '../assets/support.png'
 import type { Page } from '../data'
 import { IcoBell, IcoRefresh, IcoCalendar, IcoShield, IcoDiscordSmall, IcoDonate, IcoLeft, IcoRight, IcoArrow, IcoDownload } from './Icons'
 import { ANNOUNCEMENTS, HERO_SLIDES, UPDATES } from '../data'
@@ -74,10 +78,10 @@ export function QuickNav() {
 }
 
 export function NewsGrid({ navigate, scrollTo }: { navigate: (p: Page) => void; scrollTo: (id: string) => void }) {
-  const THUMB_ANN = 'https://images.unsplash.com/photo-1640903581708-8d491706515b?w=400&h=220&fit=crop&auto=format'
-  const THUMB_UPD = 'https://images.unsplash.com/photo-1689009755519-9016708b9575?w=400&h=220&fit=crop&auto=format'
-  const THUMB_GI = 'https://images.unsplash.com/photo-1775954966578-28ec452fdbcf?w=400&h=220&fit=crop&auto=format'
-  const THUMB_SUP = 'https://images.unsplash.com/photo-1773216344341-e5ca0a1f0df9?w=400&h=220&fit=crop&auto=format'
+  const THUMB_ANN = thumbAnnouncement
+  const THUMB_UPD = thumbUpdate
+  const THUMB_GI = thumbGameInfo
+  const THUMB_SUP = thumbSupport
 
   const cols = [
     {
@@ -111,7 +115,7 @@ export function NewsGrid({ navigate, scrollTo }: { navigate: (p: Page) => void; 
         { label: 'Donation Center', onClick: () => scrollTo('donation') },
         { label: 'New Player Starter Rewards', onClick: () => scrollTo('donation') },
         { label: 'FAQ — Account & Login', onClick: () => scrollTo('discord-section') },
-        { label: 'Contact Staff via Discord', onClick: () => window.open('https://discord.gg/ayxHdychr', '_blank') },
+        { label: 'Contact Staff via Discord', onClick: () => scrollTo('discord-section') },
       ],
     },
   ]

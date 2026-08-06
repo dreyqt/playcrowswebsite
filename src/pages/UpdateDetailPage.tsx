@@ -1,4 +1,4 @@
-import patchBannerImg from '../assets/image-2.png'
+import patchBannerImg from '../assets/update.png'
 import { UPDATES, getUpdateContent, type Page } from '../data'
 import { Breadcrumb } from '../components/Breadcrumb'
 import { PageShell } from '../components/PageShell'

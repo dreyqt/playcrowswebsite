@@ -1,3 +1,4 @@
+import announcementImg from '../assets/announcement.png'
 import { ANNOUNCEMENTS, getAnnouncementContent, type Page } from '../data'
 import { Breadcrumb } from '../components/Breadcrumb'
 import { PageShell } from '../components/PageShell'
@@ -13,7 +14,7 @@ export default function AnnouncementDetailPage({ id, navigate, goHome }: { id: s
     <PageShell>
       <Breadcrumb crumbs={[{ label: 'Home', onClick: goHome }, { label: 'Announcements', onClick: () => navigate({ view: 'announcements' }) }, { label: ann.title }]} />
       <div className="relative w-full overflow-hidden mb-10" style={{ height: 260, background: '#050810' }}>
-        <img src="https://images.unsplash.com/photo-1640903581708-8d491706515b?w=1200&h=300&fit=crop&auto=format" alt="Announcement banner" className="w-full h-full object-cover" />
+        <img src={announcementImg} alt="Announcement banner" className="w-full h-full object-cover" />
         <div className="absolute inset-0" style={{ background: 'linear-gradient(to bottom, rgba(5,8,16,0.3) 0%, rgba(5,8,16,0.7) 100%)' }} />
         <div className="absolute bottom-8 left-8">
           <span className="section-label">Announcement</span>
