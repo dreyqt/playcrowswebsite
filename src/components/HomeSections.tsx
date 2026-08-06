@@ -4,6 +4,7 @@ import type { Page } from '../data'
 import { IcoBell, IcoRefresh, IcoCalendar, IcoShield, IcoDiscordSmall, IcoDonate, IcoLeft, IcoRight, IcoArrow, IcoDownload } from './Icons'
 import { ANNOUNCEMENTS, HERO_SLIDES, UPDATES } from '../data'
 
+
 export function Hero() {
   const slide = HERO_SLIDES[0]
   const [videoEnabled, setVideoEnabled] = useState(Boolean(slide.video))
