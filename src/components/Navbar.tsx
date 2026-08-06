@@ -20,7 +20,7 @@ export function Navbar({ navigate, goHome, scrollTo }: { navigate: (p: Page) => 
     <nav className="fixed top-0 left-0 right-0 z-50 transition-all duration-400" style={{ background: scrolled ? 'rgba(5,8,16,0.97)' : 'rgba(5,8,16,0.65)', backdropFilter: 'blur(16px)', borderBottom: '1px solid rgba(59,158,255,0.10)' }}>
       <div className="max-w-screen-xl mx-auto px-8 flex items-center justify-between h-[70px]">
         <button onClick={goHome} className="cursor-pointer bg-transparent border-none p-0 flex items-center gap-3">
-          <img src={logoImg} alt="PLAYCROWS" className="h-11 w-11 object-contain" />
+          <img src={logoImg} alt="PLAYCROWS" className="block h-11 w-11 object-contain" width={44} height={44} />
           <span className="font-cinzel font-bold text-base tracking-widest hidden sm:block" style={{ color: '#A8C8E8', letterSpacing: '0.18em' }}>PLAYCROWS</span>
         </button>
 

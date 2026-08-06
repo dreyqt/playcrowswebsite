@@ -6,6 +6,7 @@ import { ANNOUNCEMENTS, HERO_SLIDES, UPDATES } from '../data'
 
 export function Hero() {
   const slide = HERO_SLIDES[0]
+  const [videoEnabled, setVideoEnabled] = useState(Boolean(slide.video))
 
   return (
     <section
@@ -13,7 +14,12 @@ export function Hero() {
       className="relative w-full overflow-hidden"
       style={{ height: 620, marginTop: 70 }}
     >
-      {slide.video ? (
+      <div
+        className="absolute inset-0 bg-cover bg-center"
+        style={{ backgroundImage: `url(${slide.img})` }}
+      />
+
+      {slide.video && videoEnabled && (
         <video
           src={slide.video}
           poster={slide.img}
@@ -23,12 +29,7 @@ export function Hero() {
           loop
           playsInline
           preload="auto"
-        />
-      ) : (
-        <img
-          src={slide.img}
-          alt={slide.title}
-          className="absolute inset-0 w-full h-full object-cover"
+          onError={() => setVideoEnabled(false)}
         />
       )}
 
