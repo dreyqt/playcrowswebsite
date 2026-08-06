@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react'
 import logoImg from '../assets/logo_playcrows.png'
+import playcrowsLogo from '../assets/playcrows_logo.png'
 import thumbAnnouncement from '../assets/announcement.png'
 import thumbUpdate from '../assets/update.png'
 import thumbGameInfo from '../assets/game.png'
@@ -47,15 +48,16 @@ export function Hero() {
       />
 
       <div className="absolute inset-0 flex flex-col items-center justify-center text-center px-6 z-10">
-        <h1
-          className="font-cinzel font-bold text-white mb-4"
+        <img
+          src={playcrowsLogo}
+          alt="PLAYCROWS"
+          className="mb-4"
           style={{
-            fontSize: "clamp(2rem,5vw,3.8rem)",
-            letterSpacing: ".08em",
+            height: "clamp(160px,26vw,340px)",
+            width: "auto",
+            maxWidth: "90%",
           }}
-        >
-          {slide.title}
-        </h1>
+        />
 
         <p
           style={{
@@ -115,7 +117,7 @@ export function NewsGrid({ navigate, scrollTo }: { navigate: (p: Page) => void; 
         { label: 'Donation Center', onClick: () => scrollTo('donation') },
         { label: 'New Player Starter Rewards', onClick: () => scrollTo('donation') },
         { label: 'FAQ — Account & Login', onClick: () => scrollTo('discord-section') },
-        { label: 'Contact Staff via Discord', onClick: () => scrollTo('discord-section') },
+        { label: 'Contact Staff via Discord', onClick: () => window.open('https://discord.gg/ayxHdychr', '_blank') },
       ],
     },
   ]
@@ -620,9 +622,6 @@ export function DiscordSection() {
               <p style={{ fontSize: 13, color: '#B5BAC1', fontFamily: 'Inter, sans-serif', lineHeight: 1.65, marginBottom: 16 }}>
                 PlayCrows is a community-driven Night Crows Private Server built for players who want a fair, competitive, and rewarding experience.
               </p>
-              <a href="https://discord.gg/ayxHdychr" target="_blank" rel="noopener noreferrer" className="block text-center no-underline font-semibold mb-4" style={{ background: '#23A55A', color: '#fff', borderRadius: 4, padding: '10px', fontSize: 14, fontFamily: 'Inter, sans-serif', letterSpacing: '0.02em' }}>
-                Go to Server
-              </a>
             </div>
           </div>
         </div>

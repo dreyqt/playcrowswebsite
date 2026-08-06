@@ -31,8 +31,8 @@ export function Navbar({ navigate, goHome, scrollTo }: { navigate: (p: Page) => 
         </div>
 
         <div className="hidden lg:flex items-center gap-2">
-          <a href="#" className="btn-register no-underline">Register</a>
-          <button onClick={() => { setMenuOpen(false); }} className="btn-secondary flex items-center gap-2" style={{ padding: '9px 16px', fontSize: '12px' }}>
+          <a href="https://account.playcrows.com/regchannel.php?pid=3006" target="_blank" rel="noopener noreferrer" className="btn-register no-underline">Register</a>
+          <button onClick={() => { setMenuOpen(false); window.open('https://discord.gg/ayxHdychr', '_blank') }} className="btn-secondary flex items-center gap-2" style={{ padding: '9px 16px', fontSize: '12px' }}>
             <IcoDiscordSmall />Discord
           </button>
           <button onClick={() => scrollTo('download')} className="btn-primary" style={{ padding: '10px 20px', fontSize: '12px' }}><span>Download</span></button>
@@ -49,8 +49,8 @@ export function Navbar({ navigate, goHome, scrollTo }: { navigate: (p: Page) => 
             <button key={link} onClick={() => { setMenuOpen(false); scrollTo(linkIds[link]) }} className="nav-link bg-transparent border-none p-0 cursor-pointer text-left">{link}</button>
           ))}
           <div className="flex flex-wrap gap-3 pt-2">
-            <a href="#" className="btn-register no-underline">Register</a>
-            <button onClick={() => { setMenuOpen(false); }} className="btn-secondary" style={{ padding: '9px 16px', fontSize: '12px' }}>Discord</button>
+            <a href="https://account.playcrows.com/regchannel.php?pid=3006" target="_blank" rel="noopener noreferrer" className="btn-register no-underline">Register</a>
+            <button onClick={() => { setMenuOpen(false); window.open('https://discord.gg/ayxHdychr', '_blank') }} className="btn-secondary" style={{ padding: '9px 16px', fontSize: '12px' }}>Discord</button>
             <button onClick={() => { setMenuOpen(false); scrollTo('download') }} className="btn-primary" style={{ padding: '10px 16px', fontSize: '12px' }}><span>Download</span></button>
           </div>
         </div>
