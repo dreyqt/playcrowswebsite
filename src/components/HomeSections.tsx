@@ -53,9 +53,8 @@ export function Hero() {
           alt="PLAYCROWS"
           className="mb-4"
           style={{
-            height: "clamp(160px,26vw,340px)",
+            height: "clamp(70px,12vw,160px)",
             width: "auto",
-            maxWidth: "90%",
           }}
         />
 
