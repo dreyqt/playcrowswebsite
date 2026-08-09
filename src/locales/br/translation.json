@@ -1,9 +1,166 @@
 {
-  "home": "Início",
-  "gameInfo": "Informações do Jogo",
-  "donation": "Central de Doações",
-  "rules": "Regras",
-  "download": "Baixar",
-  "discord": "Discord",
-  "register": "Registrar"
+  "hero": {
+    "logoAlt": "PLAYCROWS",
+    "subtitle": "Um servidor privado de Night Crows mantido pela comunidade, criado para jogadores que buscam uma experiência justa, competitiva e recompensadora."
+  },
+  "newsGrid": {
+    "columns": {
+      "announcement": { "heading": "Anúncio", "thumbAlt": "Banner de anúncio" },
+      "update": { "heading": "Atualização", "thumbAlt": "Banner de atualização" },
+      "gameInformation": {
+        "heading": "Informações do Jogo",
+        "thumbAlt": "Informações do jogo",
+        "featured": "Guia Completo de Classes — Todas as 6 Classes",
+        "links": {
+          "beginnersHandbook": "Manual do Iniciante",
+          "pvpRankings": "Ranking PvP — Temporada Atual",
+          "guildWarSchedule": "Cronograma de Guerra de Guildas",
+          "bossRaidGuide": "Guia de Raide de Chefes"
+        }
+      },
+      "support": {
+        "heading": "Suporte",
+        "thumbAlt": "Suporte",
+        "featured": "Central de Doações — Pacotes e Benefícios",
+        "links": {
+          "donationCenter": "Central de Doações",
+          "newPlayerStarterRewards": "Recompensas Iniciais para Novos Jogadores",
+          "faqAccountLogin": "FAQ — Conta e Login",
+          "contactStaffViaDiscord": "Contatar a Equipe pelo Discord"
+        }
+      }
+    }
+  },
+  "download": {
+    "sectionLabel": "Comece Agora",
+    "title": "DOWNLOAD",
+    "pc": "PC",
+    "android": "ANDROID",
+    "downloadButton": "Baixar",
+    "languages": {
+      "english": "INGLÊS",
+      "taiwanese": "TAIWANÊS",
+      "korean": "COREANO"
+    }
+  },
+  "gameInfo": {
+    "sectionLabel": "Explore",
+    "title": "INFORMAÇÕES DO JOGO",
+    "items": {
+      "expRate": { "title": "TAXA DE EXPERIÊNCIA", "value": "50x" },
+      "dropRate": { "title": "TAXA DE DROP", "value": "30x" },
+      "enhancementRate": { "title": "TAXA DE APRIMORAMENTO", "value": "3x" },
+      "newPlayerRewards": { "title": "RECOMPENSAS PARA NOVOS JOGADORES", "value": "PACOTE INICIAL" },
+      "dailyRewards": { "title": "RECOMPENSAS DIÁRIAS", "value": "BÔNUS DE LOGIN" },
+      "modifiedNpc": { "title": "NPC MODIFICADO", "value": "NPC PERSONALIZADO" }
+    }
+  },
+  "donation": {
+    "sectionLabel": "Apoio",
+    "title": "APOIE O PLAYCROWS",
+    "description": "Suas contribuições financiam diretamente a hospedagem, o desenvolvimento e novos conteúdos para todos os jogadores.",
+    "starterRewards": {
+      "heading": "🎁 Recompensas Iniciais para Novos Jogadores",
+      "description": "Todo novo aventureiro receberá um Pacote de Boas-Vindas para começar sua jornada!",
+      "items": [
+        "Caixa de Seleção de Arma Heroica Selada (Atribuída) ×1",
+        "Caixa de Seleção de Acessório Heroico Selado (Atribuída) ×1",
+        "Caixa de Seleção de Armadura Heroica Selada (Atribuída) ×1",
+        "Invocação de Montaria [L] (Vinculado) ×1",
+        "Invocação de Aparência de Arma Lendária (Atribuída) ×1",
+        "Mumruffin de Neve (Vinculado) ×1",
+        "Caixas de Seleção de Equipamento Nighthawk I/II/III/IV (Atribuídas) ×6"
+      ]
+    },
+    "dailyRewards": {
+      "heading": "📅 Recompensas de Login Diário",
+      "description": "Faça login todos os dias para resgatar recompensas valiosas e fortalecer seu personagem!",
+      "items": [
+        "Invocação de Montaria do Entardecer x11 (Vinculado) ×10",
+        "Invocação de Estilo de Arma do Entardecer x11 (Vinculado) ×10",
+        "Estimulante de Crescimento Night Crows (Vinculado) ×10",
+        "Cesta de Alimentos (Não Vinculado) ×20",
+        "Baú de Moedas de Ouro (Não Vinculado) ×100",
+        "Milhagem ×30.000"
+      ]
+    },
+    "donateButton": "Doar Agora",
+    "footerNote": "Cada doação ajuda a manter o servidor online."
+  },
+  "rules": {
+    "sectionLabel": "Conduta",
+    "title": "REGRAS DO SERVIDOR",
+    "subtitle": "O código de conduta que rege o reino de PlayCrows.",
+    "generalRules": {
+      "heading": "🛡️ Regras Gerais",
+      "items": [
+        { "num": "1", "title": "Respeite Todos os Jogadores", "rules": ["Trate todos com respeito.", "Assédio, discriminação, discurso de ódio ou toxicidade excessiva não serão tolerados."] },
+        { "num": "2", "title": "Sem Exploração de Bugs", "rules": ["É proibido explorar bugs do jogo ou mecânicas não intencionais para benefício próprio.", "Qualquer bug encontrado deve ser reportado imediatamente."] },
+        { "num": "3", "title": "Sem Programas de Terceiros", "rules": ["É estritamente proibido o uso de cheats, hacks, bots, macros, scripts ou softwares de terceiros não autorizados que ofereçam vantagem injusta."] },
+        { "num": "4", "title": "Sem Comércio ou Venda de Contas", "rules": ["Comprar, vender, compartilhar ou negociar contas é feito totalmente por sua conta e risco.", "A PlayCrows não se responsabiliza por perdas resultantes do compartilhamento ou negociação de contas."] },
+        { "num": "5", "title": "Personificação", "rules": ["É proibido se passar por um Game Master (GM), Administrador, Moderador ou qualquer membro da equipe PlayCrows."] },
+        { "num": "6", "title": "Respeite a Comunidade", "rules": ["Não interrompa intencionalmente a jogabilidade, eventos ou atividades da comunidade.", "Siga as instruções fornecidas pela equipe PlayCrows quando necessário."] }
+      ]
+    },
+    "warningSystem": {
+      "heading": "⚠️ Sistema de Advertências",
+      "intro": "A PlayCrows utiliza uma <0>Política de 3 Advertências</0> para a maioria das violações de regras.",
+      "items": [
+        "Cada evidência em vídeo válida, enviada e verificada pela equipe, conta como uma (1) advertência.",
+        "Jogadores podem acumular no máximo três (3) advertências.",
+        "Ao receber a terceira advertência, a conta será banida permanentemente.",
+        "Todas as advertências verificadas serão listadas publicamente no site oficial da PlayCrows para garantir transparência."
+      ]
+    },
+    "zeroTolerance": {
+      "heading": "🚫 Violações de Tolerância Zero",
+      "intro": "As seguintes infrações resultam em <0>banimento permanente imediato</0> sem qualquer advertência:",
+      "speedHackTitle": "Speed Hack",
+      "speedHackLines": [
+        "O uso de qualquer modificação de velocidade, speed hack ou software de manipulação de movimento é estritamente proibido.",
+        "Nenhuma advertência será emitida.",
+        "Uma vez verificado, a conta receberá um banimento permanente imediato."
+      ]
+    },
+    "permanentBanPolicy": {
+      "heading": "🔒 Política de Banimento Permanente",
+      "lines": [
+        "Uma vez que uma conta tenha sido banida permanentemente, a decisão é final.",
+        "Banimentos permanentes não são passíveis de recurso.",
+        "A criação de contas alternativas para contornar um banimento permanente pode resultar em ações punitivas adicionais."
+      ]
+    },
+    "evidenceRequirements": {
+      "heading": "📹 Requisitos de Evidência",
+      "lines": [
+        "A evidência em vídeo deve mostrar claramente a infração.",
+        "Gravações editadas, manipuladas ou incompletas podem ser rejeitadas.",
+        "A equipe PlayCrows se reserva o direito de determinar se a evidência enviada é válida."
+      ]
+    },
+    "footerNote": "⚖️ Estas regras existem para manter um ambiente justo e competitivo para todos. Ao jogar na PlayCrows, você reconhece e concorda em seguir todas as regras do servidor e entende que as decisões da equipe sobre a aplicação das regras são finais. Obrigado por nos ajudar a construir uma comunidade PlayCrows melhor.",
+    "viewRulesButton": "Ver Página de Regras",
+    "reportPlayerButton": "Denunciar um Jogador"
+  },
+  "discord": {
+    "sectionLabel": "Comunidade",
+    "title": "JUNTE-SE A NÓS NO DISCORD",
+    "description": "Junte-se à nossa comunidade e fique por dentro de anúncios, eventos e sorteios.",
+    "logoAlt": "PLAYCROWS",
+    "serverName": "PLAYCROWS OFICIAL",
+    "onlineCount": "212 Online",
+    "memberCount": "1.386 Membros",
+    "established": "Fundado em Jul. 2026",
+    "serverDescription": "A PlayCrows é um servidor privado de Night Crows mantido pela comunidade, criado para jogadores que buscam uma experiência justa, competitiva e recompensadora.",
+    "joinButton": "Entrar no Discord"
+  },
+  "nav": {
+  "home": "INÍCIO",
+  "gameInfo": "INFO DO JOGO",
+  "donation": "DOAÇÃO",
+  "rules": "REGRAS",
+  "discord": "DISCORD",
+  "download": "DOWNLOAD",
+  "register": "REGISTRAR"
+}
 }

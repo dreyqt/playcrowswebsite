@@ -1,8 +1,166 @@
 {
+  "hero": {
+    "logoAlt": "PLAYCROWS",
+    "subtitle": "공정하고 경쟁력 있으며 보람찬 경험을 원하는 플레이어를 위해 만들어진 커뮤니티 기반 나이트크로우즈 사설 서버입니다."
+  },
+  "newsGrid": {
+    "columns": {
+      "announcement": { "heading": "공지사항", "thumbAlt": "공지사항 배너" },
+      "update": { "heading": "업데이트", "thumbAlt": "업데이트 배너" },
+      "gameInformation": {
+        "heading": "게임 정보",
+        "thumbAlt": "게임 정보",
+        "featured": "완벽한 클래스 가이드 — 전체 6개 클래스",
+        "links": {
+          "beginnersHandbook": "초보자 핸드북",
+          "pvpRankings": "PvP 랭킹 — 현재 시즌",
+          "guildWarSchedule": "길드전 일정",
+          "bossRaidGuide": "보스 레이드 가이드"
+        }
+      },
+      "support": {
+        "heading": "지원",
+        "thumbAlt": "지원",
+        "featured": "후원 센터 — 패키지 & 혜택",
+        "links": {
+          "donationCenter": "후원 센터",
+          "newPlayerStarterRewards": "신규 유저 스타터 리워드",
+          "faqAccountLogin": "FAQ — 계정 및 로그인",
+          "contactStaffViaDiscord": "디스코드로 운영진 문의"
+        }
+      }
+    }
+  },
+  "download": {
+    "sectionLabel": "시작하기",
+    "title": "다운로드",
+    "pc": "PC",
+    "android": "안드로이드",
+    "downloadButton": "다운로드",
+    "languages": {
+      "english": "영어",
+      "taiwanese": "대만어",
+      "korean": "한국어"
+    }
+  },
+  "gameInfo": {
+    "sectionLabel": "탐색",
+    "title": "게임 정보",
+    "items": {
+      "expRate": { "title": "경험치 배율", "value": "50배" },
+      "dropRate": { "title": "드롭률", "value": "30배" },
+      "enhancementRate": { "title": "강화 확률", "value": "3배" },
+      "newPlayerRewards": { "title": "신규 플레이어 보상", "value": "스타터 팩" },
+      "dailyRewards": { "title": "일일 보상", "value": "로그인 보너스" },
+      "modifiedNpc": { "title": "커스텀 NPC", "value": "커스텀 NPC" }
+    }
+  },
+  "donation": {
+    "sectionLabel": "후원",
+    "title": "PLAYCROWS 후원하기",
+    "description": "여러분의 후원은 서버 운영, 개발, 그리고 모든 플레이어를 위한 새로운 콘텐츠에 직접 사용됩니다.",
+    "starterRewards": {
+      "heading": "🎁 신규 유저 스타터 리워드",
+      "description": "모든 신규 모험가는 여정을 시작할 수 있는 신규 플레이어 기프트 팩을 받게 됩니다!",
+      "items": [
+        "봉인된 영웅 무기 선택 상자(귀속) ×1",
+        "봉인된 영웅 장신구 선택 상자(귀속) ×1",
+        "봉인된 영웅 방어구 선택 상자(귀속) ×1",
+        "[L] 탈것 소환 (귀속) ×1",
+        "레전더리 무기 외형 소환(귀속) ×1",
+        "스노우플레이크 멈러핀(귀속) ×1",
+        "나이트호크 장비 I/II/III/IV 선택 상자(귀속) ×6"
+      ]
+    },
+    "dailyRewards": {
+      "heading": "📅 일일 로그인 보상",
+      "description": "매일 접속하여 유용한 보상을 받고 캐릭터를 강화하세요!",
+      "items": [
+        "선셋의 탈것 소환 x11(귀속) ×10",
+        "선셋의 무기 스타일 소환 x11(귀속) ×10",
+        "나이트크로우즈 성장 촉진제(귀속) ×10",
+        "음식 바구니(비귀속) ×20",
+        "골드 코인 상자(비귀속) ×100",
+        "마일리지 ×30,000"
+      ]
+    },
+    "donateButton": "지금 후원하기",
+    "footerNote": "여러분의 후원이 서버 운영을 지속시켜 줍니다."
+  },
+  "rules": {
+    "sectionLabel": "행동 규범",
+    "title": "서버 규칙",
+    "subtitle": "PlayCrows 세계를 다스리는 행동 강령입니다.",
+    "generalRules": {
+      "heading": "🛡️ 일반 규칙",
+      "items": [
+        { "num": "1", "title": "모든 플레이어 존중", "rules": ["모든 사람을 존중하며 대하세요.", "괴롭힘, 차별, 혐오 발언 또는 과도한 악의적 행동은 용납되지 않습니다."] },
+        { "num": "2", "title": "버그 악용 금지", "rules": ["개인적 이익을 위해 게임 버그나 의도되지 않은 메커니즘을 악용하는 행위는 금지됩니다.", "발견된 버그는 즉시 신고해야 합니다."] },
+        { "num": "3", "title": "제3자 프로그램 사용 금지", "rules": ["부당한 이점을 제공하는 치트, 핵, 봇, 매크로, 스크립트 또는 승인되지 않은 제3자 소프트웨어의 사용은 엄격히 금지됩니다."] },
+        { "num": "4", "title": "계정 거래 및 판매 금지", "rules": ["계정 구매, 판매, 공유 또는 거래는 전적으로 본인의 책임하에 이루어집니다.", "PlayCrows는 계정 공유나 거래로 인한 손실에 대해 책임을 지지 않습니다."] },
+        { "num": "5", "title": "사칭 금지", "rules": ["게임 마스터(GM), 관리자, 모더레이터 또는 PlayCrows 스태프를 사칭하는 행위는 금지됩니다."] },
+        { "num": "6", "title": "커뮤니티 존중", "rules": ["게임플레이, 이벤트 또는 커뮤니티 활동을 고의로 방해하지 마세요.", "필요한 경우 PlayCrows 스태프의 지시를 따르세요."] }
+      ]
+    },
+    "warningSystem": {
+      "heading": "⚠️ 경고 시스템",
+      "intro": "PlayCrows는 대부분의 규칙 위반에 대해 <0>3회 경고 정책</0>을 적용합니다.",
+      "items": [
+        "스태프가 제출받아 검증한 유효한 영상 증거 1건당 경고 1회로 집계됩니다.",
+        "플레이어는 최대 3회까지 경고를 누적할 수 있습니다.",
+        "세 번째 경고를 받으면 계정이 영구 정지됩니다.",
+        "검증된 모든 경고는 투명성을 위해 PlayCrows 공식 웹사이트에 공개됩니다."
+      ]
+    },
+    "zeroTolerance": {
+      "heading": "🚫 무관용 위반 행위",
+      "intro": "다음 행위는 경고 없이 <0>즉시 영구 정지</0> 처리됩니다:",
+      "speedHackTitle": "스피드 핵",
+      "speedHackLines": [
+        "속도 조작, 스피드 핵 또는 이동 조작 소프트웨어의 사용은 엄격히 금지됩니다.",
+        "별도의 경고는 부여되지 않습니다.",
+        "확인되는 즉시 계정은 영구 정지됩니다."
+      ]
+    },
+    "permanentBanPolicy": {
+      "heading": "🔒 영구 정지 정책",
+      "lines": [
+        "계정이 영구 정지되면 해당 결정은 최종적입니다.",
+        "영구 정지는 이의 신청 대상이 아닙니다.",
+        "영구 정지를 우회하기 위해 대체 계정을 생성하면 추가 제재가 가해질 수 있습니다."
+      ]
+    },
+    "evidenceRequirements": {
+      "heading": "📹 증거 요건",
+      "lines": [
+        "영상 증거는 위반 행위를 명확히 보여주어야 합니다.",
+        "편집, 조작 또는 불완전한 녹화본은 거부될 수 있습니다.",
+        "PlayCrows 스태프는 제출된 증거의 유효성을 판단할 권리를 보유합니다."
+      ]
+    },
+    "footerNote": "⚖️ 이 규칙들은 모두를 위한 공정하고 경쟁력 있는 환경을 유지하기 위해 존재합니다. PlayCrows에서 플레이함으로써 귀하는 모든 서버 규칙을 준수할 것에 동의하며, 규칙 시행에 관한 스태프의 결정이 최종적임을 이해하는 것으로 간주됩니다. 더 나은 PlayCrows 커뮤니티를 만드는 데 도움을 주셔서 감사합니다.",
+    "viewRulesButton": "규칙 페이지 보기",
+    "reportPlayerButton": "플레이어 신고하기"
+  },
+  "discord": {
+    "sectionLabel": "커뮤니티",
+    "title": "디스코드 참여하기",
+    "description": "커뮤니티에 참여하여 공지사항, 이벤트, 경품 소식을 놓치지 마세요.",
+    "logoAlt": "PLAYCROWS",
+    "serverName": "PLAYCROWS 공식 서버",
+    "onlineCount": "212명 접속 중",
+    "memberCount": "멤버 1,386명",
+    "established": "2026년 7월 설립",
+    "serverDescription": "PlayCrows는 공정하고 경쟁력 있으며 보람찬 경험을 원하는 플레이어를 위한 커뮤니티 기반 나이트크로우즈 사설 서버입니다.",
+    "joinButton": "디스코드 참여하기"
+  },
+  "nav": {
   "home": "홈",
   "gameInfo": "게임 정보",
-  "donation": "후원 센터",
+  "donation": "후원",
   "rules": "규칙",
+  "discord": "디스코드",
   "download": "다운로드",
-  "discord": "디스코드"
+  "register": "회원가입"
+}
 }

@@ -25,10 +25,10 @@ export function Navbar({
   }, [])
 
   const navItems = [
-    { id: 'hero', key: 'home' },
-    { id: 'game-info', key: 'gameInfo' },
-    { id: 'donation', key: 'donation' },
-    { id: 'rules', key: 'rules' },
+    { id: 'hero', key: 'nav.home' },
+    { id: 'game-info', key: 'nav.gameInfo' },
+    { id: 'donation', key: 'nav.donation' },
+    { id: 'rules', key: 'nav.rules' },
   ]
 
   const handleNavClick = (id: string) => {
@@ -43,9 +43,7 @@ export function Navbar({
     <nav
       className="fixed top-0 left-0 right-0 z-50 transition-all duration-400"
       style={{
-        background: scrolled
-          ? 'rgba(5,8,16,0.97)'
-          : 'rgba(5,8,16,0.65)',
+        background: scrolled ? 'rgba(5,8,16,0.97)' : 'rgba(5,8,16,0.65)',
         backdropFilter: 'blur(16px)',
         borderBottom: '1px solid rgba(59,158,255,0.10)',
       }}
@@ -64,10 +62,7 @@ export function Navbar({
           />
           <span
             className="font-cinzel font-bold text-base tracking-widest hidden sm:block"
-            style={{
-              color: '#A8C8E8',
-              letterSpacing: '0.18em',
-            }}
+            style={{ color: '#A8C8E8', letterSpacing: '0.18em' }}
           >
             PLAYCROWS
           </span>
@@ -97,7 +92,7 @@ export function Navbar({
             style={{ padding: "9px 16px", fontSize: "12px" }}
           >
             <IcoDiscordSmall />
-            {t('discord')}
+            {t('nav.discord')}
           </button>
 
           <button
@@ -105,7 +100,7 @@ export function Navbar({
             className="btn-primary"
             style={{ padding: "10px 20px", fontSize: "12px" }}
           >
-            <span>{t('download')}</span>
+            <span>{t('nav.download')}</span>
           </button>
         </div>
 
@@ -114,11 +109,7 @@ export function Navbar({
           onClick={() => setMenuOpen(!menuOpen)}
         >
           {[0, 1, 2].map((i) => (
-            <span
-              key={i}
-              className="block w-6 h-px"
-              style={{ background: '#3B9EFF' }}
-            />
+            <span key={i} className="block w-6 h-px" style={{ background: '#3B9EFF' }} />
           ))}
         </button>
       </div>
@@ -142,13 +133,8 @@ export function Navbar({
           ))}
 
           <div className="flex flex-wrap gap-3 pt-2">
-            <a
-              href="https://account.playcrows.com/regchannel.php?pid=3006"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="btn-register no-underline"
-            >
-              {t('register')}
+            <a href="https://account.playcrows.com/regchannel.php?pid=3006" target="_blank" rel="noopener noreferrer" className="btn-register no-underline">
+              {t('nav.register')}
             </a>
 
             <button
@@ -159,7 +145,7 @@ export function Navbar({
               className="btn-secondary"
               style={{ padding: '9px 16px', fontSize: '12px' }}
             >
-              {t('discord')}
+              {t('nav.discord')}
             </button>
 
             <button
@@ -170,7 +156,7 @@ export function Navbar({
               className="btn-primary"
               style={{ padding: '10px 16px', fontSize: '12px' }}
             >
-              <span>{t('download')}</span>
+              <span>{t('nav.download')}</span>
             </button>
           </div>
         </div>

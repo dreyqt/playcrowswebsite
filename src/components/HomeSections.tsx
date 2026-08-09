@@ -1,18 +1,21 @@
 import { useEffect, useState } from 'react'
+import { useTranslation, Trans } from 'react-i18next'
 import logoImg from '../assets/logo_playcrows.png'
 import playcrowsLogo from '../assets/playcrows_logo.png'
 import thumbAnnouncement from '../assets/announcement.png'
 import thumbUpdate from '../assets/update.png'
 import thumbGameInfo from '../assets/game.png'
 import thumbSupport from '../assets/support.png'
-import type { Page } from '../data'
+import type { Page, Lang } from '../data'
 import { IcoBell, IcoRefresh, IcoCalendar, IcoShield, IcoDiscordSmall, IcoDonate, IcoLeft, IcoRight, IcoArrow, IcoDownload } from './Icons'
 import { ANNOUNCEMENTS, HERO_SLIDES, UPDATES } from '../data'
 
 
 export function Hero() {
-  const slide = HERO_SLIDES[0]
-  const [videoEnabled, setVideoEnabled] = useState(Boolean(slide.video))
+  const { t } = useTranslation();
+
+  const slide = HERO_SLIDES[0];
+  const [videoEnabled, setVideoEnabled] = useState(Boolean(slide.video));
 
   return (
     <section
@@ -50,7 +53,7 @@ export function Hero() {
       <div className="absolute inset-0 flex flex-col items-center justify-center text-center px-6 z-10">
         <img
           src={playcrowsLogo}
-          alt="PLAYCROWS"
+          alt={t('hero.logoAlt')}
           className="mb-4"
           style={{
             height: "clamp(70px,12vw,160px)",
@@ -67,11 +70,11 @@ export function Hero() {
             fontWeight: 300,
           }}
         >
-          {slide.subtitle}
+          {t("hero.subtitle")}
         </p>
       </div>
     </section>
-  )
+  );
 }
 
 export function QuickNav() {
@@ -79,6 +82,11 @@ export function QuickNav() {
 }
 
 export function NewsGrid({ navigate, scrollTo }: { navigate: (p: Page) => void; scrollTo: (id: string) => void }) {
+  const { t, i18n } = useTranslation()
+
+  const SUPPORTED_LANGS: Lang[] = ['en', 'kr', 'th', 'tw', 'br']
+  const lang: Lang = SUPPORTED_LANGS.includes(i18n.language as Lang) ? (i18n.language as Lang) : 'en'
+
   const THUMB_ANN = thumbAnnouncement
   const THUMB_UPD = thumbUpdate
   const THUMB_GI = thumbGameInfo
@@ -86,37 +94,37 @@ export function NewsGrid({ navigate, scrollTo }: { navigate: (p: Page) => void; 
 
   const cols = [
     {
-      heading: 'Announcement', thumb: THUMB_ANN, thumbAlt: 'Announcement banner',
-      featured: ANNOUNCEMENTS[0].title,
+      heading: t('newsGrid.columns.announcement.heading'), thumb: THUMB_ANN, thumbAlt: t('newsGrid.columns.announcement.thumbAlt'),
+      featured: ANNOUNCEMENTS[0].title[lang],
       onArrow: () => navigate({ view: 'announcements' }),
-      links: ANNOUNCEMENTS.slice(0, 4).map(a => ({ label: a.title, onClick: () => navigate({ view: 'announcement', id: a.id }) })),
+      links: ANNOUNCEMENTS.slice(0, 4).map(a => ({ label: a.title[lang], onClick: () => navigate({ view: 'announcement', id: a.id }) })),
     },
     {
-      heading: 'Update', thumb: THUMB_UPD, thumbAlt: 'Update banner',
-      featured: UPDATES[0].title,
+      heading: t('newsGrid.columns.update.heading'), thumb: THUMB_UPD, thumbAlt: t('newsGrid.columns.update.thumbAlt'),
+      featured: UPDATES[0].title[lang],
       onArrow: () => navigate({ view: 'updates' }),
-      links: UPDATES.map(u => ({ label: u.title, onClick: () => navigate({ view: 'update', id: u.id }) })),
+      links: UPDATES.map(u => ({ label: u.title[lang], onClick: () => navigate({ view: 'update', id: u.id }) })),
     },
     {
-      heading: 'Game Information', thumb: THUMB_GI, thumbAlt: 'Game info',
-      featured: 'Complete Class Guide — All 6 Classes',
+      heading: t('newsGrid.columns.gameInformation.heading'), thumb: THUMB_GI, thumbAlt: t('newsGrid.columns.gameInformation.thumbAlt'),
+      featured: t('newsGrid.columns.gameInformation.featured'),
       onArrow: () => scrollTo('game-info'),
       links: [
-        { label: 'Beginner\'s Handbook', onClick: () => scrollTo('game-info') },
-        { label: 'PvP Rankings — Current Season', onClick: () => scrollTo('game-info') },
-        { label: 'Guild War Schedule', onClick: () => scrollTo('game-info') },
-        { label: 'Boss Raid Guide', onClick: () => scrollTo('game-info') },
+        { label: t('newsGrid.columns.gameInformation.links.beginnersHandbook'), onClick: () => scrollTo('game-info') },
+        { label: t('newsGrid.columns.gameInformation.links.pvpRankings'), onClick: () => scrollTo('game-info') },
+        { label: t('newsGrid.columns.gameInformation.links.guildWarSchedule'), onClick: () => scrollTo('game-info') },
+        { label: t('newsGrid.columns.gameInformation.links.bossRaidGuide'), onClick: () => scrollTo('game-info') },
       ],
     },
     {
-      heading: 'Support', thumb: THUMB_SUP, thumbAlt: 'Support',
-      featured: 'Donation Center — Packages & Perks',
+      heading: t('newsGrid.columns.support.heading'), thumb: THUMB_SUP, thumbAlt: t('newsGrid.columns.support.thumbAlt'),
+      featured: t('newsGrid.columns.support.featured'),
       onArrow: () => scrollTo('donation'),
       links: [
-        { label: 'Donation Center', onClick: () => scrollTo('donation') },
-        { label: 'New Player Starter Rewards', onClick: () => scrollTo('donation') },
-        { label: 'FAQ — Account & Login', onClick: () => scrollTo('discord-section') },
-        { label: 'Contact Staff via Discord', onClick: () => window.open('https://discord.gg/ayxHdychr', '_blank') },
+        { label: t('newsGrid.columns.support.links.donationCenter'), onClick: () => scrollTo('donation') },
+        { label: t('newsGrid.columns.support.links.newPlayerStarterRewards'), onClick: () => scrollTo('donation') },
+        { label: t('newsGrid.columns.support.links.faqAccountLogin'), onClick: () => scrollTo('discord-section') },
+        { label: t('newsGrid.columns.support.links.contactStaffViaDiscord'), onClick: () => window.open('https://discord.gg/ayxHdychr', '_blank') },
       ],
     },
   ]
@@ -157,148 +165,56 @@ export function NewsGrid({ navigate, scrollTo }: { navigate: (p: Page) => void; 
 }
 
 export function DownloadSection() {
+  const { t } = useTranslation()
+
   const pcLinks = [
-    { lang: 'ENGLISH', url: 'http://download.playcrows.com/p/PlayPC-en.zip' },
-    { lang: 'TAIWANESE', url: 'http://download.playcrows.com/p/PlayPC-tw.zip' },
-    { lang: 'KOREAN', url: 'http://download.playcrows.com/p/PlayPC-kr.zip' },
+    { lang: t('download.languages.english'), url: 'http://download.playcrows.com/p/PlayPC-en.zip' },
+    { lang: t('download.languages.taiwanese'), url: 'http://download.playcrows.com/p/PlayPC-tw.zip' },
+    { lang: t('download.languages.korean'), url: 'http://download.playcrows.com/p/PlayPC-kr.zip' },
   ]
 
   const androidLinks = [
-    { lang: 'ENGLISH', url: 'http://download.playcrows.com/p/playandroid-en-8.apk' },
-    { lang: 'TAIWANESE', url: 'http://download.playcrows.com/p/playandroid-tw-8.apk' },
-    { lang: 'KOREAN', url: 'http://download.playcrows.com/p/playandroid-kr-8.apk' },
+    { lang: t('download.languages.english'), url: 'http://download.playcrows.com/p/playandroid-en-8.apk' },
+    { lang: t('download.languages.taiwanese'), url: 'http://download.playcrows.com/p/playandroid-tw-8.apk' },
+    { lang: t('download.languages.korean'), url: 'http://download.playcrows.com/p/playandroid-kr-8.apk' },
   ]
 
   return (
-    <section
-      id="download"
-      className="py-24 px-6"
-      style={{ background: '#040710' }}
-    >
+    <section id="download" className="py-24 px-6" style={{ background: '#040710' }}>
       <div className="max-w-5xl mx-auto">
-
         <div className="text-center mb-14">
-          <p className="section-label mb-3">Get Started</p>
-
-          <h2
-            className="font-cinzel font-bold text-white tracking-widest"
-            style={{
-              fontSize: 'clamp(2rem,4vw,3rem)',
-              letterSpacing: '.15em',
-            }}
-          >
-            DOWNLOAD
+          <p className="section-label mb-3">{t('download.sectionLabel')}</p>
+          <h2 className="font-cinzel font-bold text-white tracking-widest" style={{ fontSize: 'clamp(2rem,4vw,3rem)', letterSpacing: '.15em' }}>
+            {t('download.title')}
           </h2>
-
           <div className="divider-blue mt-5 mx-auto" />
         </div>
 
-        <div
-          className="grid md:grid-cols-2"
-          style={{
-            border: '1px solid rgba(255,255,255,.08)',
-            background: '#070B14',
-            borderRadius: 12,
-            overflow: 'hidden',
-          }}
-        >
-          {/* PC */}
-        <div
-          style={{
-            borderRight: '1px solid rgba(255,255,255,.08)',
-          }}
-        >
-          <div
-            className="font-cinzel font-bold text-white tracking-widest text-center"
-            style={{
-              fontSize: '1.8rem',
-              letterSpacing: '0.15em',
-              padding: '24px 0',
-            }}
-          >
-            PC
+        <div className="grid md:grid-cols-2" style={{ border: '1px solid rgba(255,255,255,.08)', background: '#070B14', borderRadius: 12, overflow: 'hidden' }}>
+          <div style={{ borderRight: '1px solid rgba(255,255,255,.08)' }}>
+            <div className="font-cinzel font-bold text-white tracking-widest text-center" style={{ fontSize: '1.8rem', letterSpacing: '0.15em', padding: '24px 0' }}>
+              {t('download.pc')}
+            </div>
+            {pcLinks.map((item) => (
+              <div key={item.lang} className="flex items-center justify-between px-6 py-4" style={{ borderTop: '1px solid rgba(255,255,255,.05)' }}>
+                <span className="font-cinzel" style={{ color: '#8EA8C2', fontSize: 13, letterSpacing: '.12em' }}>{item.lang}</span>
+                <a href={item.url} className="btn-primary no-underline" style={{ padding: '8px 18px', fontSize: 12 }}>{t('download.downloadButton')}</a>
+              </div>
+            ))}
           </div>
 
-          {pcLinks.map((item) => (
-            <div
-              key={item.lang}
-              className="flex items-center justify-between px-6 py-4"
-              style={{
-                borderTop: '1px solid rgba(255,255,255,.05)',
-              }}
-            >
-              <span
-                className="font-cinzel"
-                style={{
-                  color: '#8EA8C2',
-                  fontSize: 13,
-                  letterSpacing: '.12em',
-                }}
-              >
-                {item.lang}
-              </span>
-
-              <a
-                href={item.url}
-                className="btn-primary no-underline"
-                style={{
-                  padding: '8px 18px',
-                  fontSize: 12,
-                }}
-              >
-                Download
-              </a>
+          <div>
+            <div className="font-cinzel font-bold text-white tracking-widest text-center" style={{ fontSize: '1.8rem', letterSpacing: '0.15em', padding: '24px 0' }}>
+              {t('download.android')}
             </div>
-          ))}
-        </div>
-
-            {/* ANDROID */}
-            <div>
-              <div
-                className="font-cinzel font-bold text-white tracking-widest text-center"
-                style={{
-                  fontSize: '1.8rem',
-                  letterSpacing: '0.15em',
-                  padding: '24px 0',
-                }}
-              >
-                ANDROID
+            {androidLinks.map((item) => (
+              <div key={item.lang} className="flex items-center justify-between px-6 py-4" style={{ borderTop: '1px solid rgba(255,255,255,.05)' }}>
+                <span className="font-cinzel" style={{ color: '#8EA8C2', fontSize: 13, letterSpacing: '.12em' }}>{item.lang}</span>
+                <a href={item.url} className="btn-primary no-underline" style={{ padding: '8px 18px', fontSize: 12 }}>{t('download.downloadButton')}</a>
               </div>
-
-              {androidLinks.map((item) => (
-                <div
-                  key={item.lang}
-                  className="flex items-center justify-between px-6 py-4"
-                  style={{
-                    borderTop: '1px solid rgba(255,255,255,.05)',
-                  }}
-                >
-                  <span
-                    className="font-cinzel"
-                    style={{
-                      color: '#8EA8C2',
-                      fontSize: 13,
-                      letterSpacing: '.12em',
-                    }}
-                  >
-                    {item.lang}
-                  </span>
-
-                  <a
-                    href={item.url}
-                    className="btn-primary no-underline"
-                    style={{
-                      padding: '8px 18px',
-                      fontSize: 12,
-                    }}
-                  >
-                    Download
-                  </a>
-                </div>
             ))}
           </div>
         </div>
-
       </div>
     </section>
   )
@@ -312,40 +228,42 @@ import dailyImg from '../assets/gameinfo/daily.png'
 import npcImg from '../assets/gameinfo/npc.png'
 
 export function GameInfoSection() {
+  const { t } = useTranslation()
+
   const items = [
     {
-      title: 'EXP RATE',
-      value: '50x',
+      title: t('gameInfo.items.expRate.title'),
+      value: t('gameInfo.items.expRate.value'),
       image: expImg,
       color: '#9A6BFF',
     },
     {
-      title: 'DROP RATE',
-      value: '30x',
+      title: t('gameInfo.items.dropRate.title'),
+      value: t('gameInfo.items.dropRate.value'),
       image: dropImg,
       color: '#D4A94D',
     },
     {
-      title: 'ENHANCEMENT RATE',
-      value: '3x',
+      title: t('gameInfo.items.enhancementRate.title'),
+      value: t('gameInfo.items.enhancementRate.value'),
       image: enhanceImg,
       color: '#65D15F',
     },
     {
-      title: 'NEW PLAYER REWARDS',
-      value: 'STARTER PACK',
+      title: t('gameInfo.items.newPlayerRewards.title'),
+      value: t('gameInfo.items.newPlayerRewards.value'),
       image: starterImg,
       color: '#4CB9FF',
     },
     {
-      title: 'DAILY REWARDS',
-      value: 'LOGIN BONUS',
+      title: t('gameInfo.items.dailyRewards.title'),
+      value: t('gameInfo.items.dailyRewards.value'),
       image: dailyImg,
       color: '#FF9B3E',
     },
     {
-      title: 'MODIFIED NPC',
-      value: 'CUSTOM NPC',
+      title: t('gameInfo.items.modifiedNpc.title'),
+      value: t('gameInfo.items.modifiedNpc.value'),
       image: npcImg,
       color: '#49D6D8',
     },
@@ -359,7 +277,7 @@ export function GameInfoSection() {
     >
       <div className="max-w-screen-xl mx-auto">
         <div className="text-center mb-14">
-          <p className="section-label mb-3">Explore</p>
+          <p className="section-label mb-3">{t('gameInfo.sectionLabel')}</p>
 
           <h2
             className="font-cinzel font-bold text-white tracking-widest"
@@ -368,7 +286,7 @@ export function GameInfoSection() {
               letterSpacing: '.15em',
             }}
           >
-            GAME INFORMATION
+            {t('gameInfo.title')}
           </h2>
 
           <div
@@ -458,30 +376,27 @@ export function GameInfoSection() {
 }
 
 export function DonationSection() {
+  const { t } = useTranslation()
+
+  const starterRewardsItems = t('donation.starterRewards.items', { returnObjects: true }) as string[]
+  const dailyRewardsItems = t('donation.dailyRewards.items', { returnObjects: true }) as string[]
+
   return (
     <section id="donation" className="py-28 px-6 relative overflow-hidden" style={{ background: '#040710' }}>
       <div className="absolute inset-0 pointer-events-none" style={{ background: 'radial-gradient(ellipse at 50% 50%, rgba(59,158,255,0.07) 0%, transparent 65%)' }} />
       <div className="max-w-3xl mx-auto relative z-10">
         <div className="text-center mb-14">
-          <p className="section-label mb-5">Support</p>
-          <h2 className="font-cinzel font-bold text-white mb-5 tracking-widest" style={{ fontSize: 'clamp(1.8rem, 4vw, 3rem)', letterSpacing: '0.15em' }}>SUPPORT PLAYCROWS</h2>
+          <p className="section-label mb-5">{t('donation.sectionLabel')}</p>
+          <h2 className="font-cinzel font-bold text-white mb-5 tracking-widest" style={{ fontSize: 'clamp(1.8rem, 4vw, 3rem)', letterSpacing: '0.15em' }}>{t('donation.title')}</h2>
           <div className="divider-blue mb-7" />
-          <p className="font-inter font-light leading-relaxed" style={{ color: '#4A6280' }}>Your contributions directly fund hosting, development, and new content for every player.</p>
+          <p className="font-inter font-light leading-relaxed" style={{ color: '#4A6280' }}>{t('donation.description')}</p>
         </div>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-10">
           <div style={{ border: '1px solid rgba(59,158,255,0.15)', background: '#060A16', padding: 24 }}>
-            <p className="font-cinzel font-semibold text-white mb-4" style={{ fontSize: 13, letterSpacing: '0.15em' }}>🎁 New Player Starter Rewards</p>
-            <p className="font-inter font-light mb-4" style={{ fontSize: 13, color: '#3A5A74' }}>Every new adventurer will receive a New Player Gift Pack to kick-start their journey!</p>
+            <p className="font-cinzel font-semibold text-white mb-4" style={{ fontSize: 13, letterSpacing: '0.15em' }}>{t('donation.starterRewards.heading')}</p>
+            <p className="font-inter font-light mb-4" style={{ fontSize: 13, color: '#3A5A74' }}>{t('donation.starterRewards.description')}</p>
             <ul style={{ padding: 0, listStyle: 'none' }}>
-              {[
-                'Sealed Hero Weapon Selection Box (Attributed) ×1',
-                'Sealed Hero Accessory Selection Box (Attributed) ×1',
-                'Sealed Hero Armor Selection Box (Attributed) ×1',
-                '[L] Mount Summon (Bound) ×1',
-                'Legendary Weapon Appearance Summon (Attributed) ×1',
-                'Snowflake Mumruffin (Bound) ×1',
-                'Nighthawk Equipment I/II/III/IV Selection Boxes (Attributed) ×6',
-              ].map((item, index) => (
+              {starterRewardsItems.map((item, index) => (
                 <li key={index} className="flex items-start gap-2 font-inter font-light" style={{ fontSize: 13, color: '#4A6280', padding: '3px 0' }}>
                   <span style={{ color: '#3B9EFF', flexShrink: 0 }}>·</span>{item}
                 </li>
@@ -489,17 +404,10 @@ export function DonationSection() {
             </ul>
           </div>
           <div style={{ border: '1px solid rgba(59,158,255,0.15)', background: '#060A16', padding: 24 }}>
-            <p className="font-cinzel font-semibold text-white mb-4" style={{ fontSize: 13, letterSpacing: '0.15em' }}>📅 Daily Login Rewards</p>
-            <p className="font-inter font-light mb-4" style={{ fontSize: 13, color: '#3A5A74' }}>Log in every day to claim valuable rewards and strengthen your character!</p>
+            <p className="font-cinzel font-semibold text-white mb-4" style={{ fontSize: 13, letterSpacing: '0.15em' }}>{t('donation.dailyRewards.heading')}</p>
+            <p className="font-inter font-light mb-4" style={{ fontSize: 13, color: '#3A5A74' }}>{t('donation.dailyRewards.description')}</p>
             <ul style={{ padding: 0, listStyle: 'none' }}>
-              {[
-                "Sunset's Mount Summon x11 (Bound) ×10",
-                "Sunset's Weapon Style Summon x11 (Bound) ×10",
-                'Night Crows Stimulant of Growth (Bound) ×10',
-                'Food Basket (Owned) ×20',
-                'Gold Coin Chest (Owned) ×100',
-                'Mileage ×30,000',
-              ].map((item, index) => (
+              {dailyRewardsItems.map((item, index) => (
                 <li key={index} className="flex items-start gap-2 font-inter font-light" style={{ fontSize: 13, color: '#4A6280', padding: '3px 0' }}>
                   <span style={{ color: '#3B9EFF', flexShrink: 0 }}>·</span>{item}
                 </li>
@@ -509,9 +417,9 @@ export function DonationSection() {
         </div>
         <div className="text-center">
           <a href="https://playcrowsweb.vercel.app/" target="_blank" rel="noopener noreferrer" className="btn-primary inline-block no-underline mb-4" style={{ fontSize: 14, padding: '14px 60px' }}>
-            <span>Donate Now</span>
+            <span>{t('donation.donateButton')}</span>
           </a>
-          <p className="font-inter font-light" style={{ fontSize: 13, color: '#2A4060' }}>Every donation helps keep the server online.</p>
+          <p className="font-inter font-light" style={{ fontSize: 13, color: '#2A4060' }}>{t('donation.footerNote')}</p>
         </div>
       </div>
     </section>
@@ -519,25 +427,26 @@ export function DonationSection() {
 }
 
 export function RulesSection() {
+  const { t } = useTranslation()
+
+  const generalRulesItems = t('rules.generalRules.items', { returnObjects: true }) as { num: string; title: string; rules: string[] }[]
+  const warningSystemItems = t('rules.warningSystem.items', { returnObjects: true }) as string[]
+  const speedHackLines = t('rules.zeroTolerance.speedHackLines', { returnObjects: true }) as string[]
+  const permanentBanLines = t('rules.permanentBanPolicy.lines', { returnObjects: true }) as string[]
+  const evidenceLines = t('rules.evidenceRequirements.lines', { returnObjects: true }) as string[]
+
   return (
     <section id="rules" className="py-28 px-6" style={{ background: '#050810' }}>
       <div className="max-w-screen-lg mx-auto">
         <div className="text-center mb-14">
-          <p className="section-label mb-4">Conduct</p>
-          <h2 className="font-cinzel font-bold text-white tracking-widest" style={{ fontSize: 'clamp(1.8rem, 4vw, 3rem)', letterSpacing: '0.15em' }}>SERVER RULES</h2>
+          <p className="section-label mb-4">{t('rules.sectionLabel')}</p>
+          <h2 className="font-cinzel font-bold text-white tracking-widest" style={{ fontSize: 'clamp(1.8rem, 4vw, 3rem)', letterSpacing: '0.15em' }}>{t('rules.title')}</h2>
           <div className="divider-blue mt-6 mb-6" />
-          <p className="font-inter font-light" style={{ color: '#3A5270', fontSize: 15 }}>The code of conduct that governs the PlayCrows realm.</p>
+          <p className="font-inter font-light" style={{ color: '#3A5270', fontSize: 15 }}>{t('rules.subtitle')}</p>
         </div>
         <div style={{ border: '1px solid rgba(59,158,255,0.12)', background: '#07090F', padding: '28px 32px', marginBottom: 16 }}>
-          <p className="font-cinzel font-semibold text-white mb-5" style={{ fontSize: 13, letterSpacing: '0.2em' }}>🛡️ General Rules</p>
-          {[
-            { num: '1', title: 'Respect All Players', rules: ['Treat everyone with respect.', 'Harassment, discrimination, hate speech, or excessive toxicity will not be tolerated.'] },
-            { num: '2', title: 'No Exploiting or Bug Abuse', rules: ['Exploiting game bugs or unintended mechanics for personal gain is prohibited.', 'Any discovered bugs should be reported immediately.'] },
-            { num: '3', title: 'No Third-Party Programs', rules: ['The use of cheats, hacks, bots, macros, scripts, or unauthorized third-party software that provides an unfair advantage is strictly prohibited.'] },
-            { num: '4', title: 'No Account Trading or Selling', rules: ['Buying, selling, sharing, or trading accounts is done entirely at your own risk.', 'PlayCrows is not responsible for any losses resulting from account sharing or trading.'] },
-            { num: '5', title: 'Impersonation', rules: ['Pretending to be a Game Master (GM), Administrator, Moderator, or any PlayCrows staff member is prohibited.'] },
-            { num: '6', title: 'Respect the Community', rules: ['Do not intentionally disrupt gameplay, events, or community activities.', 'Follow instructions given by PlayCrows staff when necessary.'] },
-          ].map(rule => (
+          <p className="font-cinzel font-semibold text-white mb-5" style={{ fontSize: 13, letterSpacing: '0.2em' }}>{t('rules.generalRules.heading')}</p>
+          {generalRulesItems.map(rule => (
             <div key={rule.num} className="flex gap-6 mb-5 last:mb-0">
               <span className="font-cinzel font-bold shrink-0" style={{ color: '#1A3A5C', fontSize: '1.4rem', lineHeight: 1, paddingTop: 2 }}>{rule.num}</span>
               <div>
@@ -548,44 +457,52 @@ export function RulesSection() {
           ))}
         </div>
         <div style={{ border: '1px solid rgba(59,158,255,0.12)', background: '#07090F', padding: '28px 32px', marginBottom: 16 }}>
-          <p className="font-cinzel font-semibold text-white mb-4" style={{ fontSize: 13, letterSpacing: '0.2em' }}>⚠️ Warning System</p>
-          <p className="font-inter font-light mb-3" style={{ fontSize: 14, color: '#3A5270', lineHeight: 1.8 }}>PlayCrows uses a <strong style={{ color: '#7AAEC8' }}>3-Warning Policy</strong> for most rule violations.</p>
-          {['Each valid video evidence submitted and verified by the staff counts as one (1) warning.', 'Players can accumulate a maximum of three (3) warnings.', 'Upon receiving the third warning, the account will be permanently banned.', 'All verified warnings will be publicly listed on the official PlayCrows website for transparency.'].map((line, index) => (
+          <p className="font-cinzel font-semibold text-white mb-4" style={{ fontSize: 13, letterSpacing: '0.2em' }}>{t('rules.warningSystem.heading')}</p>
+          <p className="font-inter font-light mb-3" style={{ fontSize: 14, color: '#3A5270', lineHeight: 1.8 }}>
+            <Trans i18nKey="rules.warningSystem.intro">
+              PlayCrows uses a <strong style={{ color: '#7AAEC8' }}>3-Warning Policy</strong> for most rule violations.
+            </Trans>
+          </p>
+          {warningSystemItems.map((line, index) => (
             <div key={index} className="flex items-start gap-2 mb-2"><span style={{ color: '#3B9EFF', flexShrink: 0 }}>·</span><p className="font-inter font-light" style={{ fontSize: 14, color: '#3A5270', lineHeight: 1.7 }}>{line}</p></div>
           ))}
         </div>
         <div style={{ border: '1px solid rgba(200,60,60,0.2)', background: '#0A0608', padding: '28px 32px', marginBottom: 16 }}>
-          <p className="font-cinzel font-semibold mb-4" style={{ fontSize: 13, letterSpacing: '0.2em', color: '#CC5555' }}>🚫 Zero-Tolerance Violations</p>
-          <p className="font-inter font-light mb-3" style={{ fontSize: 14, color: '#3A5270', lineHeight: 1.8 }}>The following offenses result in an <strong style={{ color: '#CC5555' }}>immediate permanent ban</strong> without any warnings:</p>
+          <p className="font-cinzel font-semibold mb-4" style={{ fontSize: 13, letterSpacing: '0.2em', color: '#CC5555' }}>{t('rules.zeroTolerance.heading')}</p>
+          <p className="font-inter font-light mb-3" style={{ fontSize: 14, color: '#3A5270', lineHeight: 1.8 }}>
+            <Trans i18nKey="rules.zeroTolerance.intro">
+              The following offenses result in an <strong style={{ color: '#CC5555' }}>immediate permanent ban</strong> without any warnings:
+            </Trans>
+          </p>
           <div className="mb-4">
-            <p className="font-cinzel font-semibold text-white mb-1" style={{ fontSize: 13, letterSpacing: '0.1em' }}>Speed Hack</p>
-            {['The use of any speed modification, speed hack, or movement manipulation software is strictly forbidden.', 'No warnings will be issued.', 'Once verified, the account will receive an immediate permanent ban.'].map((line, index) => (
+            <p className="font-cinzel font-semibold text-white mb-1" style={{ fontSize: 13, letterSpacing: '0.1em' }}>{t('rules.zeroTolerance.speedHackTitle')}</p>
+            {speedHackLines.map((line, index) => (
               <div key={index} className="flex items-start gap-2 mb-1"><span style={{ color: '#CC5555', flexShrink: 0 }}>·</span><p className="font-inter font-light" style={{ fontSize: 14, color: '#3A5270', lineHeight: 1.7 }}>{line}</p></div>
             ))}
           </div>
         </div>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-10">
           <div style={{ border: '1px solid rgba(59,158,255,0.12)', background: '#07090F', padding: '24px 28px' }}>
-            <p className="font-cinzel font-semibold text-white mb-3" style={{ fontSize: 13, letterSpacing: '0.2em' }}>🔒 Permanent Ban Policy</p>
-            {['Once an account has been permanently banned, the decision is final.', 'Permanent bans are not eligible for appeal.', 'Creating alternative accounts to bypass a permanent ban may result in additional enforcement actions.'].map((line, index) => (
+            <p className="font-cinzel font-semibold text-white mb-3" style={{ fontSize: 13, letterSpacing: '0.2em' }}>{t('rules.permanentBanPolicy.heading')}</p>
+            {permanentBanLines.map((line, index) => (
               <div key={index} className="flex items-start gap-2 mb-2"><span style={{ color: '#3B9EFF', flexShrink: 0 }}>·</span><p className="font-inter font-light" style={{ fontSize: 14, color: '#3A5270', lineHeight: 1.7 }}>{line}</p></div>
             ))}
           </div>
           <div style={{ border: '1px solid rgba(59,158,255,0.12)', background: '#07090F', padding: '24px 28px' }}>
-            <p className="font-cinzel font-semibold text-white mb-3" style={{ fontSize: 13, letterSpacing: '0.2em' }}>📹 Evidence Requirements</p>
-            {['Video evidence must clearly show the offense.', 'Edited, manipulated, or incomplete recordings may be rejected.', 'PlayCrows staff reserves the right to determine whether submitted evidence is valid.'].map((line, index) => (
+            <p className="font-cinzel font-semibold text-white mb-3" style={{ fontSize: 13, letterSpacing: '0.2em' }}>{t('rules.evidenceRequirements.heading')}</p>
+            {evidenceLines.map((line, index) => (
               <div key={index} className="flex items-start gap-2 mb-2"><span style={{ color: '#3B9EFF', flexShrink: 0 }}>·</span><p className="font-inter font-light" style={{ fontSize: 14, color: '#3A5270', lineHeight: 1.7 }}>{line}</p></div>
             ))}
           </div>
         </div>
         <div style={{ border: '1px solid rgba(59,158,255,0.1)', background: '#07090F', padding: '20px 28px', marginBottom: 32 }}>
           <p className="font-inter font-light" style={{ fontSize: 14, color: '#3A5270', lineHeight: 1.85 }}>
-            ⚖️ These rules exist to maintain a fair and competitive environment for everyone. By playing on PlayCrows, you acknowledge and agree to follow all server rules and understand that staff decisions regarding rule enforcement are final. Thank you for helping us build a better PlayCrows community.
+            {t('rules.footerNote')}
           </p>
         </div>
         <div className="flex flex-wrap gap-4 justify-center">
-          <a href="https://playcrows.base44.app" target="_blank" rel="noopener noreferrer" className="btn-primary inline-block no-underline" style={{ fontSize: 13, padding: '12px 36px' }}><span>View Rules Page</span></a>
-          <a href="https://discord.com/channels/1527607490840100955/1527609980625227866" target="_blank" rel="noopener noreferrer" className="btn-secondary inline-block no-underline" style={{ fontSize: 13, padding: '12px 36px' }}>Report a Player</a>
+          <a href="https://playcrows.base44.app" target="_blank" rel="noopener noreferrer" className="btn-primary inline-block no-underline" style={{ fontSize: 13, padding: '12px 36px' }}><span>{t('rules.viewRulesButton')}</span></a>
+          <a href="https://discord.com/channels/1527607490840100955/1527609980625227866" target="_blank" rel="noopener noreferrer" className="btn-secondary inline-block no-underline" style={{ fontSize: 13, padding: '12px 36px' }}>{t('rules.reportPlayerButton')}</a>
         </div>
       </div>
     </section>
@@ -593,16 +510,18 @@ export function RulesSection() {
 }
 
 export function DiscordSection() {
+  const { t } = useTranslation()
+
   return (
     <section id="discord-section" className="py-28 px-6 relative overflow-hidden" style={{ background: '#040710' }}>
       <div className="absolute inset-0 pointer-events-none" style={{ background: 'radial-gradient(ellipse at 50% 55%, rgba(88,101,242,0.08) 0%, transparent 60%)' }} />
       <div className="max-w-4xl mx-auto relative z-10">
         <div className="text-center mb-14">
-          <p className="section-label mb-5">Community</p>
-          <h2 className="font-cinzel font-bold text-white mb-5 tracking-widest" style={{ fontSize: 'clamp(1.8rem, 4vw, 2.8rem)', letterSpacing: '0.15em' }}>JOIN US ON DISCORD</h2>
+          <p className="section-label mb-5">{t('discord.sectionLabel')}</p>
+          <h2 className="font-cinzel font-bold text-white mb-5 tracking-widest" style={{ fontSize: 'clamp(1.8rem, 4vw, 2.8rem)', letterSpacing: '0.15em' }}>{t('discord.title')}</h2>
           <div className="divider-blue mb-7" />
           <p className="font-inter font-light leading-relaxed" style={{ color: '#4A6280', maxWidth: 480, margin: '0 auto' }}>
-            Join our community and stay updated with announcements, events, and giveaways.
+            {t('discord.description')}
           </p>
         </div>
         <div className="flex justify-center mb-12">
@@ -610,23 +529,23 @@ export function DiscordSection() {
             <div style={{ height: 80, background: 'linear-gradient(135deg, #1a1f4a 0%, #0a0f2a 100%)' }} />
             <div style={{ padding: '0 16px', marginTop: -28 }}>
               <div style={{ width: 56, height: 56, borderRadius: '50%', border: '4px solid #1E2033', overflow: 'hidden', background: '#050810', marginBottom: 8 }}>
-                <img src={logoImg} alt="PLAYCROWS" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
+                <img src={logoImg} alt={t('discord.logoAlt')} style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
               </div>
-              <p className="font-cinzel font-bold text-white" style={{ fontSize: 15, letterSpacing: '0.08em', marginBottom: 4 }}>PLAYCROWS OFFICIAL</p>
+              <p className="font-cinzel font-bold text-white" style={{ fontSize: 15, letterSpacing: '0.08em', marginBottom: 4 }}>{t('discord.serverName')}</p>
               <div className="flex items-center gap-4 mb-3" style={{ fontSize: 13, fontFamily: 'Inter, sans-serif' }}>
-                <span style={{ color: '#23A55A' }}>● <span style={{ color: '#B5BAC1' }}>212 Online</span></span>
-                <span style={{ color: '#80848E' }}>● <span style={{ color: '#B5BAC1' }}>1,386 Members</span></span>
+                <span style={{ color: '#23A55A' }}>● <span style={{ color: '#B5BAC1' }}>{t('discord.onlineCount')}</span></span>
+                <span style={{ color: '#80848E' }}>● <span style={{ color: '#B5BAC1' }}>{t('discord.memberCount')}</span></span>
               </div>
-              <p style={{ fontSize: 12, color: '#72767D', fontFamily: 'Inter, sans-serif', lineHeight: 1.6, marginBottom: 6 }}>Est. Jul 2026</p>
+              <p style={{ fontSize: 12, color: '#72767D', fontFamily: 'Inter, sans-serif', lineHeight: 1.6, marginBottom: 6 }}>{t('discord.established')}</p>
               <p style={{ fontSize: 13, color: '#B5BAC1', fontFamily: 'Inter, sans-serif', lineHeight: 1.65, marginBottom: 16 }}>
-                PlayCrows is a community-driven Night Crows Private Server built for players who want a fair, competitive, and rewarding experience.
+                {t('discord.serverDescription')}
               </p>
             </div>
           </div>
         </div>
         <div className="text-center">
           <a href="https://discord.gg/ayxHdychr" target="_blank" rel="noopener noreferrer" className="btn-primary inline-block no-underline" style={{ fontSize: 14, padding: '14px 60px' }}>
-            <span>Join Discord</span>
+            <span>{t('discord.joinButton')}</span>
           </a>
         </div>
       </div>

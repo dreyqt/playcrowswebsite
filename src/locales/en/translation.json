@@ -1,8 +1,172 @@
 {
-  "home": "Home",
-  "gameInfo": "Game Information",
-  "donation": "Donation Center",
-  "rules": "Rules",
-  "download": "Download",
-  "discord": "Discord"
+  "hero": {
+    "logoAlt": "PLAYCROWS",
+    "subtitle": "A community-driven Night Crows Private Server built for players who want a fair, competitive, and rewarding experience."
+  },
+  "nav": {
+  "home": "HOME",
+  "gameInfo": "GAME INFO",
+  "donation": "DONATION",
+  "rules": "RULES",
+  "discord": "DISCORD",
+  "download": "DOWNLOAD",
+  "register": "REGISTER"
+},
+  "newsGrid": {
+    "columns": {
+      "announcement": {
+        "heading": "Announcement",
+        "thumbAlt": "Announcement banner"
+      },
+      "update": {
+        "heading": "Update",
+        "thumbAlt": "Update banner"
+      },
+      "gameInformation": {
+        "heading": "Game Information",
+        "thumbAlt": "Game info",
+        "featured": "Complete Class Guide — All 6 Classes",
+        "links": {
+          "beginnersHandbook": "Beginner's Handbook",
+          "pvpRankings": "PvP Rankings — Current Season",
+          "guildWarSchedule": "Guild War Schedule",
+          "bossRaidGuide": "Boss Raid Guide"
+        }
+      },
+      "support": {
+        "heading": "Support",
+        "thumbAlt": "Support",
+        "featured": "Donation Center — Packages & Perks",
+        "links": {
+          "donationCenter": "Donation Center",
+          "newPlayerStarterRewards": "New Player Starter Rewards",
+          "faqAccountLogin": "FAQ — Account & Login",
+          "contactStaffViaDiscord": "Contact Staff via Discord"
+        }
+      }
+    }
+  },
+  "download": {
+    "sectionLabel": "Get Started",
+    "title": "DOWNLOAD",
+    "pc": "PC",
+    "android": "ANDROID",
+    "downloadButton": "Download",
+    "languages": {
+      "english": "ENGLISH",
+      "taiwanese": "TAIWANESE",
+      "korean": "KOREAN"
+    }
+  },
+  "gameInfo": {
+    "sectionLabel": "Explore",
+    "title": "GAME INFORMATION",
+    "items": {
+      "expRate": { "title": "EXP RATE", "value": "50x" },
+      "dropRate": { "title": "DROP RATE", "value": "30x" },
+      "enhancementRate": { "title": "ENHANCEMENT RATE", "value": "3x" },
+      "newPlayerRewards": { "title": "NEW PLAYER REWARDS", "value": "STARTER PACK" },
+      "dailyRewards": { "title": "DAILY REWARDS", "value": "LOGIN BONUS" },
+      "modifiedNpc": { "title": "MODIFIED NPC", "value": "CUSTOM NPC" }
+    }
+  },
+  "donation": {
+    "sectionLabel": "Support",
+    "title": "SUPPORT PLAYCROWS",
+    "description": "Your contributions directly fund hosting, development, and new content for every player.",
+    "starterRewards": {
+      "heading": "🎁 New Player Starter Rewards",
+      "description": "Every new adventurer will receive a New Player Gift Pack to kick-start their journey!",
+      "items": [
+        "Sealed Hero Weapon Selection Box (Attributed) ×1",
+        "Sealed Hero Accessory Selection Box (Attributed) ×1",
+        "Sealed Hero Armor Selection Box (Attributed) ×1",
+        "[L] Mount Summon (Bound) ×1",
+        "Legendary Weapon Appearance Summon (Attributed) ×1",
+        "Snowflake Mumruffin (Bound) ×1",
+        "Nighthawk Equipment I/II/III/IV Selection Boxes (Attributed) ×6"
+      ]
+    },
+    "dailyRewards": {
+      "heading": "📅 Daily Login Rewards",
+      "description": "Log in every day to claim valuable rewards and strengthen your character!",
+      "items": [
+        "Sunset's Mount Summon x11 (Bound) ×10",
+        "Sunset's Weapon Style Summon x11 (Bound) ×10",
+        "Night Crows Stimulant of Growth (Bound) ×10",
+        "Food Basket (Owned) ×20",
+        "Gold Coin Chest (Owned) ×100",
+        "Mileage ×30,000"
+      ]
+    },
+    "donateButton": "Donate Now",
+    "footerNote": "Every donation helps keep the server online."
+  },
+  "rules": {
+    "sectionLabel": "Conduct",
+    "title": "SERVER RULES",
+    "subtitle": "The code of conduct that governs the PlayCrows realm.",
+    "generalRules": {
+      "heading": "🛡️ General Rules",
+      "items": [
+        { "num": "1", "title": "Respect All Players", "rules": ["Treat everyone with respect.", "Harassment, discrimination, hate speech, or excessive toxicity will not be tolerated."] },
+        { "num": "2", "title": "No Exploiting or Bug Abuse", "rules": ["Exploiting game bugs or unintended mechanics for personal gain is prohibited.", "Any discovered bugs should be reported immediately."] },
+        { "num": "3", "title": "No Third-Party Programs", "rules": ["The use of cheats, hacks, bots, macros, scripts, or unauthorized third-party software that provides an unfair advantage is strictly prohibited."] },
+        { "num": "4", "title": "No Account Trading or Selling", "rules": ["Buying, selling, sharing, or trading accounts is done entirely at your own risk.", "PlayCrows is not responsible for any losses resulting from account sharing or trading."] },
+        { "num": "5", "title": "Impersonation", "rules": ["Pretending to be a Game Master (GM), Administrator, Moderator, or any PlayCrows staff member is prohibited."] },
+        { "num": "6", "title": "Respect the Community", "rules": ["Do not intentionally disrupt gameplay, events, or community activities.", "Follow instructions given by PlayCrows staff when necessary."] }
+      ]
+    },
+    "warningSystem": {
+      "heading": "⚠️ Warning System",
+      "intro": "PlayCrows uses a <0>3-Warning Policy</0> for most rule violations.",
+      "items": [
+        "Each valid video evidence submitted and verified by the staff counts as one (1) warning.",
+        "Players can accumulate a maximum of three (3) warnings.",
+        "Upon receiving the third warning, the account will be permanently banned.",
+        "All verified warnings will be publicly listed on the official PlayCrows website for transparency."
+      ]
+    },
+    "zeroTolerance": {
+      "heading": "🚫 Zero-Tolerance Violations",
+      "intro": "The following offenses result in an <0>immediate permanent ban</0> without any warnings:",
+      "speedHackTitle": "Speed Hack",
+      "speedHackLines": [
+        "The use of any speed modification, speed hack, or movement manipulation software is strictly forbidden.",
+        "No warnings will be issued.",
+        "Once verified, the account will receive an immediate permanent ban."
+      ]
+    },
+    "permanentBanPolicy": {
+      "heading": "🔒 Permanent Ban Policy",
+      "lines": [
+        "Once an account has been permanently banned, the decision is final.",
+        "Permanent bans are not eligible for appeal.",
+        "Creating alternative accounts to bypass a permanent ban may result in additional enforcement actions."
+      ]
+    },
+    "evidenceRequirements": {
+      "heading": "📹 Evidence Requirements",
+      "lines": [
+        "Video evidence must clearly show the offense.",
+        "Edited, manipulated, or incomplete recordings may be rejected.",
+        "PlayCrows staff reserves the right to determine whether submitted evidence is valid."
+      ]
+    },
+    "footerNote": "⚖️ These rules exist to maintain a fair and competitive environment for everyone. By playing on PlayCrows, you acknowledge and agree to follow all server rules and understand that staff decisions regarding rule enforcement are final. Thank you for helping us build a better PlayCrows community.",
+    "viewRulesButton": "View Rules Page",
+    "reportPlayerButton": "Report a Player"
+  },
+  "discord": {
+    "sectionLabel": "Community",
+    "title": "JOIN US ON DISCORD",
+    "description": "Join our community and stay updated with announcements, events, and giveaways.",
+    "logoAlt": "PLAYCROWS",
+    "serverName": "PLAYCROWS OFFICIAL",
+    "onlineCount": "212 Online",
+    "memberCount": "1,386 Members",
+    "established": "Est. Jul 2026",
+    "serverDescription": "PlayCrows is a community-driven Night Crows Private Server built for players who want a fair, competitive, and rewarding experience.",
+    "joinButton": "Join Discord"
+  }
 }

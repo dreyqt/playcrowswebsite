@@ -5,7 +5,6 @@ export default function HomePage({ navigate, scrollTo }: { navigate: (p: Page) =
   return (
     <>
       <Hero />
-      <QuickNav navigate={navigate} scrollTo={scrollTo} />
       <NewsGrid navigate={navigate} scrollTo={scrollTo} />
       <DownloadSection />
       <GameInfoSection />

@@ -1,9 +1,166 @@
 {
+  "hero": {
+    "logoAlt": "PLAYCROWS",
+    "subtitle": "由玩家社群驅動的《夜鴉》私人伺服器，為追求公平、競技與豐富回饋體驗的玩家而打造。"
+  },
+  "newsGrid": {
+    "columns": {
+      "announcement": { "heading": "公告", "thumbAlt": "公告橫幅" },
+      "update": { "heading": "更新", "thumbAlt": "更新橫幅" },
+      "gameInformation": {
+        "heading": "遊戲資訊",
+        "thumbAlt": "遊戲資訊",
+        "featured": "完整職業指南 — 全部 6 個職業",
+        "links": {
+          "beginnersHandbook": "新手手冊",
+          "pvpRankings": "PvP 排行榜 — 本賽季",
+          "guildWarSchedule": "公會戰時程表",
+          "bossRaidGuide": "首領團隊戰指南"
+        }
+      },
+      "support": {
+        "heading": "支援",
+        "thumbAlt": "支援",
+        "featured": "贊助中心 — 方案與特權",
+        "links": {
+          "donationCenter": "贊助中心",
+          "newPlayerStarterRewards": "新玩家新手獎勵",
+          "faqAccountLogin": "常見問題 — 帳號與登入",
+          "contactStaffViaDiscord": "透過 Discord 聯繫客服"
+        }
+      }
+    }
+  },
+  "download": {
+    "sectionLabel": "開始遊玩",
+    "title": "下載",
+    "pc": "PC",
+    "android": "安卓",
+    "downloadButton": "下載",
+    "languages": {
+      "english": "英文",
+      "taiwanese": "繁體中文",
+      "korean": "韓文"
+    }
+  },
+  "gameInfo": {
+    "sectionLabel": "探索",
+    "title": "遊戲資訊",
+    "items": {
+      "expRate": { "title": "經驗值倍率", "value": "50 倍" },
+      "dropRate": { "title": "掉落率", "value": "30 倍" },
+      "enhancementRate": { "title": "強化成功率", "value": "3 倍" },
+      "newPlayerRewards": { "title": "新玩家獎勵", "value": "新手禮包" },
+      "dailyRewards": { "title": "每日獎勵", "value": "登入獎勵" },
+      "modifiedNpc": { "title": "客製化 NPC", "value": "客製 NPC" }
+    }
+  },
+  "donation": {
+    "sectionLabel": "支援",
+    "title": "贊助 PLAYCROWS",
+    "description": "您的贊助將直接用於伺服器主機、開發，以及為每位玩家提供的新內容。",
+    "starterRewards": {
+      "heading": "🎁 新玩家新手獎勵",
+      "description": "每位新冒險者都將獲得新手禮包，助您展開冒險旅程！",
+      "items": [
+        "封裝英雄武器選擇箱（已鑄印）×1",
+        "封裝英雄飾品選擇箱（已鑄印）×1",
+        "封裝英雄防具選擇箱（已鑄印）×1",
+        "[L] 坐騎召喚（綁定）×1",
+        "傳說武器外觀召喚（已鑄印）×1",
+        "雪花毛絨獸（綁定）×1",
+        "夜鷹裝備 I/II/III/IV 選擇箱（已鑄印）×6"
+      ]
+    },
+    "dailyRewards": {
+      "heading": "📅 每日登入獎勵",
+      "description": "每天登入即可領取豐富獎勵，強化您的角色！",
+      "items": [
+        "日落坐騎召喚 x11（綁定）×10",
+        "日落武器外觀召喚 x11（綁定）×10",
+        "夜鴉成長強化劑（綁定）×10",
+        "食物籃（未綁定）×20",
+        "金幣寶箱（未綁定）×100",
+        "里程 ×30,000"
+      ]
+    },
+    "donateButton": "立即贊助",
+    "footerNote": "每一筆贊助都能協助伺服器持續運作。"
+  },
+  "rules": {
+    "sectionLabel": "行為準則",
+    "title": "伺服器規則",
+    "subtitle": "統御 PlayCrows 世界的行為準則。",
+    "generalRules": {
+      "heading": "🛡️ 一般規則",
+      "items": [
+        { "num": "1", "title": "尊重所有玩家", "rules": ["請以尊重的態度對待每一位玩家。", "騷擾、歧視、仇恨言論或過度惡意行為將不被容忍。"] },
+        { "num": "2", "title": "禁止利用漏洞", "rules": ["禁止利用遊戲漏洞或非預期機制謀取個人利益。", "發現任何漏洞應立即回報。"] },
+        { "num": "3", "title": "禁止使用第三方程式", "rules": ["嚴禁使用外掛、駭客程式、機器人、巨集、腳本或任何提供不公平優勢的未授權第三方軟體。"] },
+        { "num": "4", "title": "禁止帳號交易或買賣", "rules": ["買賣、分享或交易帳號需自行承擔全部風險。", "PlayCrows 不對因帳號分享或交易造成的任何損失負責。"] },
+        { "num": "5", "title": "冒充行為", "rules": ["禁止冒充遊戲管理員（GM）、系統管理員、版主或任何 PlayCrows 工作人員。"] },
+        { "num": "6", "title": "尊重社群", "rules": ["請勿故意干擾遊戲進行、活動或社群活動。", "必要時請遵守 PlayCrows 工作人員的指示。"] }
+      ]
+    },
+    "warningSystem": {
+      "heading": "⚠️ 警告制度",
+      "intro": "PlayCrows 對大多數違規行為採用<0>三次警告政策</0>。",
+      "items": [
+        "每一則經工作人員驗證的有效影片證據計為一（1）次警告。",
+        "玩家最多可累積三（3）次警告。",
+        "收到第三次警告後，帳號將被永久停權。",
+        "所有經驗證的警告將公開列於 PlayCrows 官方網站以維持透明度。"
+      ]
+    },
+    "zeroTolerance": {
+      "heading": "🚫 零容忍違規行為",
+      "intro": "以下行為將在未經任何警告的情況下<0>立即永久停權</0>：",
+      "speedHackTitle": "加速外掛",
+      "speedHackLines": [
+        "嚴禁使用任何速度修改、加速外掛或移動操控軟體。",
+        "不會發出任何警告。",
+        "一經確認，帳號將立即永久停權。"
+      ]
+    },
+    "permanentBanPolicy": {
+      "heading": "🔒 永久停權政策",
+      "lines": [
+        "帳號一旦被永久停權，該決定即為最終決定。",
+        "永久停權不接受申訴。",
+        "為規避永久停權而建立備用帳號，可能導致進一步的處分行動。"
+      ]
+    },
+    "evidenceRequirements": {
+      "heading": "📹 證據要求",
+      "lines": [
+        "影片證據必須清楚顯示違規行為。",
+        "經剪輯、竄改或不完整的錄影可能會被拒絕採信。",
+        "PlayCrows 工作人員保留判定所提交證據是否有效之權利。"
+      ]
+    },
+    "footerNote": "⚖️ 這些規則旨在為所有玩家維持公平且具競爭力的環境。在 PlayCrows 遊玩即表示您已知悉並同意遵守所有伺服器規則，並理解工作人員對規則執行所作出的決定為最終決定。感謝您協助我們打造更好的 PlayCrows 社群。",
+    "viewRulesButton": "查看規則頁面",
+    "reportPlayerButton": "檢舉玩家"
+  },
+  "discord": {
+    "sectionLabel": "社群",
+    "title": "加入我們的 Discord",
+    "description": "加入我們的社群，即時掌握公告、活動與抽獎資訊。",
+    "logoAlt": "PLAYCROWS",
+    "serverName": "PLAYCROWS 官方伺服器",
+    "onlineCount": "212 人在線",
+    "memberCount": "1,386 位成員",
+    "established": "成立於 2026 年 7 月",
+    "serverDescription": "PlayCrows 是由玩家社群驅動的《夜鴉》私人伺服器，為追求公平、競技與豐富回饋體驗的玩家而打造。",
+    "joinButton": "加入 Discord"
+  },
+  "nav": {
   "home": "首頁",
   "gameInfo": "遊戲資訊",
-  "donation": "贊助中心",
-  "rules": "遊戲規則",
+  "donation": "贊助",
+  "rules": "規則",
+  "discord": "DISCORD",
   "download": "下載",
-  "discord": "Discord",
   "register": "註冊"
+}
 }
