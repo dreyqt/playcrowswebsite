@@ -13,18 +13,18 @@ export default function UpdateDetailPage({ id, navigate, goHome }: { id: string;
 
   const update = UPDATES.find(item => item.id === id)
   if (!update) {
-    return <PageShell><p style={{ color: '#4A6280' }}>Update not found.</p></PageShell>
+    return <PageShell><p style={{ color: '#7A6248' }}>Update not found.</p></PageShell>
   }
 
   return (
     <PageShell>
       <Breadcrumb crumbs={[{ label: 'Home', onClick: goHome }, { label: 'Updates', onClick: () => navigate({ view: 'updates' }) }, { label: update.title[lang] }]} />
-      <div className="w-full overflow-hidden mb-10" style={{ background: '#050810' }}>
+      <div className="w-full overflow-hidden mb-10" style={{ background: '#0F0C09' }}>
         <img src={patchBannerImg} alt="Patch Notes banner" className="w-full object-cover" style={{ maxHeight: 280, objectPosition: 'center' }} />
       </div>
-      <div className="mb-2"><p className="font-cinzel" style={{ fontSize: 11, color: '#1E3A5A', letterSpacing: '0.15em' }}>{update.date[lang]}</p></div>
+      <div className="mb-2"><p className="font-cinzel" style={{ fontSize: 11, color: '#3A2C18', letterSpacing: '0.15em' }}>{update.date[lang]}</p></div>
       <h1 className="font-cinzel font-bold text-white mb-8" style={{ fontSize: 'clamp(1.2rem, 2.5vw, 1.8rem)', letterSpacing: '0.06em', lineHeight: 1.4 }}>{update.title[lang]}</h1>
-      <div style={{ borderTop: '1px solid rgba(59,158,255,0.1)', paddingTop: 28 }}>
+      <div style={{ borderTop: '1px solid rgba(212,169,77,0.1)', paddingTop: 28 }}>
         {getUpdateContent(id)}
       </div>
       <div className="mt-12">

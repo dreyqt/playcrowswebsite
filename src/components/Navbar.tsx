@@ -43,9 +43,9 @@ export function Navbar({
     <nav
       className="fixed top-0 left-0 right-0 z-50 transition-all duration-400"
       style={{
-        background: scrolled ? 'rgba(5,8,16,0.97)' : 'rgba(5,8,16,0.65)',
+        background: scrolled ? 'rgba(15,12,9,0.97)' : 'rgba(15,12,9,0.65)',
         backdropFilter: 'blur(16px)',
-        borderBottom: '1px solid rgba(59,158,255,0.10)',
+        borderBottom: '1px solid rgba(212,169,77,0.10)',
       }}
     >
       <div className="max-w-screen-xl mx-auto px-8 flex items-center justify-between h-[70px]">
@@ -62,7 +62,7 @@ export function Navbar({
           />
           <span
             className="font-cinzel font-bold text-base tracking-widest hidden sm:block"
-            style={{ color: '#A8C8E8', letterSpacing: '0.18em' }}
+            style={{ color: '#EAD9B8', letterSpacing: '0.18em' }}
           >
             PLAYCROWS
           </span>
@@ -109,7 +109,7 @@ export function Navbar({
           onClick={() => setMenuOpen(!menuOpen)}
         >
           {[0, 1, 2].map((i) => (
-            <span key={i} className="block w-6 h-px" style={{ background: '#3B9EFF' }} />
+            <span key={i} className="block w-6 h-px" style={{ background: '#D4A94D' }} />
           ))}
         </button>
       </div>
@@ -117,7 +117,7 @@ export function Navbar({
       {menuOpen && (
         <div
           className="lg:hidden px-8 pb-8 pt-2 flex flex-col gap-5"
-          style={{ background: 'rgba(5,8,16,0.98)' }}
+          style={{ background: 'rgba(15,12,9,0.98)' }}
         >
           {navItems.map((item) => (
             <button

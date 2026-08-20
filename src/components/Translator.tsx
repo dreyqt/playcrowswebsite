@@ -33,8 +33,8 @@ export default function Translator() {
     <div className="relative" ref={ref}>
       <button
         onClick={() => setOpen(!open)}
-        className="flex items-center gap-2 px-3 py-2 rounded-md border border-[#3B9EFF20] hover:border-[#3B9EFF60] transition-all"
-        style={{ background: "rgba(9,17,29,.9)", color: "#A8C8E8" }}
+        className="flex items-center gap-2 px-3 py-2 rounded-md border border-[#D4A94D20] hover:border-[#D4A94D60] transition-all"
+        style={{ background: "rgba(21,17,10,.9)", color: "#EAD9B8" }}
       >
         <span style={{ fontSize: "16px" }}>🌐</span>
         <span className="uppercase text-xs tracking-wider">{selected.code}</span>
@@ -45,8 +45,8 @@ export default function Translator() {
         <div
           className="absolute right-0 mt-2 w-44 rounded-md overflow-hidden"
           style={{
-            background: "rgba(5,8,16,.98)",
-            border: "1px solid rgba(59,158,255,.15)",
+            background: "rgba(15,12,9,.98)",
+            border: "1px solid rgba(212,169,77,.15)",
             backdropFilter: "blur(12px)",
             boxShadow: "0 15px 40px rgba(0,0,0,.45)",
           }}
@@ -61,8 +61,8 @@ export default function Translator() {
               }}
               className={`w-full text-left px-4 py-3 transition ${
                 selected.code === lang.code
-                  ? "text-[#3B9EFF] bg-[#0D1626]"
-                  : "text-gray-300 hover:bg-[#0D1626]"
+                  ? "text-[#D4A94D] bg-[#1C160E]"
+                  : "text-gray-300 hover:bg-[#1C160E]"
               }`}
             >
               {lang.label}

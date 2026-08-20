@@ -40,7 +40,7 @@ export default function App() {
   }, [page.view, pendingScroll])
 
   return (
-    <div style={{ background: '#050810', minHeight: '100vh' }}>
+    <div style={{ background: '#0F0C09', minHeight: '100vh' }}>
       <Navbar navigate={navigate} goHome={goHome} scrollTo={scrollTo} />
 
       {page.view === 'home' && <HomePage navigate={navigate} scrollTo={scrollTo} />}

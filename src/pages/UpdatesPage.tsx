@@ -21,13 +21,13 @@ export default function UpdatesPage({ navigate, goHome }: { navigate: (p: Page) 
       <div className="flex flex-col gap-4">
         {UPDATES.map(update => (
           <button key={update.id} onClick={() => navigate({ view: 'update', id: update.id })} className="text-left w-full bg-transparent border-none cursor-pointer group" style={{ padding: 0 }}>
-            <div className="flex items-start justify-between gap-4 p-6 transition-all duration-200" style={{ border: '1px solid rgba(59,158,255,0.1)', background: '#07090F' }} onMouseEnter={e => { (e.currentTarget as HTMLDivElement).style.background = '#0A0E18'; (e.currentTarget as HTMLDivElement).style.borderColor = 'rgba(59,158,255,0.22)' }} onMouseLeave={e => { (e.currentTarget as HTMLDivElement).style.background = '#07090F'; (e.currentTarget as HTMLDivElement).style.borderColor = 'rgba(59,158,255,0.1)' }}>
+            <div className="flex items-start justify-between gap-4 p-6 transition-all duration-200" style={{ border: '1px solid rgba(212,169,77,0.1)', background: '#15110A' }} onMouseEnter={e => { (e.currentTarget as HTMLDivElement).style.background = '#1A140D'; (e.currentTarget as HTMLDivElement).style.borderColor = 'rgba(212,169,77,0.22)' }} onMouseLeave={e => { (e.currentTarget as HTMLDivElement).style.background = '#15110A'; (e.currentTarget as HTMLDivElement).style.borderColor = 'rgba(212,169,77,0.1)' }}>
               <div>
-                <p className="font-cinzel font-semibold mb-2" style={{ fontSize: 15, letterSpacing: '0.05em', color: '#D0DCE8' }}>{update.title[lang]}</p>
-                <p className="font-inter font-light mb-2" style={{ fontSize: 14, color: '#3A5270' }}>{update.preview[lang]}</p>
-                <p className="font-cinzel" style={{ fontSize: 11, color: '#1E3A5A', letterSpacing: '0.15em' }}>{update.date[lang]}</p>
+                <p className="font-cinzel font-semibold mb-2" style={{ fontSize: 15, letterSpacing: '0.05em', color: '#EAD9B8' }}>{update.title[lang]}</p>
+                <p className="font-inter font-light mb-2" style={{ fontSize: 14, color: '#7A6248' }}>{update.preview[lang]}</p>
+                <p className="font-cinzel" style={{ fontSize: 11, color: '#3A2C18', letterSpacing: '0.15em' }}>{update.date[lang]}</p>
               </div>
-              <span style={{ color: '#1A3A5C', flexShrink: 0, marginTop: 4 }}><IcoArrow /></span>
+              <span style={{ color: '#4A3720', flexShrink: 0, marginTop: 4 }}><IcoArrow /></span>
             </div>
           </button>
         ))}
