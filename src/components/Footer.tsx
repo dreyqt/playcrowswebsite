@@ -18,7 +18,7 @@ export function Footer({ navigate, goHome }: { navigate: (p: Page) => void; goHo
         <div className="flex flex-col md:flex-row justify-between items-start gap-10">
           <div className="flex flex-col gap-4">
             <img src={logoImg} alt="PLAYCROWS" className="w-12 h-12 object-contain" />
-            <p className="font-inter font-light" style={{ fontSize: 13, maxWidth: 200, lineHeight: 1.8, color: '#3A2C18' }}>The Ultimate Night Crows Private Server Experience</p>
+            <p className="font-inter font-light" style={{ fontSize: 13, maxWidth: 200, lineHeight: 1.8, color: '#3A2C18' }}>The Ultimate Night Crows Experience</p>
             <div className="flex gap-3 mt-2">
               <a href="https://discord.gg/ayxHdychr" target="_blank" rel="noopener noreferrer" title="Discord" className="flex items-center justify-center no-underline transition-colors duration-200" style={{ width: 36, height: 36, border: '1px solid rgba(212,169,77,0.2)', color: '#5865F2' }} onMouseEnter={e => { (e.currentTarget as HTMLAnchorElement).style.borderColor = '#5865F2'; (e.currentTarget as HTMLAnchorElement).style.background = 'rgba(88,101,242,0.1)' }} onMouseLeave={e => { (e.currentTarget as HTMLAnchorElement).style.borderColor = 'rgba(212,169,77,0.2)'; (e.currentTarget as HTMLAnchorElement).style.background = 'transparent' }}>
                 <IcoDiscordSmall />

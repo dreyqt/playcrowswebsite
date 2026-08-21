@@ -1,7 +1,7 @@
 {
   "hero": {
     "logoAlt": "PLAYCROWS",
-    "subtitle": "A community-driven Night Crows Private Server built for players who want a fair, competitive, and rewarding experience."
+    "subtitle": "A community-driven Night Crows built for players who want a fair, competitive, and rewarding experience."
   },
   "nav": {
   "home": "HOME",
@@ -166,7 +166,7 @@
     "onlineCount": "212 Online",
     "memberCount": "1,386 Members",
     "established": "Est. Jul 2026",
-    "serverDescription": "PlayCrows is a community-driven Night Crows Private Server built for players who want a fair, competitive, and rewarding experience.",
+    "serverDescription": "PlayCrows is a community-driven Night Crows built for players who want a fair, competitive, and rewarding experience.",
     "joinButton": "Join Discord"
   }
 }
