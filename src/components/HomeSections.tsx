@@ -168,17 +168,77 @@ export function NewsGrid({ navigate, scrollTo }: { navigate: (p: Page) => void; 
 export function DownloadSection() {
   const { t } = useTranslation()
 
-  const pcLinks = [
+  const pcV1Links = [
     { lang: t('download.languages.english'), url: 'http://download.playcrows.com/p/PlayPC-en.zip' },
     { lang: t('download.languages.taiwanese'), url: 'http://download.playcrows.com/p/PlayPC-tw.zip' },
     { lang: t('download.languages.korean'), url: 'http://download.playcrows.com/p/PlayPC-kr.zip' },
   ]
 
-  const androidLinks = [
+  const pcV2Links = [
+    { lang: t('download.languages.english'), url: 'http://download.playcrows.com/pv2/PlayV2-PC-en-3.zip' },
+    { lang: t('download.languages.taiwanese'), url: 'http://download.playcrows.com/pv2/PlayV2-PC-tw-3.zip' },
+    { lang: t('download.languages.korean'), url: 'http://download.playcrows.com/pv2/PlayV2-PC-kr-3.zip' },
+  ]
+
+  const androidV1Links = [
     { lang: t('download.languages.english'), url: 'http://download.playcrows.com/p/playandroid-en-8.apk' },
     { lang: t('download.languages.taiwanese'), url: 'http://download.playcrows.com/p/playandroid-tw-8.apk' },
     { lang: t('download.languages.korean'), url: 'http://download.playcrows.com/p/playandroid-kr-8.apk' },
   ]
+
+  const androidV2Links = [
+    { lang: t('download.languages.english'), url: 'http://download.playcrows.com/pv2/PlayAZ-v2-en-3.apk' },
+    { lang: t('download.languages.taiwanese'), url: 'http://download.playcrows.com/pv2/PlayAZ-v2-tw-3.apk' },
+    { lang: t('download.languages.korean'), url: 'http://download.playcrows.com/pv2/PlayAZ-v2-kr-3.apk' },
+  ]
+
+  const PlatformColumn = ({ label, links, last }: { label: string; links: { lang: string; url: string }[]; last?: boolean }) => (
+    <div style={{ borderRight: last ? 'none' : '1px solid rgba(255,255,255,.06)' }}>
+      <div
+        className="font-cinzel text-center"
+        style={{ fontSize: 12, letterSpacing: '0.15em', color: '#8A7050', padding: '10px 0', borderBottom: '1px solid rgba(255,255,255,.05)' }}
+      >
+        {label}
+      </div>
+      {links.map((item) => (
+        <div
+          key={item.lang}
+          className="flex items-center justify-between"
+          style={{ padding: '8px 14px', borderTop: '1px solid rgba(255,255,255,.04)' }}
+        >
+          <span className="font-cinzel" style={{ color: '#C9B99C', fontSize: 11, letterSpacing: '.08em' }}>{item.lang}</span>
+          <a href={item.url} className="btn-primary no-underline" style={{ padding: '5px 12px', fontSize: 10 }}>
+            {t('download.downloadButton')}
+          </a>
+        </div>
+      ))}
+    </div>
+  )
+
+  const VersionBlock = ({
+    label,
+    pcLinks,
+    androidLinks,
+    last,
+  }: {
+    label: string
+    pcLinks: { lang: string; url: string }[]
+    androidLinks: { lang: string; url: string }[]
+    last?: boolean
+  }) => (
+    <div style={{ borderRight: last ? 'none' : '1px solid rgba(255,255,255,.08)' }}>
+      <div
+        className="font-cinzel font-bold text-white tracking-widest text-center"
+        style={{ fontSize: '1.5rem', letterSpacing: '0.15em', padding: '16px 0' }}
+      >
+        {label}
+      </div>
+      <div className="grid grid-cols-2" style={{ borderTop: '1px solid rgba(255,255,255,.08)' }}>
+        <PlatformColumn label={t('download.pc')} links={pcLinks} />
+        <PlatformColumn label={t('download.android')} links={androidLinks} last />
+      </div>
+    </div>
+  )
 
   return (
     <section id="download" className="py-24 px-6" style={{ background: '#0D0A07' }}>
@@ -192,29 +252,8 @@ export function DownloadSection() {
         </div>
 
         <div className="grid md:grid-cols-2" style={{ border: '1px solid rgba(255,255,255,.08)', background: '#17120B', borderRadius: 12, overflow: 'hidden' }}>
-          <div style={{ borderRight: '1px solid rgba(255,255,255,.08)' }}>
-            <div className="font-cinzel font-bold text-white tracking-widest text-center" style={{ fontSize: '1.8rem', letterSpacing: '0.15em', padding: '24px 0' }}>
-              {t('download.pc')}
-            </div>
-            {pcLinks.map((item) => (
-              <div key={item.lang} className="flex items-center justify-between px-6 py-4" style={{ borderTop: '1px solid rgba(255,255,255,.05)' }}>
-                <span className="font-cinzel" style={{ color: '#C9B99C', fontSize: 13, letterSpacing: '.12em' }}>{item.lang}</span>
-                <a href={item.url} className="btn-primary no-underline" style={{ padding: '8px 18px', fontSize: 12 }}>{t('download.downloadButton')}</a>
-              </div>
-            ))}
-          </div>
-
-          <div>
-            <div className="font-cinzel font-bold text-white tracking-widest text-center" style={{ fontSize: '1.8rem', letterSpacing: '0.15em', padding: '24px 0' }}>
-              {t('download.android')}
-            </div>
-            {androidLinks.map((item) => (
-              <div key={item.lang} className="flex items-center justify-between px-6 py-4" style={{ borderTop: '1px solid rgba(255,255,255,.05)' }}>
-                <span className="font-cinzel" style={{ color: '#C9B99C', fontSize: 13, letterSpacing: '.12em' }}>{item.lang}</span>
-                <a href={item.url} className="btn-primary no-underline" style={{ padding: '8px 18px', fontSize: 12 }}>{t('download.downloadButton')}</a>
-              </div>
-            ))}
-          </div>
+          <VersionBlock label="V1" pcLinks={pcV1Links} androidLinks={androidV1Links} />
+          <VersionBlock label="V2" pcLinks={pcV2Links} androidLinks={androidV2Links} last />
         </div>
       </div>
     </section>
