@@ -169,27 +169,27 @@ export function DownloadSection() {
   const { t } = useTranslation()
 
   const pcV1Links = [
-    { lang: t('download.languages.english'), url: 'http://download.playcrows.com/p/PlayPC-en.zip' },
-    { lang: t('download.languages.taiwanese'), url: 'http://download.playcrows.com/p/PlayPC-tw.zip' },
-    { lang: t('download.languages.korean'), url: 'http://download.playcrows.com/p/PlayPC-kr.zip' },
+    { lang: t('download.languages.english'), url: 'http://download.playcrows.com/p/play-pc-en10.zip' },
+    { lang: t('download.languages.taiwanese'), url: 'http://download.playcrows.com/p/play-pc-tw10.zip' },
+    { lang: t('download.languages.korean'), url: 'http://download.playcrows.com/p/play-pc-kr10.zip' },
   ]
 
   const pcV2Links = [
-    { lang: t('download.languages.english'), url: 'http://download.playcrows.com/pv2/PlayV2-PC-en-3.zip' },
-    { lang: t('download.languages.taiwanese'), url: 'http://download.playcrows.com/pv2/PlayV2-PC-tw-3.zip' },
-    { lang: t('download.languages.korean'), url: 'http://download.playcrows.com/pv2/PlayV2-PC-kr-3.zip' },
+    { lang: t('download.languages.english'), url: 'http://download.playcrows.com/pv2/PlayV2-PC-en-4.zip' },
+    { lang: t('download.languages.taiwanese'), url: 'http://download.playcrows.com/pv2/PlayV2-PC-tw-4.zip' },
+    { lang: t('download.languages.korean'), url: 'http://download.playcrows.com/pv2/PlayV2-PC-kr-4.zip' },
   ]
 
   const androidV1Links = [
-    { lang: t('download.languages.english'), url: 'http://download.playcrows.com/p/playandroid-en-8.apk' },
-    { lang: t('download.languages.taiwanese'), url: 'http://download.playcrows.com/p/playandroid-tw-8.apk' },
-    { lang: t('download.languages.korean'), url: 'http://download.playcrows.com/p/playandroid-kr-8.apk' },
+    { lang: t('download.languages.english'), url: 'http://download.playcrows.com/p/play-az-en-10.apk' },
+    { lang: t('download.languages.taiwanese'), url: 'http://download.playcrows.com/p/play-az-tw-10.apk' },
+    { lang: t('download.languages.korean'), url: 'http://download.playcrows.com/p/play-az-kr-10.apk' },
   ]
 
   const androidV2Links = [
-    { lang: t('download.languages.english'), url: 'http://download.playcrows.com/pv2/PlayAZ-v2-en-3.apk' },
-    { lang: t('download.languages.taiwanese'), url: 'http://download.playcrows.com/pv2/PlayAZ-v2-tw-3.apk' },
-    { lang: t('download.languages.korean'), url: 'http://download.playcrows.com/pv2/PlayAZ-v2-kr-3.apk' },
+    { lang: t('download.languages.english'), url: 'http://download.playcrows.com/pv2/PlayAZ-v2-en-4.apk' },
+    { lang: t('download.languages.taiwanese'), url: 'http://download.playcrows.com/pv2/PlayAZ-v2-tw-4.apk' },
+    { lang: t('download.languages.korean'), url: 'http://download.playcrows.com/pv2/PlayAZ-v2-kr-4.apk' },
   ]
 
   const PlatformColumn = ({ label, links, last }: { label: string; links: { lang: string; url: string }[]; last?: boolean }) => (
