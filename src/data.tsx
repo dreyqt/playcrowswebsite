@@ -1,6 +1,6 @@
 import type { ReactNode } from 'react'
 import heroVideo from './assets/hero.mp4'
-import heroPoster from './assets/hero-poster.jpg'
+import heroPoster from './assets/hero-poster.png'
 import referralBanner from './assets/events/referral-event.png'
 
 export type Page =

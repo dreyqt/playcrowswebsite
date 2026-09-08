@@ -1,6 +1,6 @@
 import { ArrowUp } from 'lucide-react'
 import { useTranslation } from 'react-i18next'
-import logo from '../assets/playcrows-emblem.webp'
+import logo from '../assets/playcrows-emblem.png'
 import { IcoDiscordSmall, IcoFacebook } from './Icons'
 import { LINKS, SERVERS } from '../site'
 import type { Page } from '../data'

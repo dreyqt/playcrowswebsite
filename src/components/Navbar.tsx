@@ -1,7 +1,7 @@
 import { useEffect, useRef, useState } from 'react'
 import { ChevronDown, Download, Menu, Newspaper, Shield, ShoppingBag, X, LayoutGrid, UserPlus } from 'lucide-react'
 import { useTranslation } from 'react-i18next'
-import logo from '../assets/playcrows-emblem.webp'
+import logo from '../assets/playcrows-emblem.png'
 import type { Page } from '../data'
 import { LINKS } from '../site'
 import { IcoDiscordSmall } from './Icons'
