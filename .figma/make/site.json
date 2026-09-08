@@ -1,10 +1,12 @@
 {
-  "description": "A sleek, minimalist website offering Night Crows info, downloads, community access, and donation support for dedicated MMORPG players.",
+  "description": "Discover PlayCrows V1 and V2. Explore Night Crows server features, create your account, download for Windows or Android, and join the community.",
   "robots": {
-    "index": false
+    "index": true
   },
   "accessibility": {
     "addBypassLinks": false,
     "ignoreReducedMotion": false
-  }
+  },
+  "title": "PlayCrows \u2014 Your next chapter in Night Crows",
+  "language": "en"
 }

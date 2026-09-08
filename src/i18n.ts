@@ -7,6 +7,13 @@ import th from "./locales/th/translation.json";
 import br from "./locales/br/translation.json";
 import tw from "./locales/tw/translation.json";
 
+const supported = ['en', 'kr', 'th', 'tw', 'br']
+let savedLanguage = 'en'
+try {
+  const saved = localStorage.getItem('lang')
+  if (saved && supported.includes(saved)) savedLanguage = saved
+} catch { /* Keep English when device storage is unavailable. */ }
+
 i18n
 .use(initReactI18next)
 .init({
@@ -18,7 +25,7 @@ i18n
     tw: { translation: tw }
   },
 
-  lng: "en",
+  lng: savedLanguage,
   fallbackLng: "en",
 
   interpolation: {

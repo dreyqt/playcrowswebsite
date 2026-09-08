@@ -5,8 +5,14 @@
   },
   "newsGrid": {
     "columns": {
-      "announcement": { "heading": "공지사항", "thumbAlt": "공지사항 배너" },
-      "update": { "heading": "업데이트", "thumbAlt": "업데이트 배너" },
+      "announcement": {
+        "heading": "공지사항",
+        "thumbAlt": "공지사항 배너"
+      },
+      "update": {
+        "heading": "업데이트",
+        "thumbAlt": "업데이트 배너"
+      },
       "gameInformation": {
         "heading": "게임 정보",
         "thumbAlt": "게임 정보",
@@ -47,12 +53,30 @@
     "sectionLabel": "탐색",
     "title": "게임 정보",
     "items": {
-      "expRate": { "title": "경험치 배율", "value": "50배" },
-      "dropRate": { "title": "드롭률", "value": "30배" },
-      "enhancementRate": { "title": "강화 확률", "value": "3배" },
-      "newPlayerRewards": { "title": "신규 플레이어 보상", "value": "스타터 팩" },
-      "dailyRewards": { "title": "일일 보상", "value": "로그인 보너스" },
-      "modifiedNpc": { "title": "커스텀 NPC", "value": "커스텀 NPC" }
+      "expRate": {
+        "title": "경험치 배율",
+        "value": "50배"
+      },
+      "dropRate": {
+        "title": "드롭률",
+        "value": "30배"
+      },
+      "enhancementRate": {
+        "title": "강화 확률",
+        "value": "3배"
+      },
+      "newPlayerRewards": {
+        "title": "신규 플레이어 보상",
+        "value": "스타터 팩"
+      },
+      "dailyRewards": {
+        "title": "일일 보상",
+        "value": "로그인 보너스"
+      },
+      "modifiedNpc": {
+        "title": "커스텀 NPC",
+        "value": "커스텀 NPC"
+      }
     }
   },
   "donation": {
@@ -94,12 +118,52 @@
     "generalRules": {
       "heading": "🛡️ 일반 규칙",
       "items": [
-        { "num": "1", "title": "모든 플레이어 존중", "rules": ["모든 사람을 존중하며 대하세요.", "괴롭힘, 차별, 혐오 발언 또는 과도한 악의적 행동은 용납되지 않습니다."] },
-        { "num": "2", "title": "버그 악용 금지", "rules": ["개인적 이익을 위해 게임 버그나 의도되지 않은 메커니즘을 악용하는 행위는 금지됩니다.", "발견된 버그는 즉시 신고해야 합니다."] },
-        { "num": "3", "title": "제3자 프로그램 사용 금지", "rules": ["부당한 이점을 제공하는 치트, 핵, 봇, 매크로, 스크립트 또는 승인되지 않은 제3자 소프트웨어의 사용은 엄격히 금지됩니다."] },
-        { "num": "4", "title": "계정 거래 및 판매 금지", "rules": ["계정 구매, 판매, 공유 또는 거래는 전적으로 본인의 책임하에 이루어집니다.", "PlayCrows는 계정 공유나 거래로 인한 손실에 대해 책임을 지지 않습니다."] },
-        { "num": "5", "title": "사칭 금지", "rules": ["게임 마스터(GM), 관리자, 모더레이터 또는 PlayCrows 스태프를 사칭하는 행위는 금지됩니다."] },
-        { "num": "6", "title": "커뮤니티 존중", "rules": ["게임플레이, 이벤트 또는 커뮤니티 활동을 고의로 방해하지 마세요.", "필요한 경우 PlayCrows 스태프의 지시를 따르세요."] }
+        {
+          "num": "1",
+          "title": "모든 플레이어 존중",
+          "rules": [
+            "모든 사람을 존중하며 대하세요.",
+            "괴롭힘, 차별, 혐오 발언 또는 과도한 악의적 행동은 용납되지 않습니다."
+          ]
+        },
+        {
+          "num": "2",
+          "title": "버그 악용 금지",
+          "rules": [
+            "개인적 이익을 위해 게임 버그나 의도되지 않은 메커니즘을 악용하는 행위는 금지됩니다.",
+            "발견된 버그는 즉시 신고해야 합니다."
+          ]
+        },
+        {
+          "num": "3",
+          "title": "제3자 프로그램 사용 금지",
+          "rules": [
+            "부당한 이점을 제공하는 치트, 핵, 봇, 매크로, 스크립트 또는 승인되지 않은 제3자 소프트웨어의 사용은 엄격히 금지됩니다."
+          ]
+        },
+        {
+          "num": "4",
+          "title": "계정 거래 및 판매 금지",
+          "rules": [
+            "계정 구매, 판매, 공유 또는 거래는 전적으로 본인의 책임하에 이루어집니다.",
+            "PlayCrows는 계정 공유나 거래로 인한 손실에 대해 책임을 지지 않습니다."
+          ]
+        },
+        {
+          "num": "5",
+          "title": "사칭 금지",
+          "rules": [
+            "게임 마스터(GM), 관리자, 모더레이터 또는 PlayCrows 스태프를 사칭하는 행위는 금지됩니다."
+          ]
+        },
+        {
+          "num": "6",
+          "title": "커뮤니티 존중",
+          "rules": [
+            "게임플레이, 이벤트 또는 커뮤니티 활동을 고의로 방해하지 마세요.",
+            "필요한 경우 PlayCrows 스태프의 지시를 따르세요."
+          ]
+        }
       ]
     },
     "warningSystem": {
@@ -155,12 +219,89 @@
     "joinButton": "디스코드 참여하기"
   },
   "nav": {
-  "home": "홈",
-  "gameInfo": "게임 정보",
-  "donation": "후원",
-  "rules": "규칙",
-  "discord": "디스코드",
-  "download": "다운로드",
-  "register": "회원가입"
-}
+    "home": "홈",
+    "gameInfo": "게임 정보",
+    "donation": "후원",
+    "rules": "규칙",
+    "discord": "디스코드",
+    "download": "다운로드",
+    "register": "회원가입"
+  },
+  "site": {
+    "pageTitle": "나이트 크로우의 새로운 여정",
+    "mainNavigation": "주 메뉴",
+    "servers": "서버",
+    "community": "커뮤니티",
+    "news": "소식",
+    "gameInfo": "게임 정보",
+    "webshop": "웹 상점",
+    "download": "다운로드",
+    "playNow": "게임 시작",
+    "closeMenu": "메뉴 닫기",
+    "openMenu": "메뉴 열기",
+    "language": "웹사이트 언어",
+    "heroEyebrow": "새로운 모험의 시작",
+    "heroTitle": "새로운 여정의 시작,",
+    "heroDescription": "익숙한 세계에서 나만의 이야기를 시작하세요. 길드원과 함께 서버를 선택하고, PlayCrows 커뮤니티와 나이트 크로우를 즐겨 보세요.",
+    "globalCommunity": "글로벌 커뮤니티",
+    "beginJourney": "모험 시작하기",
+    "downloadGame": "게임 다운로드",
+    "findRealm": "서버 살펴보기",
+    "playVideo": "배경 영상 재생",
+    "pauseVideo": "배경 영상 일시 정지",
+    "chooseChapter": "두 개의 서버, 나만의 이야기",
+    "ourServers": "서버 안내",
+    "serverIntro": "PlayCrows 서버를 선택하세요. 새로운 모험이 시작됩니다.",
+    "v1Tag": "첫 번째 서버",
+    "v2Tag": "두 번째 서버",
+    "v1Description": "PlayCrows의 첫 번째 서버. 동료들과 함께 여러분의 이야기를 이어 가세요.",
+    "v2Description": "PlayCrows의 두 번째 서버에서 새로운 여정을 시작하세요. 전장에서 여러분의 자리를 찾으세요.",
+    "createAccount": "계정 등록",
+    "features": "서버 특징",
+    "accountNote": "계정 등록과 게임 다운로드 시 동일한 서버를 선택하세요.",
+    "fromRealm": "PlayCrows 소식",
+    "newsTitle": "소식 및 공지사항",
+    "announcements": "공지사항",
+    "updates": "업데이트",
+    "readMore": "자세히 보기",
+    "familiarWorld": "익숙한 세계.",
+    "differentPace": "새로운 속도.",
+    "featuresDescription": "빠른 성장, 신규 플레이어 보상, 일일 보상과 커스텀 NPC. 게임을 시작하기 전에 PlayCrows의 특징을 확인하세요.",
+    "startPlaying": "게임 시작하기",
+    "getStarted": "모험에 합류하세요",
+    "realmAwaits": "여러분을 기다립니다.",
+    "downloadIntro": "서버와 플랫폼을 선택하고 PlayCrows의 세계로 들어오세요.",
+    "chooseServer": "서버 선택",
+    "chooseServerHint": "V1 또는 V2 — 모험할 서버를 선택하세요.",
+    "createAccountHint": "선택한 서버의 계정을 등록하세요.",
+    "enterWorld": "게임 시작",
+    "enterWorldHint": "해당 서버의 클라이언트를 설치하고 모험을 시작하세요.",
+    "selectServer": "01 / 서버",
+    "platform": "02 / 플랫폼",
+    "clientLanguage": "03 / 게임 언어",
+    "registerFor": "{{server}} 계정 등록",
+    "downloadHelp": "설치에 도움이 필요하신가요?",
+    "askCommunity": "커뮤니티에 문의하세요",
+    "allDownloads": "이 서버의 전체 다운로드 보기",
+    "betterTogether": "함께하는 모험.",
+    "communityDescription": "길드를 찾고 다른 플레이어들과 교류하며 공지와 이벤트 소식을 확인하세요. 다음 모험은 커뮤니티와 함께 시작됩니다.",
+    "joinDiscord": "디스코드 참여",
+    "supportJourney": "여정을 응원하세요.",
+    "shopDescription": "PlayCrows 웹 상점에서 기프트 팩, 서포트 패키지와 플레이어 이벤트를 확인하세요.",
+    "visitShop": "웹 상점 방문",
+    "shopNote": "상점에서 서버별 구매 가능 여부와 패키지 내용을 확인하세요.",
+    "playRespectfully": "서로 존중하는 세계",
+    "rules": "서버 규칙",
+    "footerDescription": "나이트 크로우의 새로운 여정. 두 개의 PlayCrows 서버에서 함께하는 모험.",
+    "explore": "둘러보기",
+    "contactSupport": "고객 지원",
+    "independentNote": "독립 커뮤니티 서버이며 공식 나이트 크로우 서비스와 관련이 없습니다.",
+    "backTop": "맨 위로",
+    "skipContent": "본문으로 건너뛰기",
+    "home": "홈",
+    "notFound": "해당 게시글을 찾을 수 없습니다.",
+    "backNews": "공지사항으로 돌아가기",
+    "backUpdates": "업데이트로 돌아가기",
+    "articleEnglish": "이 게시글 본문은 영어로 제공됩니다."
+  }
 }

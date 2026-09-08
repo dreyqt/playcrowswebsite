@@ -1,37 +1,5 @@
-import { useTranslation } from 'react-i18next'
-import patchBannerImg from '../assets/update.png'
-import { UPDATES, getUpdateContent, type Page, type Lang } from '../data'
-import { Breadcrumb } from '../components/Breadcrumb'
-import { PageShell } from '../components/PageShell'
-import { IcoBack } from '../components/Icons'
-
-const SUPPORTED_LANGS: Lang[] = ['en', 'kr', 'th', 'tw', 'br']
-
-export default function UpdateDetailPage({ id, navigate, goHome }: { id: string; navigate: (p: Page) => void; goHome: () => void }) {
-  const { i18n } = useTranslation()
-  const lang: Lang = SUPPORTED_LANGS.includes(i18n.language as Lang) ? (i18n.language as Lang) : 'en'
-
-  const update = UPDATES.find(item => item.id === id)
-  if (!update) {
-    return <PageShell><p style={{ color: '#7A6248' }}>Update not found.</p></PageShell>
-  }
-
-  return (
-    <PageShell>
-      <Breadcrumb crumbs={[{ label: 'Home', onClick: goHome }, { label: 'Updates', onClick: () => navigate({ view: 'updates' }) }, { label: update.title[lang] }]} />
-      <div className="w-full overflow-hidden mb-10" style={{ background: '#0F0C09' }}>
-        <img src={patchBannerImg} alt="Patch Notes banner" className="w-full object-cover" style={{ maxHeight: 280, objectPosition: 'center' }} />
-      </div>
-      <div className="mb-2"><p className="font-cinzel" style={{ fontSize: 11, color: '#3A2C18', letterSpacing: '0.15em' }}>{update.date[lang]}</p></div>
-      <h1 className="font-cinzel font-bold text-white mb-8" style={{ fontSize: 'clamp(1.2rem, 2.5vw, 1.8rem)', letterSpacing: '0.06em', lineHeight: 1.4 }}>{update.title[lang]}</h1>
-      <div style={{ borderTop: '1px solid rgba(212,169,77,0.1)', paddingTop: 28 }}>
-        {getUpdateContent(id)}
-      </div>
-      <div className="mt-12">
-        <button onClick={() => navigate({ view: 'updates' })} className="btn-secondary flex items-center gap-2" style={{ fontSize: 13, padding: '10px 24px' }}>
-          <IcoBack /> Back to Updates
-        </button>
-      </div>
-    </PageShell>
-  )
+import type { Page } from '../data'
+import { NewsArticle } from '../components/ArticlePages'
+export default function UpdateDetailPage(props: { id: string; navigate: (page: Page) => void; goHome: () => void }) {
+  return <NewsArticle {...props} kind="update" />
 }

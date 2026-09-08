@@ -5,8 +5,14 @@
   },
   "newsGrid": {
     "columns": {
-      "announcement": { "heading": "Anúncio", "thumbAlt": "Banner de anúncio" },
-      "update": { "heading": "Atualização", "thumbAlt": "Banner de atualização" },
+      "announcement": {
+        "heading": "Anúncio",
+        "thumbAlt": "Banner de anúncio"
+      },
+      "update": {
+        "heading": "Atualização",
+        "thumbAlt": "Banner de atualização"
+      },
       "gameInformation": {
         "heading": "Informações do Jogo",
         "thumbAlt": "Informações do jogo",
@@ -47,12 +53,30 @@
     "sectionLabel": "Explore",
     "title": "INFORMAÇÕES DO JOGO",
     "items": {
-      "expRate": { "title": "TAXA DE EXPERIÊNCIA", "value": "50x" },
-      "dropRate": { "title": "TAXA DE DROP", "value": "30x" },
-      "enhancementRate": { "title": "TAXA DE APRIMORAMENTO", "value": "3x" },
-      "newPlayerRewards": { "title": "RECOMPENSAS PARA NOVOS JOGADORES", "value": "PACOTE INICIAL" },
-      "dailyRewards": { "title": "RECOMPENSAS DIÁRIAS", "value": "BÔNUS DE LOGIN" },
-      "modifiedNpc": { "title": "NPC MODIFICADO", "value": "NPC PERSONALIZADO" }
+      "expRate": {
+        "title": "TAXA DE EXPERIÊNCIA",
+        "value": "50x"
+      },
+      "dropRate": {
+        "title": "TAXA DE DROP",
+        "value": "30x"
+      },
+      "enhancementRate": {
+        "title": "TAXA DE APRIMORAMENTO",
+        "value": "3x"
+      },
+      "newPlayerRewards": {
+        "title": "RECOMPENSAS PARA NOVOS JOGADORES",
+        "value": "PACOTE INICIAL"
+      },
+      "dailyRewards": {
+        "title": "RECOMPENSAS DIÁRIAS",
+        "value": "BÔNUS DE LOGIN"
+      },
+      "modifiedNpc": {
+        "title": "NPC MODIFICADO",
+        "value": "NPC PERSONALIZADO"
+      }
     }
   },
   "donation": {
@@ -94,12 +118,52 @@
     "generalRules": {
       "heading": "🛡️ Regras Gerais",
       "items": [
-        { "num": "1", "title": "Respeite Todos os Jogadores", "rules": ["Trate todos com respeito.", "Assédio, discriminação, discurso de ódio ou toxicidade excessiva não serão tolerados."] },
-        { "num": "2", "title": "Sem Exploração de Bugs", "rules": ["É proibido explorar bugs do jogo ou mecânicas não intencionais para benefício próprio.", "Qualquer bug encontrado deve ser reportado imediatamente."] },
-        { "num": "3", "title": "Sem Programas de Terceiros", "rules": ["É estritamente proibido o uso de cheats, hacks, bots, macros, scripts ou softwares de terceiros não autorizados que ofereçam vantagem injusta."] },
-        { "num": "4", "title": "Sem Comércio ou Venda de Contas", "rules": ["Comprar, vender, compartilhar ou negociar contas é feito totalmente por sua conta e risco.", "A PlayCrows não se responsabiliza por perdas resultantes do compartilhamento ou negociação de contas."] },
-        { "num": "5", "title": "Personificação", "rules": ["É proibido se passar por um Game Master (GM), Administrador, Moderador ou qualquer membro da equipe PlayCrows."] },
-        { "num": "6", "title": "Respeite a Comunidade", "rules": ["Não interrompa intencionalmente a jogabilidade, eventos ou atividades da comunidade.", "Siga as instruções fornecidas pela equipe PlayCrows quando necessário."] }
+        {
+          "num": "1",
+          "title": "Respeite Todos os Jogadores",
+          "rules": [
+            "Trate todos com respeito.",
+            "Assédio, discriminação, discurso de ódio ou toxicidade excessiva não serão tolerados."
+          ]
+        },
+        {
+          "num": "2",
+          "title": "Sem Exploração de Bugs",
+          "rules": [
+            "É proibido explorar bugs do jogo ou mecânicas não intencionais para benefício próprio.",
+            "Qualquer bug encontrado deve ser reportado imediatamente."
+          ]
+        },
+        {
+          "num": "3",
+          "title": "Sem Programas de Terceiros",
+          "rules": [
+            "É estritamente proibido o uso de cheats, hacks, bots, macros, scripts ou softwares de terceiros não autorizados que ofereçam vantagem injusta."
+          ]
+        },
+        {
+          "num": "4",
+          "title": "Sem Comércio ou Venda de Contas",
+          "rules": [
+            "Comprar, vender, compartilhar ou negociar contas é feito totalmente por sua conta e risco.",
+            "A PlayCrows não se responsabiliza por perdas resultantes do compartilhamento ou negociação de contas."
+          ]
+        },
+        {
+          "num": "5",
+          "title": "Personificação",
+          "rules": [
+            "É proibido se passar por um Game Master (GM), Administrador, Moderador ou qualquer membro da equipe PlayCrows."
+          ]
+        },
+        {
+          "num": "6",
+          "title": "Respeite a Comunidade",
+          "rules": [
+            "Não interrompa intencionalmente a jogabilidade, eventos ou atividades da comunidade.",
+            "Siga as instruções fornecidas pela equipe PlayCrows quando necessário."
+          ]
+        }
       ]
     },
     "warningSystem": {
@@ -155,12 +219,89 @@
     "joinButton": "Entrar no Discord"
   },
   "nav": {
-  "home": "INÍCIO",
-  "gameInfo": "INFO DO JOGO",
-  "donation": "DOAÇÃO",
-  "rules": "REGRAS",
-  "discord": "DISCORD",
-  "download": "DOWNLOAD",
-  "register": "REGISTRAR"
-}
+    "home": "INÍCIO",
+    "gameInfo": "INFO DO JOGO",
+    "donation": "DOAÇÃO",
+    "rules": "REGRAS",
+    "discord": "DISCORD",
+    "download": "DOWNLOAD",
+    "register": "REGISTRAR"
+  },
+  "site": {
+    "pageTitle": "Seu próximo capítulo em Night Crows",
+    "mainNavigation": "Navegação principal",
+    "servers": "Servidores",
+    "community": "Comunidade",
+    "news": "Notícias",
+    "gameInfo": "O jogo",
+    "webshop": "Loja",
+    "download": "Baixar",
+    "playNow": "Jogar agora",
+    "closeMenu": "Fechar menu",
+    "openMenu": "Abrir menu",
+    "language": "Idioma do site",
+    "heroEyebrow": "Um novo lar para sua aventura",
+    "heroTitle": "Seu próximo capítulo em",
+    "heroDescription": "O mundo que você conhece. Uma jornada só sua. Reúna sua guilda, escolha seu reino e viva Night Crows com a comunidade PlayCrows.",
+    "globalCommunity": "Comunidade internacional",
+    "beginJourney": "Comece sua jornada",
+    "downloadGame": "Baixar o jogo",
+    "findRealm": "Encontre seu reino",
+    "playVideo": "Reproduzir vídeo de fundo",
+    "pauseVideo": "Pausar vídeo de fundo",
+    "chooseChapter": "Dois reinos. Sua história.",
+    "ourServers": "Nossos servidores",
+    "serverIntro": "Escolha seu reino PlayCrows. Sua próxima aventura começa aqui.",
+    "v1Tag": "Reino original",
+    "v2Tag": "Segundo reino",
+    "v1Description": "O reino original de PlayCrows. Reúna seus aliados e continue sua história.",
+    "v2Description": "Seu próximo capítulo no segundo reino de PlayCrows. Encontre seu lugar no campo de batalha.",
+    "createAccount": "Criar conta",
+    "features": "Recursos",
+    "accountNote": "Escolha o mesmo servidor ao criar sua conta e baixar o cliente do jogo.",
+    "fromRealm": "Direto do reino",
+    "newsTitle": "Notícias e anúncios",
+    "announcements": "Anúncios",
+    "updates": "Atualizações",
+    "readMore": "Saiba mais",
+    "familiarWorld": "Um mundo familiar.",
+    "differentPace": "Um ritmo diferente.",
+    "featuresDescription": "Progressão mais rápida, recompensas iniciais e diárias e NPCs personalizados. Conheça a experiência PlayCrows antes de entrar neste mundo.",
+    "startPlaying": "Começar a jogar",
+    "getStarted": "Entre na aventura",
+    "realmAwaits": "Seu reino espera.",
+    "downloadIntro": "Tudo para começar. Escolha o servidor e a plataforma e entre em PlayCrows.",
+    "chooseServer": "Escolha seu servidor",
+    "chooseServerHint": "V1 ou V2 — encontre o reino da sua aventura.",
+    "createAccountHint": "Crie uma conta para o servidor escolhido.",
+    "enterWorld": "Entre no mundo",
+    "enterWorldHint": "Instale o cliente correspondente e comece sua jornada.",
+    "selectServer": "01 / Servidor",
+    "platform": "02 / Plataforma",
+    "clientLanguage": "03 / Idioma do jogo",
+    "registerFor": "Criar conta no {{server}}",
+    "downloadHelp": "Precisa de ajuda para instalar?",
+    "askCommunity": "Fale com a comunidade",
+    "allDownloads": "Ver todos os downloads deste servidor",
+    "betterTogether": "Melhor juntos.",
+    "communityDescription": "Encontre uma guilda, conheça jogadores e acompanhe anúncios e eventos. Sua próxima aventura começa com sua comunidade.",
+    "joinDiscord": "Entrar no Discord",
+    "supportJourney": "Apoie a jornada.",
+    "shopDescription": "Explore pacotes de presentes, pacotes de apoio e eventos para jogadores na loja PlayCrows.",
+    "visitShop": "Visitar a loja",
+    "shopNote": "Confira na loja a disponibilidade por servidor e os detalhes dos pacotes.",
+    "playRespectfully": "Respeite o reino",
+    "rules": "Regras do servidor",
+    "footerDescription": "Seu próximo capítulo em Night Crows. Dois reinos PlayCrows. A mesma paixão pela aventura.",
+    "explore": "Explorar",
+    "contactSupport": "Falar com o suporte",
+    "independentNote": "Servidor de comunidade independente, sem vínculo com o serviço oficial de Night Crows.",
+    "backTop": "Voltar ao topo",
+    "skipContent": "Pular para o conteúdo",
+    "home": "Início",
+    "notFound": "Este artigo não foi encontrado.",
+    "backNews": "Voltar aos anúncios",
+    "backUpdates": "Voltar às atualizações",
+    "articleEnglish": "Este artigo está disponível em inglês."
+  }
 }

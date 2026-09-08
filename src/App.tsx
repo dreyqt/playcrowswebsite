@@ -1,5 +1,6 @@
-import { useEffect, useState } from 'react'
-import type { Page } from './data'
+import { useEffect, useRef, useState } from 'react'
+import { useTranslation } from 'react-i18next'
+import { ANNOUNCEMENTS, UPDATES, type Page } from './data'
 import { Navbar } from './components/Navbar'
 import { Footer } from './components/Footer'
 import HomePage from './pages/HomePage'
@@ -8,48 +9,58 @@ import AnnouncementDetailPage from './pages/AnnouncementDetailPage'
 import UpdatesPage from './pages/UpdatesPage'
 import UpdateDetailPage from './pages/UpdateDetailPage'
 
+function readRoute(hash: string): Page {
+  try {
+    const [view, id] = hash.replace(/^#\/?/, '').split('/')
+    if (view === 'announcements' || view === 'updates') return { view }
+    if ((view === 'announcement' || view === 'update') && id) return { view, id: decodeURIComponent(id) }
+  } catch { /* Unknown or malformed URLs return to the home page. */ }
+  return { view: 'home' }
+}
+
 export default function App() {
-  const [page, setPage] = useState<Page>({ view: 'home' })
-  const [pendingScroll, setPendingScroll] = useState<string | null>(null)
-
-  const navigate = (p: Page) => {
-    setPage(p)
-    window.scrollTo({ top: 0, behavior: 'instant' as ScrollBehavior })
-  }
-
-  const goHome = () => navigate({ view: 'home' })
-
-  const scrollTo = (id: string) => {
-    if (page.view !== 'home') {
-      setPage({ view: 'home' })
-      setPendingScroll(id)
-      window.scrollTo({ top: 0, behavior: 'instant' as ScrollBehavior })
-    } else {
-      document.getElementById(id)?.scrollIntoView({ behavior: 'smooth' })
-    }
-  }
-
+  const { t, i18n } = useTranslation()
+  const [hash, setHash] = useState(window.location.hash)
+  const main = useRef<HTMLElement>(null)
+  const page = readRoute(hash)
   useEffect(() => {
-    if (page.view === 'home' && pendingScroll) {
-      const timeout = setTimeout(() => {
-        document.getElementById(pendingScroll)?.scrollIntoView({ behavior: 'smooth' })
-        setPendingScroll(null)
-      }, 80)
-      return () => clearTimeout(timeout)
-    }
-  }, [page.view, pendingScroll])
-
-  return (
-    <div style={{ background: '#0F0C09', minHeight: '100vh' }}>
-      <Navbar navigate={navigate} goHome={goHome} scrollTo={scrollTo} />
-
+    const update = () => setHash(window.location.hash)
+    window.addEventListener('hashchange', update)
+    return () => window.removeEventListener('hashchange', update)
+  }, [])
+  useEffect(() => {
+    const id = page.view === 'home' && hash && !hash.startsWith('#/') ? hash.slice(1) : null
+    const frame = requestAnimationFrame(() => {
+      if (id) document.getElementById(id)?.scrollIntoView({ behavior: 'auto' })
+      else { window.scrollTo({ top: 0, behavior: 'instant' }); if (page.view !== 'home') main.current?.focus({ preventScroll: true }) }
+    })
+    return () => cancelAnimationFrame(frame)
+  }, [hash])
+  useEffect(() => {
+    const langMap: Record<string, string> = { en: 'en', kr: 'ko', th: 'th', br: 'pt-BR', tw: 'zh-Hant' }
+    document.documentElement.lang = langMap[i18n.language] ?? 'en'
+    const item = page.view === 'announcement' ? ANNOUNCEMENTS.find(a => a.id === page.id) : page.view === 'update' ? UPDATES.find(a => a.id === page.id) : undefined
+    const title = item ? item.title[i18n.language as keyof typeof item.title] ?? item.title.en : page.view === 'announcements' ? t('site.announcements') : page.view === 'updates' ? t('site.updates') : t('site.pageTitle')
+    document.title = `${title} | PlayCrows`
+  }, [hash, i18n.language, t])
+  const setLocation = (next: string) => {
+    if (window.location.hash !== next) window.location.hash = next
+    else if (next.startsWith('#/')) window.scrollTo({ top: 0, behavior: 'auto' })
+    else document.getElementById(next.slice(1))?.scrollIntoView({ behavior: 'auto' })
+  }
+  const navigate = (next: Page) => setLocation(next.view === 'home' ? '#/' : 'id' in next ? `#/${next.view}/${encodeURIComponent(next.id)}` : `#/${next.view}`)
+  const goHome = () => navigate({ view: 'home' })
+  const scrollTo = (id: string) => setLocation(`#${id}`)
+  return <>
+    <a className="skip-link" href="#main-content">{t('site.skipContent')}</a>
+    <Navbar navigate={navigate} goHome={goHome} scrollTo={scrollTo} />
+    <main id="main-content" ref={main} tabIndex={-1}>
       {page.view === 'home' && <HomePage navigate={navigate} scrollTo={scrollTo} />}
       {page.view === 'announcements' && <AnnouncementsPage navigate={navigate} goHome={goHome} />}
       {page.view === 'announcement' && <AnnouncementDetailPage id={page.id} navigate={navigate} goHome={goHome} />}
       {page.view === 'updates' && <UpdatesPage navigate={navigate} goHome={goHome} />}
       {page.view === 'update' && <UpdateDetailPage id={page.id} navigate={navigate} goHome={goHome} />}
-
-      <Footer navigate={navigate} goHome={goHome} />
-    </div>
-  )
+    </main>
+    <Footer navigate={navigate} goHome={goHome} />
+  </>
 }

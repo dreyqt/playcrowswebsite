@@ -4,14 +4,14 @@
     "subtitle": "A community-driven Night Crows built for players who want a fair, competitive, and rewarding experience."
   },
   "nav": {
-  "home": "HOME",
-  "gameInfo": "GAME INFO",
-  "donation": "DONATION",
-  "rules": "RULES",
-  "discord": "DISCORD",
-  "download": "DOWNLOAD",
-  "register": "REGISTER"
-},
+    "home": "HOME",
+    "gameInfo": "GAME INFO",
+    "donation": "DONATION",
+    "rules": "RULES",
+    "discord": "DISCORD",
+    "download": "DOWNLOAD",
+    "register": "REGISTER"
+  },
   "newsGrid": {
     "columns": {
       "announcement": {
@@ -62,12 +62,30 @@
     "sectionLabel": "Explore",
     "title": "GAME INFORMATION",
     "items": {
-      "expRate": { "title": "EXP RATE", "value": "50x" },
-      "dropRate": { "title": "DROP RATE", "value": "30x" },
-      "enhancementRate": { "title": "ENHANCEMENT RATE", "value": "3x" },
-      "newPlayerRewards": { "title": "NEW PLAYER REWARDS", "value": "STARTER PACK" },
-      "dailyRewards": { "title": "DAILY REWARDS", "value": "LOGIN BONUS" },
-      "modifiedNpc": { "title": "MODIFIED NPC", "value": "CUSTOM NPC" }
+      "expRate": {
+        "title": "EXP RATE",
+        "value": "50x"
+      },
+      "dropRate": {
+        "title": "DROP RATE",
+        "value": "30x"
+      },
+      "enhancementRate": {
+        "title": "ENHANCEMENT RATE",
+        "value": "3x"
+      },
+      "newPlayerRewards": {
+        "title": "NEW PLAYER REWARDS",
+        "value": "STARTER PACK"
+      },
+      "dailyRewards": {
+        "title": "DAILY REWARDS",
+        "value": "LOGIN BONUS"
+      },
+      "modifiedNpc": {
+        "title": "MODIFIED NPC",
+        "value": "CUSTOM NPC"
+      }
     }
   },
   "donation": {
@@ -109,12 +127,52 @@
     "generalRules": {
       "heading": "🛡️ General Rules",
       "items": [
-        { "num": "1", "title": "Respect All Players", "rules": ["Treat everyone with respect.", "Harassment, discrimination, hate speech, or excessive toxicity will not be tolerated."] },
-        { "num": "2", "title": "No Exploiting or Bug Abuse", "rules": ["Exploiting game bugs or unintended mechanics for personal gain is prohibited.", "Any discovered bugs should be reported immediately."] },
-        { "num": "3", "title": "No Third-Party Programs", "rules": ["The use of cheats, hacks, bots, macros, scripts, or unauthorized third-party software that provides an unfair advantage is strictly prohibited."] },
-        { "num": "4", "title": "No Account Trading or Selling", "rules": ["Buying, selling, sharing, or trading accounts is done entirely at your own risk.", "PlayCrows is not responsible for any losses resulting from account sharing or trading."] },
-        { "num": "5", "title": "Impersonation", "rules": ["Pretending to be a Game Master (GM), Administrator, Moderator, or any PlayCrows staff member is prohibited."] },
-        { "num": "6", "title": "Respect the Community", "rules": ["Do not intentionally disrupt gameplay, events, or community activities.", "Follow instructions given by PlayCrows staff when necessary."] }
+        {
+          "num": "1",
+          "title": "Respect All Players",
+          "rules": [
+            "Treat everyone with respect.",
+            "Harassment, discrimination, hate speech, or excessive toxicity will not be tolerated."
+          ]
+        },
+        {
+          "num": "2",
+          "title": "No Exploiting or Bug Abuse",
+          "rules": [
+            "Exploiting game bugs or unintended mechanics for personal gain is prohibited.",
+            "Any discovered bugs should be reported immediately."
+          ]
+        },
+        {
+          "num": "3",
+          "title": "No Third-Party Programs",
+          "rules": [
+            "The use of cheats, hacks, bots, macros, scripts, or unauthorized third-party software that provides an unfair advantage is strictly prohibited."
+          ]
+        },
+        {
+          "num": "4",
+          "title": "No Account Trading or Selling",
+          "rules": [
+            "Buying, selling, sharing, or trading accounts is done entirely at your own risk.",
+            "PlayCrows is not responsible for any losses resulting from account sharing or trading."
+          ]
+        },
+        {
+          "num": "5",
+          "title": "Impersonation",
+          "rules": [
+            "Pretending to be a Game Master (GM), Administrator, Moderator, or any PlayCrows staff member is prohibited."
+          ]
+        },
+        {
+          "num": "6",
+          "title": "Respect the Community",
+          "rules": [
+            "Do not intentionally disrupt gameplay, events, or community activities.",
+            "Follow instructions given by PlayCrows staff when necessary."
+          ]
+        }
       ]
     },
     "warningSystem": {
@@ -168,5 +226,82 @@
     "established": "Est. Jul 2026",
     "serverDescription": "PlayCrows is a community-driven Night Crows built for players who want a fair, competitive, and rewarding experience.",
     "joinButton": "Join Discord"
+  },
+  "site": {
+    "pageTitle": "Your next chapter in Night Crows",
+    "mainNavigation": "Main navigation",
+    "servers": "Servers",
+    "community": "Community",
+    "news": "News",
+    "gameInfo": "Game info",
+    "webshop": "Webshop",
+    "download": "Download",
+    "playNow": "Play now",
+    "closeMenu": "Close menu",
+    "openMenu": "Open menu",
+    "language": "Website language",
+    "heroEyebrow": "A new home for your adventure",
+    "heroTitle": "Your next chapter in",
+    "heroDescription": "The world you know. A journey of your own. Bring your guild, choose your realm, and experience Night Crows with the PlayCrows community.",
+    "globalCommunity": "International community",
+    "beginJourney": "Begin your journey",
+    "downloadGame": "Download game",
+    "findRealm": "Find your realm",
+    "playVideo": "Play background video",
+    "pauseVideo": "Pause background video",
+    "chooseChapter": "Two realms. Your story.",
+    "ourServers": "Our servers",
+    "serverIntro": "Choose your PlayCrows realm. Your next adventure starts here.",
+    "v1Tag": "Original realm",
+    "v2Tag": "Second realm",
+    "v1Description": "The original PlayCrows realm. Gather your allies and continue your story.",
+    "v2Description": "Your next chapter in the second PlayCrows realm. Find your place on the battlefield.",
+    "createAccount": "Create account",
+    "features": "Features",
+    "accountNote": "Choose the same server when you register and download your game client.",
+    "fromRealm": "From the realm",
+    "newsTitle": "News & announcements",
+    "announcements": "Announcements",
+    "updates": "Updates",
+    "readMore": "Read more",
+    "familiarWorld": "A familiar world.",
+    "differentPace": "A different pace.",
+    "featuresDescription": "Faster progression, starter and daily rewards, and custom NPCs. Discover the PlayCrows experience before you enter the world.",
+    "startPlaying": "Start playing",
+    "getStarted": "Join the adventure",
+    "realmAwaits": "Your realm awaits.",
+    "downloadIntro": "Everything you need to begin. Choose your server, select your platform, and step into PlayCrows.",
+    "chooseServer": "Choose your server",
+    "chooseServerHint": "V1 or V2 — find the realm for your adventure.",
+    "createAccountHint": "Register an account for your chosen server.",
+    "enterWorld": "Enter the world",
+    "enterWorldHint": "Install the matching client and begin your journey.",
+    "selectServer": "01 / Server",
+    "platform": "02 / Platform",
+    "clientLanguage": "03 / Game language",
+    "registerFor": "Register for {{server}}",
+    "downloadHelp": "Need help installing?",
+    "askCommunity": "Ask our community",
+    "allDownloads": "View all downloads for this server",
+    "betterTogether": "Better together.",
+    "communityDescription": "Find your guild, meet other players, and keep up with announcements and events. Your next adventure begins with your community.",
+    "joinDiscord": "Join Discord",
+    "supportJourney": "Support the journey.",
+    "shopDescription": "Explore gift packs, support packages, and player events in the PlayCrows webshop.",
+    "visitShop": "Visit the webshop",
+    "shopNote": "Check server availability and package details in the shop.",
+    "playRespectfully": "Respect the realm",
+    "rules": "Server rules",
+    "footerDescription": "Your next chapter in Night Crows. Two PlayCrows realms. One shared passion for the adventure.",
+    "explore": "Explore",
+    "contactSupport": "Contact support",
+    "independentNote": "Independent community server. Not affiliated with the official Night Crows service.",
+    "backTop": "Back to top",
+    "skipContent": "Skip to content",
+    "home": "Home",
+    "notFound": "This article could not be found.",
+    "backNews": "Back to announcements",
+    "backUpdates": "Back to updates",
+    "articleEnglish": "This article is available in English."
   }
 }

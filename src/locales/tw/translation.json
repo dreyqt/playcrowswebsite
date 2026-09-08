@@ -5,8 +5,14 @@
   },
   "newsGrid": {
     "columns": {
-      "announcement": { "heading": "公告", "thumbAlt": "公告橫幅" },
-      "update": { "heading": "更新", "thumbAlt": "更新橫幅" },
+      "announcement": {
+        "heading": "公告",
+        "thumbAlt": "公告橫幅"
+      },
+      "update": {
+        "heading": "更新",
+        "thumbAlt": "更新橫幅"
+      },
       "gameInformation": {
         "heading": "遊戲資訊",
         "thumbAlt": "遊戲資訊",
@@ -47,12 +53,30 @@
     "sectionLabel": "探索",
     "title": "遊戲資訊",
     "items": {
-      "expRate": { "title": "經驗值倍率", "value": "50 倍" },
-      "dropRate": { "title": "掉落率", "value": "30 倍" },
-      "enhancementRate": { "title": "強化成功率", "value": "3 倍" },
-      "newPlayerRewards": { "title": "新玩家獎勵", "value": "新手禮包" },
-      "dailyRewards": { "title": "每日獎勵", "value": "登入獎勵" },
-      "modifiedNpc": { "title": "客製化 NPC", "value": "客製 NPC" }
+      "expRate": {
+        "title": "經驗值倍率",
+        "value": "50 倍"
+      },
+      "dropRate": {
+        "title": "掉落率",
+        "value": "30 倍"
+      },
+      "enhancementRate": {
+        "title": "強化成功率",
+        "value": "3 倍"
+      },
+      "newPlayerRewards": {
+        "title": "新玩家獎勵",
+        "value": "新手禮包"
+      },
+      "dailyRewards": {
+        "title": "每日獎勵",
+        "value": "登入獎勵"
+      },
+      "modifiedNpc": {
+        "title": "客製化 NPC",
+        "value": "客製 NPC"
+      }
     }
   },
   "donation": {
@@ -94,12 +118,52 @@
     "generalRules": {
       "heading": "🛡️ 一般規則",
       "items": [
-        { "num": "1", "title": "尊重所有玩家", "rules": ["請以尊重的態度對待每一位玩家。", "騷擾、歧視、仇恨言論或過度惡意行為將不被容忍。"] },
-        { "num": "2", "title": "禁止利用漏洞", "rules": ["禁止利用遊戲漏洞或非預期機制謀取個人利益。", "發現任何漏洞應立即回報。"] },
-        { "num": "3", "title": "禁止使用第三方程式", "rules": ["嚴禁使用外掛、駭客程式、機器人、巨集、腳本或任何提供不公平優勢的未授權第三方軟體。"] },
-        { "num": "4", "title": "禁止帳號交易或買賣", "rules": ["買賣、分享或交易帳號需自行承擔全部風險。", "PlayCrows 不對因帳號分享或交易造成的任何損失負責。"] },
-        { "num": "5", "title": "冒充行為", "rules": ["禁止冒充遊戲管理員（GM）、系統管理員、版主或任何 PlayCrows 工作人員。"] },
-        { "num": "6", "title": "尊重社群", "rules": ["請勿故意干擾遊戲進行、活動或社群活動。", "必要時請遵守 PlayCrows 工作人員的指示。"] }
+        {
+          "num": "1",
+          "title": "尊重所有玩家",
+          "rules": [
+            "請以尊重的態度對待每一位玩家。",
+            "騷擾、歧視、仇恨言論或過度惡意行為將不被容忍。"
+          ]
+        },
+        {
+          "num": "2",
+          "title": "禁止利用漏洞",
+          "rules": [
+            "禁止利用遊戲漏洞或非預期機制謀取個人利益。",
+            "發現任何漏洞應立即回報。"
+          ]
+        },
+        {
+          "num": "3",
+          "title": "禁止使用第三方程式",
+          "rules": [
+            "嚴禁使用外掛、駭客程式、機器人、巨集、腳本或任何提供不公平優勢的未授權第三方軟體。"
+          ]
+        },
+        {
+          "num": "4",
+          "title": "禁止帳號交易或買賣",
+          "rules": [
+            "買賣、分享或交易帳號需自行承擔全部風險。",
+            "PlayCrows 不對因帳號分享或交易造成的任何損失負責。"
+          ]
+        },
+        {
+          "num": "5",
+          "title": "冒充行為",
+          "rules": [
+            "禁止冒充遊戲管理員（GM）、系統管理員、版主或任何 PlayCrows 工作人員。"
+          ]
+        },
+        {
+          "num": "6",
+          "title": "尊重社群",
+          "rules": [
+            "請勿故意干擾遊戲進行、活動或社群活動。",
+            "必要時請遵守 PlayCrows 工作人員的指示。"
+          ]
+        }
       ]
     },
     "warningSystem": {
@@ -155,12 +219,89 @@
     "joinButton": "加入 Discord"
   },
   "nav": {
-  "home": "首頁",
-  "gameInfo": "遊戲資訊",
-  "donation": "贊助",
-  "rules": "規則",
-  "discord": "DISCORD",
-  "download": "下載",
-  "register": "註冊"
-}
+    "home": "首頁",
+    "gameInfo": "遊戲資訊",
+    "donation": "贊助",
+    "rules": "規則",
+    "discord": "DISCORD",
+    "download": "下載",
+    "register": "註冊"
+  },
+  "site": {
+    "pageTitle": "開啟 Night Crows 的全新篇章",
+    "mainNavigation": "主選單",
+    "servers": "伺服器",
+    "community": "社群",
+    "news": "最新消息",
+    "gameInfo": "遊戲資訊",
+    "webshop": "網頁商店",
+    "download": "下載",
+    "playNow": "開始遊戲",
+    "closeMenu": "關閉選單",
+    "openMenu": "開啟選單",
+    "language": "網站語言",
+    "heroEyebrow": "全新冒險，從這裡開始",
+    "heroTitle": "開啟全新篇章，",
+    "heroDescription": "熟悉的世界，專屬於你的旅程。召集公會夥伴、選擇伺服器，與 PlayCrows 社群一同體驗 Night Crows。",
+    "globalCommunity": "國際玩家社群",
+    "beginJourney": "開啟冒險",
+    "downloadGame": "下載遊戲",
+    "findRealm": "尋找你的伺服器",
+    "playVideo": "播放背景影片",
+    "pauseVideo": "暫停背景影片",
+    "chooseChapter": "兩個世界，你的故事",
+    "ourServers": "我們的伺服器",
+    "serverIntro": "選擇你的 PlayCrows 伺服器，全新冒險即將開始。",
+    "v1Tag": "初始伺服器",
+    "v2Tag": "第二伺服器",
+    "v1Description": "PlayCrows 的初始伺服器。召集盟友，繼續書寫你的故事。",
+    "v2Description": "在 PlayCrows 第二伺服器展開下一篇章，在戰場上找到屬於你的位置。",
+    "createAccount": "註冊帳號",
+    "features": "伺服器特色",
+    "accountNote": "註冊帳號與下載遊戲客戶端時，請選擇相同伺服器。",
+    "fromRealm": "來自 PlayCrows",
+    "newsTitle": "最新消息與公告",
+    "announcements": "公告",
+    "updates": "更新",
+    "readMore": "閱讀更多",
+    "familiarWorld": "熟悉的世界。",
+    "differentPace": "不一樣的節奏。",
+    "featuresDescription": "加速成長、新手與每日獎勵，以及自訂 NPC。進入遊戲前，先了解 PlayCrows 的特色。",
+    "startPlaying": "開始遊玩",
+    "getStarted": "加入冒險",
+    "realmAwaits": "你的世界，等你到來。",
+    "downloadIntro": "選擇伺服器與遊戲平台，踏入 PlayCrows 的世界。",
+    "chooseServer": "選擇伺服器",
+    "chooseServerHint": "V1 或 V2 — 找到適合你的冒險世界。",
+    "createAccountHint": "為你選擇的伺服器註冊帳號。",
+    "enterWorld": "進入遊戲世界",
+    "enterWorldHint": "安裝相應客戶端，展開你的旅程。",
+    "selectServer": "01 / 伺服器",
+    "platform": "02 / 平台",
+    "clientLanguage": "03 / 遊戲語言",
+    "registerFor": "註冊 {{server}} 帳號",
+    "downloadHelp": "安裝需要協助？",
+    "askCommunity": "向社群詢問",
+    "allDownloads": "查看此伺服器的所有下載",
+    "betterTogether": "一起冒險，更精彩。",
+    "communityDescription": "尋找公會、結識玩家，掌握公告與活動消息。與社群一起展開你的下一場冒險。",
+    "joinDiscord": "加入 Discord",
+    "supportJourney": "支持這段旅程。",
+    "shopDescription": "前往 PlayCrows 網頁商店，查看禮包、贊助套裝及玩家活動。",
+    "visitShop": "前往網頁商店",
+    "shopNote": "請在商店確認適用伺服器及禮包內容。",
+    "playRespectfully": "尊重彼此，共享世界",
+    "rules": "伺服器規則",
+    "footerDescription": "開啟 Night Crows 的全新篇章。兩個 PlayCrows 世界，同一份冒險熱情。",
+    "explore": "探索",
+    "contactSupport": "聯絡支援",
+    "independentNote": "獨立社群伺服器，與 Night Crows 官方服務無關。",
+    "backTop": "回到頂端",
+    "skipContent": "跳至主要內容",
+    "home": "首頁",
+    "notFound": "找不到這篇文章。",
+    "backNews": "返回公告",
+    "backUpdates": "返回更新",
+    "articleEnglish": "此文章內文以英文提供。"
+  }
 }

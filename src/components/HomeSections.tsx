@@ -1,601 +1,146 @@
-import { useEffect, useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import { useTranslation, Trans } from 'react-i18next'
-import logoImg from '../assets/logo_playcrows.png'
-import playcrowsLogo from '../assets/playcrows_logo.png'
-import thumbAnnouncement from '../assets/announcement.png'
-import thumbUpdate from '../assets/update.png'
-import thumbGameInfo from '../assets/game.png'
-import thumbSupport from '../assets/support.png'
+import { ArrowDown, ArrowRight, ArrowUpRight, BookOpen, Check, ChevronDown, Download, Gift, Globe2, Monitor, Pause, Play, Shield, ShoppingBag, Smartphone, Sparkles, Swords, UserPlus, Users } from 'lucide-react'
 import type { Page, Lang } from '../data'
-import discordBannerImg from '../assets/image-1.png'
-import { IcoBell, IcoRefresh, IcoCalendar, IcoShield, IcoDiscordSmall, IcoDonate, IcoLeft, IcoRight, IcoArrow, IcoDownload } from './Icons'
-import { ANNOUNCEMENTS, HERO_SLIDES, UPDATES } from '../data'
+import { ANNOUNCEMENTS, UPDATES } from '../data'
+import { CLIENT_LANGUAGES, LINKS, SERVERS, type ClientLanguage, type Platform, type ServerId } from '../site'
+import heroVideo from '../assets/hero.mp4'
+import heroPoster from '../assets/hero-poster.jpg'
+import serverV1 from '../assets/announcement.png'
+import knight from '../assets/night-crows-knight.webp'
+import mage from '../assets/night-crows-mage.webp'
+import world from '../assets/night-crows-world.webp'
+import serverV2 from '../assets/update.png'
+import newsArt from '../assets/game.png'
+import crest from '../assets/playcrows-emblem.webp'
+import { IcoDiscordSmall } from './Icons'
 
-
-export function Hero() {
-  const { t } = useTranslation();
-
-  const slide = HERO_SLIDES[0];
-  const [videoEnabled, setVideoEnabled] = useState(Boolean(slide.video));
-
-  return (
-    <section
-      id="hero"
-      className="relative w-full overflow-hidden"
-      style={{ height: 620, marginTop: 70 }}
-    >
-      <div
-        className="absolute inset-0 bg-cover bg-center"
-        style={{ backgroundImage: `url(${slide.img})` }}
-      />
-
-      {slide.video && videoEnabled && (
-        <video
-          src={slide.video}
-          poster={slide.img}
-          className="absolute inset-0 w-full h-full object-cover"
-          autoPlay
-          muted
-          loop
-          playsInline
-          preload="auto"
-          onError={() => setVideoEnabled(false)}
-        />
-      )}
-
-      <div
-        className="absolute inset-0"
-        style={{
-          background:
-            "linear-gradient(to bottom, rgba(15,12,9,.45) 0%, rgba(15,12,9,.65) 55%, rgba(15,12,9,.95) 100%)",
-        }}
-      />
-
-      <div className="absolute inset-0 flex flex-col items-center justify-center text-center px-6 z-10">
-        <img
-          src={playcrowsLogo}
-          alt={t('hero.logoAlt')}
-          className="mb-4"
-          style={{
-            height: "clamp(70px,12vw,160px)",
-            width: "auto",
-          }}
-        />
-
-        <p
-          style={{
-            fontSize: "clamp(.9rem,1.6vw,1.05rem)",
-            color: "#A8916E",
-            maxWidth: 560,
-            fontFamily: "Inter, sans-serif",
-            fontWeight: 300,
-          }}
-        >
-          {t("hero.subtitle")}
-        </p>
-      </div>
-    </section>
-  );
-}
-
-export function QuickNav() {
-  return null
-}
-
-export function NewsGrid({ navigate, scrollTo }: { navigate: (p: Page) => void; scrollTo: (id: string) => void }) {
-  const { t, i18n } = useTranslation()
-
-  const SUPPORTED_LANGS: Lang[] = ['en', 'kr', 'th', 'tw', 'br']
-  const lang: Lang = SUPPORTED_LANGS.includes(i18n.language as Lang) ? (i18n.language as Lang) : 'en'
-
-  const THUMB_ANN = thumbAnnouncement
-  const THUMB_UPD = thumbUpdate
-  const THUMB_GI = thumbGameInfo
-  const THUMB_SUP = thumbSupport
-
-  const cols = [
-    {
-      heading: t('newsGrid.columns.announcement.heading'), thumb: THUMB_ANN, thumbAlt: t('newsGrid.columns.announcement.thumbAlt'),
-      featured: ANNOUNCEMENTS[0].title[lang],
-      onArrow: () => navigate({ view: 'announcements' }),
-      links: ANNOUNCEMENTS.slice(0, 4).map(a => ({ label: a.title[lang], onClick: () => navigate({ view: 'announcement', id: a.id }) })),
-    },
-    {
-      heading: t('newsGrid.columns.update.heading'), thumb: THUMB_UPD, thumbAlt: t('newsGrid.columns.update.thumbAlt'),
-      featured: UPDATES[0].title[lang],
-      onArrow: () => navigate({ view: 'updates' }),
-      links: UPDATES.map(u => ({ label: u.title[lang], onClick: () => navigate({ view: 'update', id: u.id }) })),
-    },
-    {
-      heading: t('newsGrid.columns.gameInformation.heading'), thumb: THUMB_GI, thumbAlt: t('newsGrid.columns.gameInformation.thumbAlt'),
-      featured: t('newsGrid.columns.gameInformation.featured'),
-      onArrow: () => scrollTo('game-info'),
-      links: [
-        { label: t('newsGrid.columns.gameInformation.links.beginnersHandbook'), onClick: () => scrollTo('game-info') },
-        { label: t('newsGrid.columns.gameInformation.links.pvpRankings'), onClick: () => scrollTo('game-info') },
-        { label: t('newsGrid.columns.gameInformation.links.guildWarSchedule'), onClick: () => scrollTo('game-info') },
-        { label: t('newsGrid.columns.gameInformation.links.bossRaidGuide'), onClick: () => scrollTo('game-info') },
-      ],
-    },
-    {
-      heading: t('newsGrid.columns.support.heading'), thumb: THUMB_SUP, thumbAlt: t('newsGrid.columns.support.thumbAlt'),
-      featured: t('newsGrid.columns.support.featured'),
-      onArrow: () => scrollTo('donation'),
-      links: [
-        { label: t('newsGrid.columns.support.links.donationCenter'), onClick: () => scrollTo('donation') },
-        { label: t('newsGrid.columns.support.links.newPlayerStarterRewards'), onClick: () => scrollTo('donation') },
-        { label: t('newsGrid.columns.support.links.faqAccountLogin'), onClick: () => scrollTo('discord-section') },
-        { label: t('newsGrid.columns.support.links.contactStaffViaDiscord'), onClick: () => window.open('https://discord.gg/ayxHdychr', '_blank') },
-      ],
-    },
-  ]
-
-  return (
-    <section style={{ background: '#0F0C09', padding: '40px 0 72px' }}>
-      <div className="max-w-screen-xl mx-auto px-6">
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
-          {cols.map(col => (
-            <div key={col.heading} style={{ background: '#15110A', border: '1px solid rgba(212,169,77,0.08)' }}>
-              <div className="flex items-center justify-between px-4 py-3" style={{ borderBottom: '1px solid rgba(212,169,77,0.08)' }}>
-                <span className="font-cinzel font-semibold text-white" style={{ fontSize: 13, letterSpacing: '0.12em' }}>{col.heading}</span>
-                <button onClick={col.onArrow} className="bg-transparent border-none cursor-pointer transition-colors duration-200 p-1" style={{ color: '#6B5640' }} onMouseEnter={e => ((e.currentTarget as HTMLButtonElement).style.color = '#D4A94D')} onMouseLeave={e => ((e.currentTarget as HTMLButtonElement).style.color = '#6B5640')}><IcoArrow /></button>
-              </div>
-              <div className="relative overflow-hidden" style={{ height: 160, background: '#0F0C09' }}>
-                <img src={col.thumb} alt={col.thumbAlt} className="w-full h-full object-cover transition-transform duration-500 hover:scale-105" />
-                <div className="absolute inset-0" style={{ background: 'linear-gradient(to top, rgba(15,12,9,0.75) 0%, transparent 60%)' }} />
-                <div className="absolute bottom-3 left-4 right-4">
-                  <p className="font-inter text-white font-medium leading-snug" style={{ fontSize: 12 }}>{col.featured}</p>
-                </div>
-              </div>
-              <ul style={{ padding: '6px 0' }}>
-                {col.links.map((link, index) => (
-                  <li key={index}>
-                    <button onClick={link.onClick} className="w-full text-left flex items-start gap-2 px-4 py-2.5 font-inter bg-transparent border-none cursor-pointer transition-all duration-200" style={{ fontSize: 13, color: '#8A7050', borderBottom: index < col.links.length - 1 ? '1px solid rgba(212,169,77,0.05)' : 'none' }} onMouseEnter={e => { (e.currentTarget as HTMLButtonElement).style.color = '#C4A05A'; (e.currentTarget as HTMLButtonElement).style.background = 'rgba(212,169,77,0.04)' }} onMouseLeave={e => { (e.currentTarget as HTMLButtonElement).style.color = '#8A7050'; (e.currentTarget as HTMLButtonElement).style.background = 'transparent' }}>
-                      <span style={{ color: '#4A3720', flexShrink: 0, lineHeight: '22px' }}>·</span>
-                      <span className="truncate">{link.label}</span>
-                    </button>
-                  </li>
-                ))}
-              </ul>
-            </div>
-          ))}
-        </div>
-      </div>
-    </section>
-  )
-}
-
-export function DownloadSection() {
+export function Hero({ scrollTo }: { scrollTo: (id: string) => void }) {
   const { t } = useTranslation()
-
-  const pcV1Links = [
-    { lang: t('download.languages.english'), url: 'http://download.playcrows.com/p/play-pc-en10.zip' },
-    { lang: t('download.languages.taiwanese'), url: 'http://download.playcrows.com/p/play-pc-tw10.zip' },
-    { lang: t('download.languages.korean'), url: 'http://download.playcrows.com/p/play-pc-kr10.zip' },
-  ]
-
-  const pcV2Links = [
-    { lang: t('download.languages.english'), url: 'http://download.playcrows.com/pv2/PlayV2-PC-en-4.zip' },
-    { lang: t('download.languages.taiwanese'), url: 'http://download.playcrows.com/pv2/PlayV2-PC-tw-4.zip' },
-    { lang: t('download.languages.korean'), url: 'http://download.playcrows.com/pv2/PlayV2-PC-kr-4.zip' },
-  ]
-
-  const androidV1Links = [
-    { lang: t('download.languages.english'), url: 'http://download.playcrows.com/p/play-az-en-10.apk' },
-    { lang: t('download.languages.taiwanese'), url: 'http://download.playcrows.com/p/play-az-tw-10.apk' },
-    { lang: t('download.languages.korean'), url: 'http://download.playcrows.com/p/play-az-kr-10.apk' },
-  ]
-
-  const androidV2Links = [
-    { lang: t('download.languages.english'), url: 'http://download.playcrows.com/pv2/PlayAZ-v2-en-4.apk' },
-    { lang: t('download.languages.taiwanese'), url: 'http://download.playcrows.com/pv2/PlayAZ-v2-tw-4.apk' },
-    { lang: t('download.languages.korean'), url: 'http://download.playcrows.com/pv2/PlayAZ-v2-kr-4.apk' },
-  ]
-
-  const PlatformColumn = ({ label, links, last }: { label: string; links: { lang: string; url: string }[]; last?: boolean }) => (
-    <div style={{ borderRight: last ? 'none' : '1px solid rgba(255,255,255,.06)' }}>
-      <div
-        className="font-cinzel text-center"
-        style={{ fontSize: 12, letterSpacing: '0.15em', color: '#8A7050', padding: '10px 0', borderBottom: '1px solid rgba(255,255,255,.05)' }}
-      >
-        {label}
-      </div>
-      {links.map((item) => (
-        <div
-          key={item.lang}
-          className="flex items-center justify-between"
-          style={{ padding: '8px 14px', borderTop: '1px solid rgba(255,255,255,.04)' }}
-        >
-          <span className="font-cinzel" style={{ color: '#C9B99C', fontSize: 11, letterSpacing: '.08em' }}>{item.lang}</span>
-          <a href={item.url} className="btn-primary no-underline" style={{ padding: '5px 12px', fontSize: 10 }}>
-            {t('download.downloadButton')}
-          </a>
-        </div>
-      ))}
+  const video = useRef<HTMLVideoElement>(null)
+  const [motion, setMotion] = useState(false)
+  const [paused, setPaused] = useState(false)
+  useEffect(() => {
+    const preference = window.matchMedia('(prefers-reduced-motion: reduce)')
+    const screen = window.matchMedia('(min-width: 768px)')
+    const update = () => {
+      const connection = (navigator as Navigator & { connection?: { saveData?: boolean } }).connection
+      setMotion(!preference.matches && screen.matches && !connection?.saveData)
+    }
+    update()
+    preference.addEventListener('change', update)
+    screen.addEventListener('change', update)
+    return () => { preference.removeEventListener('change', update); screen.removeEventListener('change', update) }
+  }, [])
+  const toggleVideo = () => {
+    if (!video.current) return
+    if (video.current.paused) void video.current.play().then(() => setPaused(false)).catch(() => setPaused(true))
+    else { video.current.pause(); setPaused(true) }
+  }
+  return <section id="hero" className="hero-panel">
+    <img className="hero-media" src={heroPoster} alt="" fetchPriority="high" width={1920} height={1080} />
+    {motion && <video ref={video} src={heroVideo} poster={heroPoster} className="hero-media" autoPlay muted loop playsInline preload="metadata" aria-hidden="true" onError={() => setMotion(false)} onPause={() => setPaused(true)} onPlaying={() => setPaused(false)} />}
+    <div className="hero-shade" />
+    <div className="hero-content">
+      <p className="eyebrow"><span className="eyebrow-line" />{t('site.heroEyebrow')}</p>
+      <h1>{t('site.heroTitle')}<br /><em>Night Crows.</em></h1>
+      <p className="hero-description">{t('site.heroDescription')}</p>
+      <div className="hero-perks"><span><Swords size={16} />V1 & V2</span><span><Monitor size={16} />Windows & Android</span><span><Globe2 size={16} />{t('site.globalCommunity')}</span></div>
+      <div className="hero-buttons"><button className="btn-primary" onClick={() => scrollTo('servers')}><UserPlus size={18} />{t('site.beginJourney')}<ArrowRight size={17} /></button><button className="btn-secondary" onClick={() => scrollTo('download')}><Download size={17} />{t('site.downloadGame')}</button></div>
+      <a className="hero-explore" href="#servers">{t('site.findRealm')}<ArrowDown size={14} /></a>
     </div>
-  )
-
-  const VersionBlock = ({
-    label,
-    pcLinks,
-    androidLinks,
-    last,
-  }: {
-    label: string
-    pcLinks: { lang: string; url: string }[]
-    androidLinks: { lang: string; url: string }[]
-    last?: boolean
-  }) => (
-    <div style={{ borderRight: last ? 'none' : '1px solid rgba(255,255,255,.08)' }}>
-      <div
-        className="font-cinzel font-bold text-white tracking-widest text-center"
-        style={{ fontSize: '1.5rem', letterSpacing: '0.15em', padding: '16px 0' }}
-      >
-        {label}
-      </div>
-      <div className="grid grid-cols-2" style={{ borderTop: '1px solid rgba(255,255,255,.08)' }}>
-        <PlatformColumn label={t('download.pc')} links={pcLinks} />
-        <PlatformColumn label={t('download.android')} links={androidLinks} last />
-      </div>
-    </div>
-  )
-
-  return (
-    <section id="download" className="py-24 px-6" style={{ background: '#0D0A07' }}>
-      <div className="max-w-5xl mx-auto">
-        <div className="text-center mb-14">
-          <p className="section-label mb-3">{t('download.sectionLabel')}</p>
-          <h2 className="font-cinzel font-bold text-white tracking-widest" style={{ fontSize: 'clamp(2rem,4vw,3rem)', letterSpacing: '.15em' }}>
-            {t('download.title')}
-          </h2>
-          <div className="divider-blue mt-5 mx-auto" />
-        </div>
-
-        <div className="grid md:grid-cols-2" style={{ border: '1px solid rgba(255,255,255,.08)', background: '#17120B', borderRadius: 12, overflow: 'hidden' }}>
-          <VersionBlock label="V1" pcLinks={pcV1Links} androidLinks={androidV1Links} />
-          <VersionBlock label="V2" pcLinks={pcV2Links} androidLinks={androidV2Links} last />
-        </div>
-      </div>
-    </section>
-  )
+    {motion && <button className="video-toggle" onClick={toggleVideo} aria-label={t(paused ? 'site.playVideo' : 'site.pauseVideo')}>{paused ? <Play size={14} /> : <Pause size={14} />}</button>}
+    <div className="hero-caption" aria-hidden="true">PLAYCROWS <span>NIGHT CROWS</span></div>
+  </section>
 }
 
-import expImg from '../assets/gameinfo/exp.png'
-import dropImg from '../assets/gameinfo/drop.png'
-import enhanceImg from '../assets/gameinfo/enhance.png'
-import starterImg from '../assets/gameinfo/starter.png'
-import dailyImg from '../assets/gameinfo/daily.png'
-import npcImg from '../assets/gameinfo/npc.png'
+export function ServerSection({ onDownload }: { onDownload: (server: ServerId) => void }) {
+  const { t } = useTranslation()
+  return <section id="servers" className="section servers-section">
+    <div className="section-heading"><div><p className="eyebrow">{t('site.chooseChapter')}</p><h2>{t('site.ourServers')}</h2></div><p>{t('site.serverIntro')}</p></div>
+    <div className="servers-grid">
+      {(['v1', 'v2'] as const).map((id, index) => <article id={`server-${id}`} key={id} className={`server-card ${id}`}>
+        <div className="server-scene">
+          <img src={world} alt="" className="server-art" loading="lazy" width={960} height={540} />
+          <div className="server-shade" /><img src={id === 'v1' ? knight : mage} className="server-character" alt="" loading="lazy" width={id === 'v1' ? 1655 : 1346} height={id === 'v1' ? 1763 : 1726} />
+          <span className="server-number" aria-hidden="true">0{index + 1}</span>
+          <div className="server-copy"><p className="server-kicker">NIGHT CROWS</p><h3>PLAYCROWS <span>{SERVERS[id].name}</span></h3><div className="short-rule" /><p>{t(`site.${id}Description`)}</p><a className="btn-primary" href={SERVERS[id].register} target="_blank" rel="noopener noreferrer"><UserPlus size={16} />{t('site.createAccount')}<ArrowUpRight size={16} /></a></div>
+        </div>
+        <div className="server-card-footer"><div><strong>PlayCrows {SERVERS[id].name}</strong><span className="server-tag">{t(`site.${id}Tag`)}</span><small>Windows · Android</small></div><div className="server-card-actions"><a href="#game-info" aria-label={`${SERVERS[id].name} — ${t('site.features')}`}><BookOpen size={15} />{t('site.features')}</a><button onClick={() => onDownload(id)} aria-label={`${SERVERS[id].name} — ${t('site.download')}`}><Download size={15} />{t('site.download')}</button></div></div>
+      </article>)}
+    </div>
+    <p className="server-note"><Shield size={14} />{t('site.accountNote')}</p>
+  </section>
+}
+
+export function NewsGrid({ navigate }: { navigate: (page: Page) => void }) {
+  const { t, i18n } = useTranslation()
+  const lang = (['en', 'kr', 'th', 'tw', 'br'].includes(i18n.language) ? i18n.language : 'en') as Lang
+  const featured = [
+    { item: ANNOUNCEMENTS[0], category: t('site.announcements'), image: ANNOUNCEMENTS[0].banner ?? serverV1, page: { view: 'announcement', id: ANNOUNCEMENTS[0].id } as Page },
+    { item: UPDATES[0], category: t('site.updates'), image: serverV2, page: { view: 'update', id: UPDATES[0].id } as Page },
+    { item: ANNOUNCEMENTS[1], category: t('site.announcements'), image: newsArt, page: { view: 'announcement', id: ANNOUNCEMENTS[1].id } as Page },
+  ]
+  return <section id="news" className="section news-section">
+    <div className="section-heading"><div><p className="eyebrow">{t('site.fromRealm')}</p><h2>{t('site.newsTitle')}</h2></div><div className="news-links"><a href="#/announcements">{t('site.announcements')}<ArrowUpRight size={15} /></a><a href="#/updates">{t('site.updates')}<ArrowUpRight size={15} /></a></div></div>
+    <div className="news-grid">{featured.map(({ item, category, image, page }) => <button key={item.id} className="news-card" onClick={() => navigate(page)}>
+      <div className="news-image"><img src={image} alt="" loading="lazy" width={640} height={360} /><span>{category}</span></div>
+      <div className="news-body"><time>{item.date[lang]}</time><h3>{item.title[lang]}</h3><p>{item.preview[lang]}</p><span className="news-read">{t('site.readMore')}<ArrowUpRight size={17} /></span></div>
+    </button>)}</div>
+  </section>
+}
 
 export function GameInfoSection() {
   const { t } = useTranslation()
-
-  const items = [
-    {
-      title: t('gameInfo.items.expRate.title'),
-      value: t('gameInfo.items.expRate.value'),
-      image: expImg,
-      color: '#9A6BFF',
-    },
-    {
-      title: t('gameInfo.items.dropRate.title'),
-      value: t('gameInfo.items.dropRate.value'),
-      image: dropImg,
-      color: '#D4A94D',
-    },
-    {
-      title: t('gameInfo.items.enhancementRate.title'),
-      value: t('gameInfo.items.enhancementRate.value'),
-      image: enhanceImg,
-      color: '#65D15F',
-    },
-    {
-      title: t('gameInfo.items.newPlayerRewards.title'),
-      value: t('gameInfo.items.newPlayerRewards.value'),
-      image: starterImg,
-      color: '#4CB9FF',
-    },
-    {
-      title: t('gameInfo.items.dailyRewards.title'),
-      value: t('gameInfo.items.dailyRewards.value'),
-      image: dailyImg,
-      color: '#FF9B3E',
-    },
-    {
-      title: t('gameInfo.items.modifiedNpc.title'),
-      value: t('gameInfo.items.modifiedNpc.value'),
-      image: npcImg,
-      color: '#49D6D8',
-    },
+  const features = [
+    { key: 'expRate', icon: Swords },
+    { key: 'dropRate', icon: Sparkles },
+    { key: 'enhancementRate', icon: Shield },
+    { key: 'newPlayerRewards', icon: Gift },
+    { key: 'dailyRewards', icon: Check },
+    { key: 'modifiedNpc', icon: Users },
   ]
-
-  return (
-    <section
-      id="game-info"
-      className="py-28 px-6"
-      style={{ background: '#0F0C09' }}
-    >
-      <div className="max-w-screen-xl mx-auto">
-        <div className="text-center mb-14">
-          <p className="section-label mb-3">{t('gameInfo.sectionLabel')}</p>
-
-          <h2
-            className="font-cinzel font-bold text-white tracking-widest"
-            style={{
-              fontSize: 'clamp(2rem,4vw,3rem)',
-              letterSpacing: '.15em',
-            }}
-          >
-            {t('gameInfo.title')}
-          </h2>
-
-          <div
-            className="mx-auto mt-6"
-            style={{
-              width: 70,
-              height: 2,
-              background: '#C8A96A',
-            }}
-          />
-        </div>
-
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
-          {items.map((item) => (
-            <div
-              key={item.title}
-              className="group overflow-hidden"
-              style={{
-                background: '#191309',
-                border: `1px solid ${item.color}33`,
-                borderRadius: 12,
-                transition: 'all .3s ease',
-                boxShadow: `0 0 18px ${item.color}15`,
-              }}
-            >
-              {/* Image */}
-              <div
-                style={{
-                  height: 170,
-                  overflow: 'hidden',
-                  background: '#0F0C09',
-                }}
-              >
-                <img
-                  src={item.image}
-                  alt={item.title}
-                  className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
-                />
-              </div>
-
-              {/* Content */}
-              <div
-                style={{
-                  padding: '18px',
-                  textAlign: 'center',
-                }}
-              >
-                <h3
-                  className="font-cinzel font-bold"
-                  style={{
-                    color: item.color,
-                    fontSize: 34,
-                    textShadow: `0 0 12px ${item.color}`,
-                    lineHeight: 1,
-                  }}
-                >
-                  {item.value}
-                </h3>
-
-                <div
-                  style={{
-                    width: 50,
-                    height: 1,
-                    background: item.color,
-                    margin: '14px auto',
-                    opacity: .7,
-                  }}
-                />
-
-                <p
-                  className="font-cinzel"
-                  style={{
-                    color: '#E8D9B0',
-                    letterSpacing: '.12em',
-                    fontSize: 12,
-                  }}
-                >
-                  {item.title}
-                </p>
-              </div>
-            </div>
-          ))}
-        </div>
-      </div>
-    </section>
-  )
+  return <section id="game-info" className="section game-section">
+    <div className="feature-banner"><img src={world} alt="" loading="lazy" width={2560} height={1080} /><div className="feature-banner-shade" /><div className="feature-intro"><p className="eyebrow">{t('site.gameInfo')}</p><h2>{t('site.familiarWorld')}<br /><em>{t('site.differentPace')}</em></h2><p>{t('site.featuresDescription')}</p><a className="text-link" href="#download">{t('site.startPlaying')}<ArrowRight size={17} /></a></div><div className="feature-brand" aria-hidden="true"><img src={crest} alt="" loading="lazy" width={200} height={200} /><span>THE PLAYCROWS EXPERIENCE</span></div></div>
+    <div className="features-grid">{features.map(({ key, icon: Icon }) => <div className="feature-item" key={key}><Icon size={22} /><div><strong>{t(`gameInfo.items.${key}.value`)}</strong><span>{t(`gameInfo.items.${key}.title`)}</span></div></div>)}</div>
+    <div className="reward-accordions">{(['starterRewards', 'dailyRewards'] as const).map(key => <details className="reward-detail" key={key}><summary><Gift size={18} /><span>{t(`donation.${key}.heading`).replace(/^[^\p{L}]+/u, '')}</span><ChevronDown size={17} /></summary><div className="detail-content"><p>{t(`donation.${key}.description`)}</p><ul>{(t(`donation.${key}.items`, { returnObjects: true }) as string[]).map(item => <li key={item}>{item}</li>)}</ul></div></details>)}</div>
+  </section>
 }
 
-export function DonationSection() {
+export function DownloadSection({ server, setServer }: { server: ServerId; setServer: (id: ServerId) => void }) {
   const { t } = useTranslation()
+  const [platform, setPlatform] = useState<Platform>('windows')
+  const [language, setLanguage] = useState<ClientLanguage>('en')
+  const chosen = SERVERS[server]
+  return <section id="download" className="section download-panel">
+    <div className="download-intro"><p className="eyebrow">{t('site.getStarted')}</p><h2>{t('site.realmAwaits')}</h2><p>{t('site.downloadIntro')}</p><ol className="onboarding-steps"><li><span>01</span><div><strong>{t('site.chooseServer')}</strong><p>{t('site.chooseServerHint')}</p></div></li><li><span>02</span><div><strong>{t('site.createAccount')}</strong><p>{t('site.createAccountHint')}</p></div></li><li><span>03</span><div><strong>{t('site.enterWorld')}</strong><p>{t('site.enterWorldHint')}</p></div></li></ol></div>
+    <div className="download-controls">
+      <fieldset><legend>{t('site.selectServer')}</legend><div className="segmented server-selector">{(['v1', 'v2'] as const).map(id => <label key={id} className={server === id ? 'selected' : ''}><input type="radio" name="server" value={id} checked={server === id} onChange={() => setServer(id)} /><span>PlayCrows {SERVERS[id].name}</span>{server === id && <Check size={15} />}</label>)}</div></fieldset>
+      <div className="download-options"><fieldset><legend>{t('site.platform')}</legend><div className="segmented platform-selector">{(['windows', 'android'] as const).map(id => <label key={id} className={platform === id ? 'selected' : ''}><input type="radio" name="platform" value={id} checked={platform === id} onChange={() => setPlatform(id)} />{id === 'windows' ? <Monitor size={19} /> : <Smartphone size={19} />}<span>{id === 'windows' ? 'Windows' : 'Android'}</span></label>)}</div></fieldset><label className="client-language"><span>{t('site.clientLanguage')}</span><div><select value={language} onChange={event => setLanguage(event.target.value as ClientLanguage)}>{CLIENT_LANGUAGES.map(item => <option key={item.id} value={item.id}>{item.name}</option>)}</select><ChevronDown size={16} /></div></label></div>
+      <div className="download-summary" aria-live="polite"><span className={`version-emblem ${server}`}>{chosen.name}</span><div><strong>PlayCrows {chosen.name}</strong><span>{platform === 'windows' ? 'Windows · ZIP' : 'Android · APK'}<span aria-hidden="true"> · </span>{CLIENT_LANGUAGES.find(item => item.id === language)?.name}</span></div></div>
+      <a className="btn-primary download-button" href={chosen.downloads[platform][language]} target="_blank" rel="noopener noreferrer"><Download size={19} />{t('site.download')} — {chosen.name}<ArrowUpRight size={18} /></a>
+      <a className="download-register" href={chosen.register} target="_blank" rel="noopener noreferrer"><UserPlus size={16} />{t('site.registerFor', { server: chosen.name })}<ArrowUpRight size={15} /></a>
+      <p className="download-help">{t('site.downloadHelp')} <a href={LINKS.discord} target="_blank" rel="noopener noreferrer">{t('site.askCommunity')}</a></p>
+      <details className="download-mirrors"><summary>{t('site.allDownloads')}<ChevronDown size={14} /></summary><div>{(['windows', 'android'] as const).map(os => <div key={os}><strong>{os === 'windows' ? 'Windows' : 'Android'}</strong>{CLIENT_LANGUAGES.map(client => <a key={client.id} href={chosen.downloads[os][client.id]} target="_blank" rel="noopener noreferrer">{chosen.name} · {client.name}<Download size={14} /></a>)}</div>)}</div></details>
+    </div>
+  </section>
+}
 
-  const starterRewardsItems = t('donation.starterRewards.items', { returnObjects: true }) as string[]
-  const dailyRewardsItems = t('donation.dailyRewards.items', { returnObjects: true }) as string[]
-
-  return (
-    <section id="donation" className="py-28 px-6 relative overflow-hidden" style={{ background: '#0D0A07' }}>
-      <div className="absolute inset-0 pointer-events-none" style={{ background: 'radial-gradient(ellipse at 50% 50%, rgba(212,169,77,0.07) 0%, transparent 65%)' }} />
-      <div className="max-w-3xl mx-auto relative z-10">
-        <div className="text-center mb-14">
-          <p className="section-label mb-5">{t('donation.sectionLabel')}</p>
-          <h2 className="font-cinzel font-bold text-white mb-5 tracking-widest" style={{ fontSize: 'clamp(1.8rem, 4vw, 3rem)', letterSpacing: '0.15em' }}>{t('donation.title')}</h2>
-          <div className="divider-blue mb-7" />
-          <p className="font-inter font-light leading-relaxed" style={{ color: '#7A6248' }}>{t('donation.description')}</p>
-        </div>
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-10">
-          <div style={{ border: '1px solid rgba(212,169,77,0.15)', background: '#14100A', padding: 24 }}>
-            <p className="font-cinzel font-semibold text-white mb-4" style={{ fontSize: 13, letterSpacing: '0.15em' }}>{t('donation.starterRewards.heading')}</p>
-            <p className="font-inter font-light mb-4" style={{ fontSize: 13, color: '#8A7050' }}>{t('donation.starterRewards.description')}</p>
-            <ul style={{ padding: 0, listStyle: 'none' }}>
-              {starterRewardsItems.map((item, index) => (
-                <li key={index} className="flex items-start gap-2 font-inter font-light" style={{ fontSize: 13, color: '#7A6248', padding: '3px 0' }}>
-                  <span style={{ color: '#D4A94D', flexShrink: 0 }}>·</span>{item}
-                </li>
-              ))}
-            </ul>
-          </div>
-          <div style={{ border: '1px solid rgba(212,169,77,0.15)', background: '#14100A', padding: 24 }}>
-            <p className="font-cinzel font-semibold text-white mb-4" style={{ fontSize: 13, letterSpacing: '0.15em' }}>{t('donation.dailyRewards.heading')}</p>
-            <p className="font-inter font-light mb-4" style={{ fontSize: 13, color: '#8A7050' }}>{t('donation.dailyRewards.description')}</p>
-            <ul style={{ padding: 0, listStyle: 'none' }}>
-              {dailyRewardsItems.map((item, index) => (
-                <li key={index} className="flex items-start gap-2 font-inter font-light" style={{ fontSize: 13, color: '#7A6248', padding: '3px 0' }}>
-                  <span style={{ color: '#D4A94D', flexShrink: 0 }}>·</span>{item}
-                </li>
-              ))}
-            </ul>
-          </div>
-        </div>
-        <div className="text-center">
-          <a href="https://playcrowsweb.vercel.app/" target="_blank" rel="noopener noreferrer" className="btn-primary inline-block no-underline mb-4" style={{ fontSize: 14, padding: '14px 60px' }}>
-            <span>{t('donation.donateButton')}</span>
-          </a>
-          <p className="font-inter font-light" style={{ fontSize: 13, color: '#4A3720' }}>{t('donation.footerNote')}</p>
-        </div>
-      </div>
-    </section>
-  )
+export function CommunitySection() {
+  const { t } = useTranslation()
+  return <section className="section community-grid">
+    <div id="discord-section" className="community-panel"><div className="panel-icon"><IcoDiscordSmall /></div><p className="eyebrow">{t('site.community')}</p><h2>{t('site.betterTogether')}</h2><p>{t('site.communityDescription')}</p><a className="btn-secondary" href={LINKS.discord} target="_blank" rel="noopener noreferrer"><IcoDiscordSmall />{t('site.joinDiscord')}<ArrowUpRight size={16} /></a><div className="community-caption"><Globe2 size={15} />{t('site.globalCommunity')}</div></div>
+    <div id="donation" className="shop-panel"><div className="panel-icon"><ShoppingBag /></div><p className="eyebrow">{t('site.webshop')}</p><h2>{t('site.supportJourney')}</h2><p>{t('site.shopDescription')}</p><a className="btn-primary" href={LINKS.webshop} target="_blank" rel="noopener noreferrer"><ShoppingBag size={17} />{t('site.visitShop')}<ArrowUpRight size={16} /></a><div className="community-caption"><Shield size={15} />{t('site.shopNote')}</div></div>
+  </section>
 }
 
 export function RulesSection() {
   const { t } = useTranslation()
-
-  const generalRulesItems = t('rules.generalRules.items', { returnObjects: true }) as { num: string; title: string; rules: string[] }[]
-  const warningSystemItems = t('rules.warningSystem.items', { returnObjects: true }) as string[]
-  const speedHackLines = t('rules.zeroTolerance.speedHackLines', { returnObjects: true }) as string[]
-  const permanentBanLines = t('rules.permanentBanPolicy.lines', { returnObjects: true }) as string[]
-  const evidenceLines = t('rules.evidenceRequirements.lines', { returnObjects: true }) as string[]
-
-  return (
-    <section id="rules" className="py-28 px-6" style={{ background: '#0F0C09' }}>
-      <div className="max-w-screen-lg mx-auto">
-        <div className="text-center mb-14">
-          <p className="section-label mb-4">{t('rules.sectionLabel')}</p>
-          <h2 className="font-cinzel font-bold text-white tracking-widest" style={{ fontSize: 'clamp(1.8rem, 4vw, 3rem)', letterSpacing: '0.15em' }}>{t('rules.title')}</h2>
-          <div className="divider-blue mt-6 mb-6" />
-          <p className="font-inter font-light" style={{ color: '#7A6248', fontSize: 15 }}>{t('rules.subtitle')}</p>
-        </div>
-        <div style={{ border: '1px solid rgba(212,169,77,0.12)', background: '#15110A', padding: '28px 32px', marginBottom: 16 }}>
-          <p className="font-cinzel font-semibold text-white mb-5" style={{ fontSize: 13, letterSpacing: '0.2em' }}>{t('rules.generalRules.heading')}</p>
-          {generalRulesItems.map(rule => (
-            <div key={rule.num} className="flex gap-6 mb-5 last:mb-0">
-              <span className="font-cinzel font-bold shrink-0" style={{ color: '#4A3720', fontSize: '1.4rem', lineHeight: 1, paddingTop: 2 }}>{rule.num}</span>
-              <div>
-                <p className="font-cinzel font-semibold text-white mb-1" style={{ fontSize: 13, letterSpacing: '0.15em' }}>{rule.title}</p>
-                {rule.rules.map((text, index) => <p key={index} className="font-inter font-light" style={{ fontSize: 14, color: '#7A6248', lineHeight: 1.7 }}>{text}</p>)}
-              </div>
-            </div>
-          ))}
-        </div>
-        <div style={{ border: '1px solid rgba(212,169,77,0.12)', background: '#15110A', padding: '28px 32px', marginBottom: 16 }}>
-          <p className="font-cinzel font-semibold text-white mb-4" style={{ fontSize: 13, letterSpacing: '0.2em' }}>{t('rules.warningSystem.heading')}</p>
-          <p className="font-inter font-light mb-3" style={{ fontSize: 14, color: '#7A6248', lineHeight: 1.8 }}>
-            <Trans i18nKey="rules.warningSystem.intro">
-              PlayCrows uses a <strong style={{ color: '#C4A05A' }}>3-Warning Policy</strong> for most rule violations.
-            </Trans>
-          </p>
-          {warningSystemItems.map((line, index) => (
-            <div key={index} className="flex items-start gap-2 mb-2"><span style={{ color: '#D4A94D', flexShrink: 0 }}>·</span><p className="font-inter font-light" style={{ fontSize: 14, color: '#7A6248', lineHeight: 1.7 }}>{line}</p></div>
-          ))}
-        </div>
-        <div style={{ border: '1px solid rgba(200,60,60,0.2)', background: '#150C0A', padding: '28px 32px', marginBottom: 16 }}>
-          <p className="font-cinzel font-semibold mb-4" style={{ fontSize: 13, letterSpacing: '0.2em', color: '#CC5555' }}>{t('rules.zeroTolerance.heading')}</p>
-          <p className="font-inter font-light mb-3" style={{ fontSize: 14, color: '#7A6248', lineHeight: 1.8 }}>
-            <Trans i18nKey="rules.zeroTolerance.intro">
-              The following offenses result in an <strong style={{ color: '#CC5555' }}>immediate permanent ban</strong> without any warnings:
-            </Trans>
-          </p>
-          <div className="mb-4">
-            <p className="font-cinzel font-semibold text-white mb-1" style={{ fontSize: 13, letterSpacing: '0.1em' }}>{t('rules.zeroTolerance.speedHackTitle')}</p>
-            {speedHackLines.map((line, index) => (
-              <div key={index} className="flex items-start gap-2 mb-1"><span style={{ color: '#CC5555', flexShrink: 0 }}>·</span><p className="font-inter font-light" style={{ fontSize: 14, color: '#7A6248', lineHeight: 1.7 }}>{line}</p></div>
-            ))}
-          </div>
-        </div>
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-10">
-          <div style={{ border: '1px solid rgba(212,169,77,0.12)', background: '#15110A', padding: '24px 28px' }}>
-            <p className="font-cinzel font-semibold text-white mb-3" style={{ fontSize: 13, letterSpacing: '0.2em' }}>{t('rules.permanentBanPolicy.heading')}</p>
-            {permanentBanLines.map((line, index) => (
-              <div key={index} className="flex items-start gap-2 mb-2"><span style={{ color: '#D4A94D', flexShrink: 0 }}>·</span><p className="font-inter font-light" style={{ fontSize: 14, color: '#7A6248', lineHeight: 1.7 }}>{line}</p></div>
-            ))}
-          </div>
-          <div style={{ border: '1px solid rgba(212,169,77,0.12)', background: '#15110A', padding: '24px 28px' }}>
-            <p className="font-cinzel font-semibold text-white mb-3" style={{ fontSize: 13, letterSpacing: '0.2em' }}>{t('rules.evidenceRequirements.heading')}</p>
-            {evidenceLines.map((line, index) => (
-              <div key={index} className="flex items-start gap-2 mb-2"><span style={{ color: '#D4A94D', flexShrink: 0 }}>·</span><p className="font-inter font-light" style={{ fontSize: 14, color: '#7A6248', lineHeight: 1.7 }}>{line}</p></div>
-            ))}
-          </div>
-        </div>
-        <div style={{ border: '1px solid rgba(212,169,77,0.1)', background: '#15110A', padding: '20px 28px', marginBottom: 32 }}>
-          <p className="font-inter font-light" style={{ fontSize: 14, color: '#7A6248', lineHeight: 1.85 }}>
-            {t('rules.footerNote')}
-          </p>
-        </div>
-        <div className="flex flex-wrap gap-4 justify-center">
-          <a href="https://playcrows.base44.app" target="_blank" rel="noopener noreferrer" className="btn-primary inline-block no-underline" style={{ fontSize: 13, padding: '12px 36px' }}><span>{t('rules.viewRulesButton')}</span></a>
-          <a href="https://discord.com/channels/1527607490840100955/1527609980625227866" target="_blank" rel="noopener noreferrer" className="btn-secondary inline-block no-underline" style={{ fontSize: 13, padding: '12px 36px' }}>{t('rules.reportPlayerButton')}</a>
-        </div>
-      </div>
-    </section>
-  )
-}
-
-export function DiscordSection() {
-  const { t } = useTranslation()
-
-  return (
-    <section id="discord-section" className="py-28 px-6 relative overflow-hidden" style={{ background: '#0D0A07' }}>
-      <div className="absolute inset-0 pointer-events-none" style={{ background: 'radial-gradient(ellipse at 50% 55%, rgba(212,169,77,0.08) 0%, transparent 60%)' }} />
-      <div className="max-w-4xl mx-auto relative z-10">
-        <div className="text-center mb-14">
-          <p className="section-label mb-5">{t('discord.sectionLabel')}</p>
-          <h2 className="font-cinzel font-bold text-white mb-5 tracking-widest" style={{ fontSize: 'clamp(1.8rem, 4vw, 2.8rem)', letterSpacing: '0.15em' }}>{t('discord.title')}</h2>
-          <div className="divider-blue mb-7" />
-          <p className="font-inter font-light leading-relaxed" style={{ color: '#7A6248', maxWidth: 480, margin: '0 auto' }}>
-            {t('discord.description')}
-          </p>
-        </div>
-        <div className="flex justify-center mb-12">
-          <div style={{ width: 300, background: '#1C160E', borderRadius: 8, overflow: 'hidden', border: '1px solid rgba(212,169,77,0.3)', boxShadow: '0 0 40px rgba(212,169,77,0.15)' }}>
-            <div
-              style={{
-                height: 80,
-                backgroundImage: `url(${discordBannerImg})`,
-                backgroundSize: 'cover',
-                backgroundPosition: 'center',
-              }}
-            />
-            <div style={{ padding: '0 16px', marginTop: -28 }}>
-              <div style={{ width: 56, height: 56, borderRadius: '50%', border: '4px solid #1C160E', overflow: 'hidden', background: '#0F0C09', marginBottom: 8 }}>
-                <img src={logoImg} alt={t('discord.logoAlt')} style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
-              </div>
-              <p className="font-cinzel font-bold text-white" style={{ fontSize: 15, letterSpacing: '0.08em', marginBottom: 4 }}>{t('discord.serverName')}</p>
-              <div className="flex items-center gap-4 mb-3" style={{ fontSize: 13, fontFamily: 'Inter, sans-serif' }}>
-                <span style={{ color: '#23A55A' }}>● <span style={{ color: '#C9B99C' }}>{t('discord.onlineCount')}</span></span>
-                <span style={{ color: '#8A7050' }}>● <span style={{ color: '#C9B99C' }}>{t('discord.memberCount')}</span></span>
-              </div>
-              <p style={{ fontSize: 12, color: '#8A7050', fontFamily: 'Inter, sans-serif', lineHeight: 1.6, marginBottom: 6 }}>{t('discord.established')}</p>
-              <p style={{ fontSize: 13, color: '#C9B99C', fontFamily: 'Inter, sans-serif', lineHeight: 1.65, marginBottom: 16 }}>
-                {t('discord.serverDescription')}
-              </p>
-            </div>
-          </div>
-        </div>
-        <div className="text-center">
-          <a href="https://discord.gg/ayxHdychr" target="_blank" rel="noopener noreferrer" className="btn-primary inline-block no-underline" style={{ fontSize: 14, padding: '14px 60px' }}>
-            <span>{t('discord.joinButton')}</span>
-          </a>
-        </div>
-      </div>
-    </section>
-  )
+  const general = t('rules.generalRules.items', { returnObjects: true }) as { num: string; title: string; rules: string[] }[]
+  return <section id="rules" className="section rules-section"><div className="section-heading"><div><p className="eyebrow">{t('site.playRespectfully')}</p><h2>{t('site.rules')}</h2></div><a className="text-link" href={LINKS.report} target="_blank" rel="noopener noreferrer">{t('rules.reportPlayerButton')}<ArrowUpRight size={16} /></a></div><div className="rules-list">
+    <details><summary><Shield size={18} /><span>{t('rules.generalRules.heading').replace(/^[^\p{L}]+/u, '')}</span><ChevronDown size={18} /></summary><div className="detail-content">{general.map(rule => <div key={rule.num} className="rule-entry"><h3>{rule.num}. {rule.title}</h3>{rule.rules.map(line => <p key={line}>{line}</p>)}</div>)}</div></details>
+    <details><summary><BookOpen size={18} /><span>{t('rules.warningSystem.heading').replace(/^[^\p{L}]+/u, '')}</span><ChevronDown size={18} /></summary><div className="detail-content"><p><Trans i18nKey="rules.warningSystem.intro" components={[<strong key="policy" />]} /></p><ul>{(t('rules.warningSystem.items', { returnObjects: true }) as string[]).map(line => <li key={line}>{line}</li>)}</ul></div></details>
+    <details><summary><Swords size={18} /><span>{t('rules.zeroTolerance.heading').replace(/^[^\p{L}]+/u, '')}</span><ChevronDown size={18} /></summary><div className="detail-content"><p><Trans i18nKey="rules.zeroTolerance.intro" components={[<strong key="ban" />]} /></p><h3>{t('rules.zeroTolerance.speedHackTitle')}</h3><ul>{(t('rules.zeroTolerance.speedHackLines', { returnObjects: true }) as string[]).map(line => <li key={line}>{line}</li>)}</ul></div></details>
+    {(['permanentBanPolicy', 'evidenceRequirements'] as const).map(key => <details key={key}><summary><Shield size={18} /><span>{t(`rules.${key}.heading`).replace(/^[^\p{L}]+/u, '')}</span><ChevronDown size={18} /></summary><div className="detail-content"><ul>{(t(`rules.${key}.lines`, { returnObjects: true }) as string[]).map(line => <li key={line}>{line}</li>)}</ul></div></details>)}
+  </div><p className="rules-note">{t('rules.footerNote')}</p><a className="text-link" href={LINKS.rules} target="_blank" rel="noopener noreferrer">{t('rules.viewRulesButton')}<ArrowUpRight size={16} /></a></section>
 }

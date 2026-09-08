@@ -1,166 +1,75 @@
-import { useEffect, useState } from 'react'
-import logoImg from '../assets/logo_playcrows.png'
+import { useEffect, useRef, useState } from 'react'
+import { ChevronDown, Download, Menu, Newspaper, Shield, ShoppingBag, X, LayoutGrid, UserPlus } from 'lucide-react'
+import { useTranslation } from 'react-i18next'
+import logo from '../assets/playcrows-emblem.webp'
 import type { Page } from '../data'
+import { LINKS } from '../site'
 import { IcoDiscordSmall } from './Icons'
-import Translator from "./Translator";
-import { useTranslation } from "react-i18next";
+import Translator from './Translator'
 
-export function Navbar({
-  navigate,
-  goHome,
-  scrollTo,
-}: {
-  navigate: (p: Page) => void
-  goHome: () => void
-  scrollTo: (id: string) => void
+export function Navbar({ goHome, scrollTo }: {
+  navigate: (page: Page) => void; goHome: () => void; scrollTo: (id: string) => void
 }) {
   const { t } = useTranslation()
-  const [scrolled, setScrolled] = useState(false)
   const [menuOpen, setMenuOpen] = useState(false)
-
+  const [serversOpen, setServersOpen] = useState(false)
+  const disclosure = useRef<HTMLDivElement>(null)
   useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 20)
-    window.addEventListener('scroll', onScroll, { passive: true })
-    return () => window.removeEventListener('scroll', onScroll)
-  }, [])
-
-  const navItems = [
-    { id: 'hero', key: 'nav.home' },
-    { id: 'game-info', key: 'nav.gameInfo' },
-    { id: 'donation', key: 'nav.donation' },
-    { id: 'rules', key: 'nav.rules' },
-  ]
-
-  const handleNavClick = (id: string) => {
-    if (id === 'hero') {
-      goHome()
-    } else {
-      scrollTo(id)
+    const close = (event: PointerEvent) => {
+      if (!disclosure.current?.contains(event.target as Node)) setServersOpen(false)
     }
-  }
-
-  return (
-    <nav
-      className="fixed top-0 left-0 right-0 z-50 transition-all duration-400"
-      style={{
-        background: scrolled ? 'rgba(15,12,9,0.97)' : 'rgba(15,12,9,0.65)',
-        backdropFilter: 'blur(16px)',
-        borderBottom: '1px solid rgba(212,169,77,0.10)',
-      }}
-    >
-      <div className="max-w-screen-xl mx-auto px-8 flex items-center justify-between h-[70px]">
-        <button
-          onClick={goHome}
-          className="cursor-pointer bg-transparent border-none p-0 flex items-center gap-3"
-        >
-          <img
-            src={logoImg}
-            alt="PLAYCROWS"
-            className="block h-11 w-11 object-contain"
-            width={44}
-            height={44}
-          />
-          <span
-            className="font-cinzel font-bold text-base tracking-widest hidden sm:block"
-            style={{ color: '#EAD9B8', letterSpacing: '0.18em' }}
-          >
-            PLAYCROWS
-          </span>
-        </button>
-
-        <div className="hidden lg:flex items-center gap-8">
-          {navItems.map((item) => (
-            <button
-              key={item.id}
-              onClick={() => handleNavClick(item.id)}
-              className="nav-link bg-transparent border-none p-0 cursor-pointer"
-            >
-              {t(item.key)}
-            </button>
-          ))}
-        </div>
-
-        <div className="hidden lg:flex items-center gap-2">
-          <Translator />
-
-          <button
-            onClick={() => {
-              setMenuOpen(false);
-              window.open("https://discord.gg/ayxHdychr", "_blank");
-            }}
-            className="btn-secondary flex items-center gap-2"
-            style={{ padding: "9px 16px", fontSize: "12px" }}
-          >
-            <IcoDiscordSmall />
-            {t('nav.discord')}
+    const escape = (event: KeyboardEvent) => {
+      if (event.key === 'Escape') {
+        if (serversOpen) disclosure.current?.querySelector('button')?.focus()
+        setServersOpen(false)
+        setMenuOpen(false)
+      }
+    }
+    const navigate = () => { setMenuOpen(false); setServersOpen(false) }
+    document.addEventListener('pointerdown', close)
+    document.addEventListener('keydown', escape)
+    window.addEventListener('hashchange', navigate)
+    return () => {
+      document.removeEventListener('pointerdown', close)
+      document.removeEventListener('keydown', escape)
+      window.removeEventListener('hashchange', navigate)
+    }
+  }, [serversOpen])
+  const jump = (id: string) => { setMenuOpen(false); setServersOpen(false); scrollTo(id) }
+  return <header className="site-header">
+    <div className="header-inner">
+      <a href="#/" className="brand" aria-label="PlayCrows home" onClick={() => { setMenuOpen(false); goHome() }}>
+        <img src={logo} alt="" width={48} height={48} />
+        <span>PLAYCROWS<small>NIGHT CROWS</small></span>
+      </a>
+      <nav className="desktop-nav" aria-label={t('site.mainNavigation')}>
+        <div className="server-disclosure" ref={disclosure}>
+          <button className="nav-item" aria-expanded={serversOpen} aria-controls="server-nav" onClick={() => setServersOpen(!serversOpen)}>
+            <LayoutGrid size={17} />{t('site.servers')}<ChevronDown size={13} />
           </button>
-
-          <button
-            onClick={() => scrollTo("download")}
-            className="btn-primary"
-            style={{ padding: "10px 20px", fontSize: "12px" }}
-          >
-            <span>{t('nav.download')}</span>
-          </button>
+          {serversOpen && <div id="server-nav" className="nav-dropdown">
+            {(['v1', 'v2'] as const).map(id => <button key={id} onClick={() => jump(`server-${id}`)}>
+              <span className={`version-emblem ${id}`}>{id.toUpperCase()}</span>
+              <span>PlayCrows {id.toUpperCase()}<small>{t(`site.${id}Tag`)}</small></span>
+            </button>)}
+          </div>}
         </div>
-
-        <button
-          className="lg:hidden bg-transparent border-none cursor-pointer p-2 flex flex-col gap-1.5"
-          onClick={() => setMenuOpen(!menuOpen)}
-        >
-          {[0, 1, 2].map((i) => (
-            <span key={i} className="block w-6 h-px" style={{ background: '#D4A94D' }} />
-          ))}
-        </button>
+        <a className="nav-item" href={LINKS.discord} target="_blank" rel="noopener noreferrer"><IcoDiscordSmall />{t('site.community')}</a>
+        <a className="nav-item" href="#news"><Newspaper size={17} />{t('site.news')}</a>
+        <a className="nav-item" href="#game-info"><Shield size={17} />{t('site.gameInfo')}</a>
+        <a className="nav-item" href={LINKS.webshop} target="_blank" rel="noopener noreferrer"><ShoppingBag size={17} />{t('site.webshop')}</a>
+      </nav>
+      <div className="header-actions">
+        <Translator />
+        <button className="btn-secondary header-download" onClick={() => jump('download')}><Download size={16} />{t('site.download')}</button>
+        <button className="btn-primary header-play" onClick={() => jump('servers')}><UserPlus size={16} />{t('site.playNow')}</button>
+        <button className="menu-toggle icon-button" aria-expanded={menuOpen} aria-controls="mobile-nav" aria-label={t(menuOpen ? 'site.closeMenu' : 'site.openMenu')} onClick={() => setMenuOpen(!menuOpen)}>{menuOpen ? <X /> : <Menu />}</button>
       </div>
-
-      {menuOpen && (
-        <div
-          className="lg:hidden px-8 pb-8 pt-2 flex flex-col gap-5"
-          style={{ background: 'rgba(15,12,9,0.98)' }}
-        >
-          {navItems.map((item) => (
-            <button
-              key={item.id}
-              onClick={() => {
-                setMenuOpen(false)
-                handleNavClick(item.id)
-              }}
-              className="nav-link bg-transparent border-none p-0 cursor-pointer text-left"
-            >
-              {t(item.key)}
-            </button>
-          ))}
-
-          <div className="flex flex-wrap gap-3 pt-2">
-            <a href="https://account.playcrows.com/regchannel.php?pid=3006" target="_blank" rel="noopener noreferrer" className="btn-register no-underline">
-              {t('nav.register')}
-            </a>
-
-            <button
-              onClick={() => {
-                setMenuOpen(false)
-                window.open('https://discord.gg/ayxHdychr', '_blank')
-              }}
-              className="btn-secondary"
-              style={{ padding: '9px 16px', fontSize: '12px' }}
-            >
-              {t('nav.discord')}
-            </button>
-
-            <button
-              onClick={() => {
-                setMenuOpen(false)
-                scrollTo('download')
-              }}
-              className="btn-primary"
-              style={{ padding: '10px 16px', fontSize: '12px' }}
-            >
-              <span>{t('nav.download')}</span>
-            </button>
-          </div>
-        </div>
-      )}
-    </nav>
-  )
+    </div>
+    {menuOpen && <nav id="mobile-nav" className="mobile-nav" aria-label={t('site.mainNavigation')}>
+      {[['servers', 'servers'], ['news', 'news'], ['game-info', 'gameInfo'], ['download', 'download'], ['rules', 'rules']].map(([id, key]) => <button key={id} onClick={() => jump(id)}>{t(`site.${key}`)}</button>)}
+      <a href={LINKS.webshop} target="_blank" rel="noopener noreferrer" onClick={() => setMenuOpen(false)}>{t('site.webshop')}</a>
+      <a href={LINKS.discord} target="_blank" rel="noopener noreferrer" onClick={() => setMenuOpen(false)}>{t('site.community')}</a>
+    </nav>}
+  </header>
 }
