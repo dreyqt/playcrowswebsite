@@ -303,5 +303,42 @@
     "backNews": "Back to announcements",
     "backUpdates": "Back to updates",
     "articleEnglish": "This article is available in English."
+  },
+  "serverRewards": {
+    "title": "Rewards for your server",
+    "sharedInfo": "Server rates and features are the same in V1 and V2. Select a server to see its rewards.",
+    "selectServer": "Select a server to view its rewards",
+    "v2": {
+      "starterRewards": {
+        "heading": "New Player Starter Rewards",
+        "description": "Every new adventurer receives a New Player Gift Pack to help kick-start their journey!",
+        "items": [
+          "Sealed Hero Weapon Selection Box (Attribution) ×1",
+          "Sealed Hero Accessory Selection Box (Attribution) ×1",
+          "Sealed Hero Armor Selection Box (Attribution) ×6",
+          "Check-in Event Day 3 Reward (Bound) ×1",
+          "+5 Nighthawk Equipment I / II / III / IV Selection Boxes (Attributed) ×6"
+        ],
+        "checkInHeading": "Check-in Event Day 3 Reward contains:",
+        "checkInItems": [
+          "[L] Mount Summon (Bound) ×1",
+          "[L] Weapon Style Summon Selection (Bound) ×1",
+          "Deep Night's Wind Suit (Bound)",
+          "Morion (Bound) ×100",
+          "Gold ×2,000,000",
+          "Gold ×500,000"
+        ]
+      },
+      "dailyRewards": {
+        "heading": "Daily Login Rewards",
+        "description": "Log in every day to receive useful resources and continue strengthening your character.",
+        "items": [
+          "Mileage ×10,000",
+          "Food Basket (Owned) ×10",
+          "Night Crows Stimulant of Growth (Bound) ×10",
+          "Time Recharger Selection Chest (Bound) ×4"
+        ]
+      }
+    }
   }
 }

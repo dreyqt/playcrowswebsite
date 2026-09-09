@@ -54,7 +54,7 @@ export function Hero({ scrollTo }: { scrollTo: (id: string) => void }) {
   </section>
 }
 
-export function ServerSection({ onDownload }: { onDownload: (server: ServerId) => void }) {
+export function ServerSection({ onDownload, onFeatures }: { onDownload: (server: ServerId) => void; onFeatures: (server: ServerId) => void }) {
   const { t } = useTranslation()
   return <section id="servers" className="section servers-section">
     <div className="section-heading"><div><p className="eyebrow">{t('site.chooseChapter')}</p><h2>{t('site.ourServers')}</h2></div><p>{t('site.serverIntro')}</p></div>
@@ -66,7 +66,7 @@ export function ServerSection({ onDownload }: { onDownload: (server: ServerId) =
           <span className="server-number" aria-hidden="true">0{index + 1}</span>
           <div className="server-copy"><p className="server-kicker">NIGHT CROWS</p><h3>PLAYCROWS <span>{SERVERS[id].name}</span></h3><div className="short-rule" /><p>{t(`site.${id}Description`)}</p><a className="btn-primary" href={SERVERS[id].register} target="_blank" rel="noopener noreferrer"><UserPlus size={16} />{t('site.createAccount')}<ArrowUpRight size={16} /></a></div>
         </div>
-        <div className="server-card-footer"><div><strong>PlayCrows {SERVERS[id].name}</strong><span className="server-tag">{t(`site.${id}Tag`)}</span><small>Windows · Android</small></div><div className="server-card-actions"><a href="#game-info" aria-label={`${SERVERS[id].name} — ${t('site.features')}`}><BookOpen size={15} />{t('site.features')}</a><button onClick={() => onDownload(id)} aria-label={`${SERVERS[id].name} — ${t('site.download')}`}><Download size={15} />{t('site.download')}</button></div></div>
+        <div className="server-card-footer"><div><strong>PlayCrows {SERVERS[id].name}</strong><span className="server-tag">{t(`site.${id}Tag`)}</span><small>Windows · Android</small></div><div className="server-card-actions"><a href="#game-info" onClick={() => onFeatures(id)} aria-label={`${SERVERS[id].name} — ${t('site.features')}`}><BookOpen size={15} />{t('site.features')}</a><button onClick={() => onDownload(id)} aria-label={`${SERVERS[id].name} — ${t('site.download')}`}><Download size={15} />{t('site.download')}</button></div></div>
       </article>)}
     </div>
     <p className="server-note"><Shield size={14} />{t('site.accountNote')}</p>
@@ -90,8 +90,12 @@ export function NewsGrid({ navigate }: { navigate: (page: Page) => void }) {
   </section>
 }
 
-export function GameInfoSection() {
+export function GameInfoSection({ server, setServer }: { server: ServerId; setServer: (server: ServerId) => void }) {
   const { t } = useTranslation()
+  const rewardPrefix = server === 'v1' ? 'donation' : 'serverRewards.v2'
+  const starterItems = t(`${rewardPrefix}.starterRewards.items`, { returnObjects: true }) as string[]
+  const dailyItems = t(`${rewardPrefix}.dailyRewards.items`, { returnObjects: true }) as string[]
+  const checkInItems = server === 'v2' ? t('serverRewards.v2.starterRewards.checkInItems', { returnObjects: true }) as string[] : []
   const features = [
     { key: 'expRate', icon: Swords },
     { key: 'dropRate', icon: Sparkles },
@@ -103,7 +107,28 @@ export function GameInfoSection() {
   return <section id="game-info" className="section game-section">
     <div className="feature-banner"><img src={world} alt="" loading="lazy" width={2560} height={1080} /><div className="feature-banner-shade" /><div className="feature-intro"><p className="eyebrow">{t('site.gameInfo')}</p><h2>{t('site.familiarWorld')}<br /><em>{t('site.differentPace')}</em></h2><p>{t('site.featuresDescription')}</p><a className="text-link" href="#download">{t('site.startPlaying')}<ArrowRight size={17} /></a></div><div className="feature-brand" aria-hidden="true"><img src={crest} alt="" loading="lazy" width={200} height={200} /><span>THE PLAYCROWS EXPERIENCE</span></div></div>
     <div className="features-grid">{features.map(({ key, icon: Icon }) => <div className="feature-item" key={key}><Icon size={22} /><div><strong>{t(`gameInfo.items.${key}.value`)}</strong><span>{t(`gameInfo.items.${key}.title`)}</span></div></div>)}</div>
-    <div className="reward-accordions">{(['starterRewards', 'dailyRewards'] as const).map(key => <details className="reward-detail" key={key}><summary><Gift size={18} /><span>{t(`donation.${key}.heading`).replace(/^[^\p{L}]+/u, '')}</span><ChevronDown size={17} /></summary><div className="detail-content"><p>{t(`donation.${key}.description`)}</p><ul>{(t(`donation.${key}.items`, { returnObjects: true }) as string[]).map(item => <li key={item}>{item}</li>)}</ul></div></details>)}</div>
+    <div className="reward-switcher">
+      <div><h3>{t('serverRewards.title')}</h3><p>{t('serverRewards.sharedInfo')}</p></div>
+      <fieldset className="reward-server-selector">
+        <legend className="sr-only">{t('serverRewards.selectServer')}</legend>
+        <div className="segmented">{(['v1', 'v2'] as const).map(id => <label key={id} className={server === id ? 'selected' : ''}>
+          <input type="radio" name="reward-server" value={id} checked={server === id} onChange={() => setServer(id)} />
+          <span>PlayCrows {SERVERS[id].name}</span>{server === id && <Check size={15} />}
+        </label>)}</div>
+      </fieldset>
+    </div>
+    <div className="reward-accordions" data-reward-server={server}>
+      <details className="reward-detail">
+        <summary><Gift size={18} /><span><b className={`reward-server-badge ${server}`}>{SERVERS[server].name}</b>{t(`${rewardPrefix}.starterRewards.heading`).replace(/^[^\p{L}]+/u, '')}</span><ChevronDown size={17} /></summary>
+        <div className="detail-content"><p>{t(`${rewardPrefix}.starterRewards.description`)}</p><ul>{starterItems.map(item => <li key={item}>{item}</li>)}</ul>
+          {server === 'v2' && <div className="checkin-reward"><h4><Gift size={17} />{t('serverRewards.v2.starterRewards.checkInHeading')}</h4><ul>{checkInItems.map(item => <li key={item}>{item}</li>)}</ul></div>}
+        </div>
+      </details>
+      <details className="reward-detail">
+        <summary><Gift size={18} /><span><b className={`reward-server-badge ${server}`}>{SERVERS[server].name}</b>{t(`${rewardPrefix}.dailyRewards.heading`).replace(/^[^\p{L}]+/u, '')}</span><ChevronDown size={17} /></summary>
+        <div className="detail-content"><p>{t(`${rewardPrefix}.dailyRewards.description`)}</p><ul>{dailyItems.map(item => <li key={item}>{item}</li>)}</ul></div>
+      </details>
+    </div>
   </section>
 }
 

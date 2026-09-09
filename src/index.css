@@ -19,7 +19,11 @@
 * { box-sizing: border-box; }
 html { scroll-behavior: smooth; scroll-padding-top: 105px; }
 body { margin: 0; background: #111214; color: var(--text); font-family: var(--font-inter); font-size: 16px; -webkit-font-smoothing: antialiased; }
-body::before { content: ''; position: fixed; inset: 0; background: radial-gradient(ellipse at 50% 0, #36322a55, transparent 65%); pointer-events: none; z-index: -1; }
+/* The wallpaper uses the existing PNG so the image-loading repair stays intact. */
+body { position: relative; isolation: isolate; --scene-opacity: .20; }
+body::before { content: ''; position: fixed; inset: 0; background: url('./assets/night-crows-world.png') center 24% / cover no-repeat; opacity: var(--scene-opacity); pointer-events: none; z-index: 0; }
+body::after { content: ''; position: fixed; inset: 0; background: linear-gradient(180deg, rgba(17,18,20,.08), rgba(17,18,20,.28) 55%, rgba(17,18,20,.67)), radial-gradient(ellipse at 50% 0, #36322a33, transparent 65%); pointer-events: none; z-index: 0; }
+#root { position: relative; z-index: 1; }
 button, input, select { font: inherit; }
 button, a, select, summary { -webkit-tap-highlight-color: transparent; }
 button { cursor: pointer; }
@@ -232,7 +236,7 @@ details[open] > summary > svg:last-child { transform: rotate(180deg); }
 .footer-column a:hover { color: var(--gold-light); }
 .footer-bottom { margin-top: 34px; padding: 23px 0; border-top: 1px solid var(--line); display: flex; justify-content: space-between; gap: 20px; color: #92919a; font-size: 12px; line-height: 1.6; }
 .footer-bottom a { display: inline-flex; align-items: center; gap: 6px; }
-.page-shell { min-height: 70vh; background: #111214; }
+.page-shell { min-height: 70vh; background: transparent; }
 .page-shell-inner { max-width: 1050px; margin: auto; padding-left: 28px; padding-right: 28px; }
 .breadcrumb-row { display: flex; flex-wrap: wrap; gap: 9px; font-size: 14px; color: #a4a3ac; margin-bottom: 30px; }
 .breadcrumb-link { border: 0; background: none; padding: 0; color: #d7bd87; }
@@ -287,3 +291,19 @@ details[open] > summary > svg:last-child { transform: rotate(180deg); }
 .server-card-actions a,.server-card-actions button,.server-copy .btn-primary,.download-register,.footer-column h3 { font-size: 14px; }
 .hero-description,.feature-intro > p:not(.eyebrow),.community-grid p:not(.eyebrow) { font-size: 16px; }
 main:focus { outline: none; }
+
+/* Rewards share the selected server with the matching game download. */
+.reward-switcher { display: flex; align-items: center; justify-content: space-between; gap: 24px; padding: 24px; border-top: 1px solid var(--line); background: #15161980; }
+.reward-switcher h3 { color: #e9e2d6; font-size: 1rem; font-weight: 600; margin: 0 0 7px; }
+.reward-switcher p { max-width: 535px; color: #aaa9b1; font-size: .875rem; line-height: 1.7; }
+.reward-server-selector { border: 0; padding: 0; margin: 0; min-width: 290px; flex-shrink: 0; }
+.reward-server-selector .segmented label { min-width: 138px; padding: 11px 13px; font-size: .875rem; }
+.reward-server-badge { display: inline-block; padding: 3px 6px; margin-right: 9px; border: 1px solid #d7b66d35; border-radius: 3px; font-size: .75rem; font-weight: 600; line-height: 1.2; color: #e3c78d; background: #d7b66d12; vertical-align: middle; }
+.reward-server-badge.v2 { color: #bfd2e9; background: #8eadd51a; border-color: #8eadd54d; }
+.reward-detail summary > span { min-width: 0; line-height: 1.7; }
+.checkin-reward { margin-top: 22px; padding: 18px 19px; background: #b4cae70a; border: 1px solid #8eadd535; border-radius: 6px; }
+.checkin-reward h4 { display: flex; align-items: flex-start; gap: 9px; margin: 0; color: #c7d5e6; font-size: .875rem; font-weight: 600; line-height: 1.65; }
+.checkin-reward h4 svg { flex-shrink: 0; margin-top: 3px; }
+.checkin-reward ul { margin-bottom: 0; }
+@media (max-width: 1050px) { .reward-switcher { align-items: flex-start; flex-direction: column; gap: 17px; } .reward-server-selector { width: min(100%, 350px); min-width: 0; } }
+@media (max-width: 767px) { body { --scene-opacity: .15; } .reward-switcher { padding: 21px; } .reward-server-selector { width: 100%; } .reward-server-selector .segmented label { min-width: 0; padding: 11px 10px; } .checkin-reward { padding: 15px; } }

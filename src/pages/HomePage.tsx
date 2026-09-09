@@ -6,9 +6,9 @@ export default function HomePage({ navigate, scrollTo }: { navigate: (page: Page
   const [selectedServer, setSelectedServer] = useState<ServerId>('v1')
   return <div className="home-page">
     <Hero scrollTo={scrollTo} />
-    <ServerSection onDownload={server => { setSelectedServer(server); scrollTo('download') }} />
+    <ServerSection onFeatures={setSelectedServer} onDownload={server => { setSelectedServer(server); scrollTo('download') }} />
     <NewsGrid navigate={navigate} />
-    <GameInfoSection />
+    <GameInfoSection server={selectedServer} setServer={setSelectedServer} />
     <DownloadSection server={selectedServer} setServer={setSelectedServer} />
     <CommunitySection />
     <RulesSection />

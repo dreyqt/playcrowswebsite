@@ -303,5 +303,42 @@
     "backNews": "Voltar aos anúncios",
     "backUpdates": "Voltar às atualizações",
     "articleEnglish": "Este artigo está disponível em inglês."
+  },
+  "serverRewards": {
+    "title": "Recompensas do seu servidor",
+    "sharedInfo": "As taxas e os recursos são os mesmos no V1 e no V2. Selecione um servidor para ver suas recompensas.",
+    "selectServer": "Selecione um servidor para ver as recompensas",
+    "v2": {
+      "starterRewards": {
+        "heading": "Recompensas Iniciais para Novos Jogadores",
+        "description": "Todo novo aventureiro recebe um Pacote de Boas-Vindas para começar sua jornada!",
+        "items": [
+          "Caixa de Seleção de Arma Heroica Selada (Atribuída) ×1",
+          "Caixa de Seleção de Acessório Heroico Selado (Atribuído) ×1",
+          "Caixa de Seleção de Armadura Heroica Selada (Atribuída) ×6",
+          "Recompensa do Dia 3 do Evento de Check-in (Vinculada) ×1",
+          "Caixas de Seleção de Equipamento Nighthawk I / II / III / IV +5 (Atribuídas) ×6"
+        ],
+        "checkInHeading": "A Recompensa do Dia 3 do Evento de Check-in contém:",
+        "checkInItems": [
+          "Invocação de Montaria [L] (Vinculada) ×1",
+          "Seleção de Invocação de Estilo de Arma [L] (Vinculada) ×1",
+          "Traje do Vento da Noite Profunda (Vinculado)",
+          "Morion (Vinculado) ×100",
+          "Ouro ×2.000.000",
+          "Ouro ×500.000"
+        ]
+      },
+      "dailyRewards": {
+        "heading": "Recompensas de Login Diário",
+        "description": "Entre todos os dias para receber recursos úteis e continuar fortalecendo seu personagem.",
+        "items": [
+          "Milhagem ×10.000",
+          "Cesta de Alimentos (Possuída) ×10",
+          "Estimulante de Crescimento Night Crows (Vinculado) ×10",
+          "Baú de Seleção de Recarga de Tempo (Vinculado) ×4"
+        ]
+      }
+    }
   }
 }
