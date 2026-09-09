@@ -14,7 +14,7 @@ export const LINKS = {
 export const SERVERS = {
   v1: {
     name: 'V1',
-    register: 'https://account.playcrows.com/register.php',
+    register: 'https://account.playcrows.com/regchannel.php?pid=3006',
     downloads: {
       windows: {
         en: 'http://download.playcrows.com/p/play-pc-en10.zip',
@@ -30,7 +30,7 @@ export const SERVERS = {
   },
   v2: {
     name: 'V2',
-    register: 'https://account002.playcrows.com/register.php',
+    register: 'https://account002.playcrows.com/regchannel.php?pid=3049',
     downloads: {
       windows: {
         en: 'http://download.playcrows.com/pv2/PlayV2-PC-en-4.zip',
