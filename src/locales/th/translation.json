@@ -279,6 +279,8 @@
     "selectServer": "01 / เซิร์ฟเวอร์",
     "platform": "02 / แพลตฟอร์ม",
     "clientLanguage": "03 / ภาษาในเกม",
+    "multiLanguageClient": "ไคลเอนต์หลายภาษา",
+    "multiLanguageHint": "ไคลเอนต์เดียวสำหรับแต่ละแพลตฟอร์ม รองรับหลายภาษา",
     "registerFor": "สมัครบัญชี {{server}}",
     "downloadHelp": "ต้องการความช่วยเหลือในการติดตั้ง?",
     "askCommunity": "สอบถามชุมชนของเรา",

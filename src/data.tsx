@@ -2,6 +2,7 @@ import type { ReactNode } from 'react'
 import heroVideo from './assets/hero.mp4'
 import heroPoster from './assets/hero-poster.png'
 import referralBanner from './assets/events/referral-event.png'
+import towerOfTrialBanner from './assets/events/tower-of-trial-v2.png'
 
 export type Page =
   | { view: 'home' }
@@ -28,7 +29,34 @@ export const ANNOUNCEMENTS: {
   date: LocalizedText
   preview: LocalizedText
   banner?: string
+  fullBanner?: boolean
 }[] = [
+  {
+    "id": "v2-tower-of-trial",
+    "title": {
+      "en": "PlayCrows V2 — Tower of Trial",
+      "kr": "PlayCrows V2 — 시련의 탑",
+      "tw": "PlayCrows V2 — 試煉之塔",
+      "th": "PlayCrows V2 — หอคอยแห่งการทดสอบ",
+      "br": "PlayCrows V2 — Torre das Provações"
+    },
+    "date": {
+      "en": "September 12, 2026",
+      "kr": "2026년 9월 12일",
+      "tw": "2026年9月12日",
+      "th": "12 กันยายน 2026",
+      "br": "12 de setembro de 2026"
+    },
+    "preview": {
+      "en": "A new solo challenge awaits. Climb the Tower, earn first-clear and repeat-clear rewards, and exchange Pioneer Badges for progression items.",
+      "kr": "새로운 솔로 도전이 기다립니다. 탑에 올라 최초 및 반복 클리어 보상을 받고, 개척자 배지를 성장 아이템으로 교환하세요.",
+      "tw": "全新單人挑戰登場。挑戰高塔、領取首次及重複通關獎勵，並以先驅者徽章兌換成長道具。",
+      "th": "ความท้าทายแบบเดี่ยวครั้งใหม่รออยู่ พิชิตหอคอย รับรางวัลผ่านครั้งแรกและผ่านซ้ำ แล้วแลก Pioneer Badges เป็นไอเทมพัฒนาตัวละคร",
+      "br": "Um novo desafio solo espera por você. Suba a Torre, receba recompensas pela primeira conclusão e pelas repetições e troque Pioneer Badges por itens de progressão."
+    },
+    banner: towerOfTrialBanner,
+    fullBanner: true,
+  },
   {
     id: 'referral-event-001',
     title: {
@@ -231,6 +259,28 @@ export const UPDATES: {
     },
   },
 ]
+
+function ContentTowerOfTrial() {
+  return (
+    <div className="prose-game">
+      <p>A new <strong>solo dungeon</strong> is now available in <strong>PlayCrows V2</strong>!</p>
+      <p>Climb through multiple floors, complete each floor’s mission, and earn <strong>first-clear</strong> and <strong>repeat-clear rewards</strong>.</p>
+      <div className="highlight-box">
+        <h3>Dungeon Details</h3>
+        <ul>
+          <li><strong>Level Requirement:</strong> 45</li>
+          <li><strong>Reset:</strong> Every Monday, 4:00 AM</li>
+          <li><strong>Repeat Attempts:</strong> 5 per week</li>
+          <li><strong>Season-Based Content</strong></li>
+        </ul>
+      </div>
+      <h3>Pioneer Badges &amp; Merchant Rewards</h3>
+      <p>Clear the Tower to earn <strong>Pioneer Badges</strong> and exchange them at <strong>Total War Merchant Estella</strong> for valuable progression items.</p>
+      <p><strong>Season Reminder:</strong> Pioneer Badges reset when their season period expires. Exchange your badges before they expire!</p>
+      <p><strong>Climb higher. Earn more.</strong></p>
+    </div>
+  )
+}
 
 function ContentFeedback() {
   return (
@@ -481,6 +531,7 @@ function ContentWebsiteUpdate() {
 
 export function getAnnouncementContent(id: string): ReactNode {
   switch (id) {
+    case 'v2-tower-of-trial': return <ContentTowerOfTrial />
     case 'feedback': return <ContentFeedback />
     case 'early-donation': return <ContentEarlyDonation />
     case 'live': return <ContentLive />

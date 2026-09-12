@@ -279,6 +279,8 @@
     "selectServer": "01 / Servidor",
     "platform": "02 / Plataforma",
     "clientLanguage": "03 / Idioma do jogo",
+    "multiLanguageClient": "Cliente multilíngue",
+    "multiLanguageHint": "Um único cliente por plataforma com vários idiomas incluídos.",
     "registerFor": "Criar conta no {{server}}",
     "downloadHelp": "Precisa de ajuda para instalar?",
     "askCommunity": "Fale com a comunidade",

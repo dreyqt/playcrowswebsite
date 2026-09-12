@@ -307,3 +307,8 @@ main:focus { outline: none; }
 .checkin-reward ul { margin-bottom: 0; }
 @media (max-width: 1050px) { .reward-switcher { align-items: flex-start; flex-direction: column; gap: 17px; } .reward-server-selector { width: min(100%, 350px); min-width: 0; } }
 @media (max-width: 767px) { body { --scene-opacity: .15; } .reward-switcher { padding: 21px; } .reward-server-selector { width: 100%; } .reward-server-selector .segmented label { min-width: 0; padding: 11px 10px; } .checkin-reward { padding: 15px; } }
+
+/* Unified V2 client and full-height news artwork. */
+.multilingual-client { margin: 0; min-height: 47px; display: flex; align-items: center; padding: 11px 12px; border: 1px solid var(--line); border-radius: 5px; color: var(--gold); font-size: 14px; }
+.multilingual-note { color: #b8b6bd; font-size: 13px; line-height: 1.6; margin: 12px 0 0; }
+.article-banner.article-banner-full { display: block; height: auto; max-height: none; object-fit: contain; }

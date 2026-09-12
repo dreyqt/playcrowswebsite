@@ -279,6 +279,8 @@
     "selectServer": "01 / 伺服器",
     "platform": "02 / 平台",
     "clientLanguage": "03 / 遊戲語言",
+    "multiLanguageClient": "多語言用戶端",
+    "multiLanguageHint": "每個平台只需一個用戶端，即包含多種語言。",
     "registerFor": "註冊 {{server}} 帳號",
     "downloadHelp": "安裝需要協助？",
     "askCommunity": "向社群詢問",

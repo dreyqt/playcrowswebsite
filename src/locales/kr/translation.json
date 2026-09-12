@@ -279,6 +279,8 @@
     "selectServer": "01 / 서버",
     "platform": "02 / 플랫폼",
     "clientLanguage": "03 / 게임 언어",
+    "multiLanguageClient": "다국어 클라이언트",
+    "multiLanguageHint": "플랫폼별 단일 클라이언트에 여러 언어가 포함되어 있습니다.",
     "registerFor": "{{server}} 계정 등록",
     "downloadHelp": "설치에 도움이 필요하신가요?",
     "askCommunity": "커뮤니티에 문의하세요",
