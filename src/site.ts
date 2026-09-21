@@ -1,6 +1,5 @@
 export type ServerId = 'v1' | 'v2'
 export type Platform = 'windows' | 'android'
-export type ClientLanguage = 'en' | 'tw' | 'kr'
 
 export const LINKS = {
   webshop: 'https://playcrowsweb.vercel.app/',
@@ -29,9 +28,3 @@ export const SERVERS = {
     },
   },
 } as const
-
-export const CLIENT_LANGUAGES: { id: ClientLanguage; name: string }[] = [
-  { id: 'en', name: 'English' },
-  { id: 'kr', name: '한국어' },
-  { id: 'tw', name: '繁體中文' },
-]

@@ -3,7 +3,7 @@ import { useTranslation, Trans } from 'react-i18next'
 import { ArrowDown, ArrowRight, ArrowUpRight, BookOpen, Check, ChevronDown, Download, Gift, Globe2, Monitor, Pause, Play, Shield, ShoppingBag, Smartphone, Sparkles, Swords, UserPlus, Users } from 'lucide-react'
 import type { Page, Lang } from '../data'
 import { ANNOUNCEMENTS, UPDATES } from '../data'
-import { CLIENT_LANGUAGES, LINKS, SERVERS, type ClientLanguage, type Platform, type ServerId } from '../site'
+import { LINKS, SERVERS, type Platform, type ServerId } from '../site'
 import heroVideo from '../assets/hero.mp4'
 import heroPoster from '../assets/hero-poster.png'
 import serverV1 from '../assets/announcement.png'
@@ -135,20 +135,19 @@ export function GameInfoSection({ server, setServer }: { server: ServerId; setSe
 export function DownloadSection({ server, setServer }: { server: ServerId; setServer: (id: ServerId) => void }) {
   const { t } = useTranslation()
   const [platform, setPlatform] = useState<Platform>('windows')
-  const [language, setLanguage] = useState<ClientLanguage>('en')
   const chosen = SERVERS[server]
-  const downloadUrl = server === 'v2' ? SERVERS.v2.downloads[platform] : SERVERS.v1.downloads[platform][language]
+  const downloadUrl = chosen.downloads[platform]
   return <section id="download" className="section download-panel">
     <div className="download-intro"><p className="eyebrow">{t('site.getStarted')}</p><h2>{t('site.realmAwaits')}</h2><p>{t('site.downloadIntro')}</p><ol className="onboarding-steps"><li><span>01</span><div><strong>{t('site.chooseServer')}</strong><p>{t('site.chooseServerHint')}</p></div></li><li><span>02</span><div><strong>{t('site.createAccount')}</strong><p>{t('site.createAccountHint')}</p></div></li><li><span>03</span><div><strong>{t('site.enterWorld')}</strong><p>{t('site.enterWorldHint')}</p></div></li></ol></div>
     <div className="download-controls">
       <fieldset><legend>{t('site.selectServer')}</legend><div className="segmented server-selector">{(['v1', 'v2'] as const).map(id => <label key={id} className={server === id ? 'selected' : ''}><input type="radio" name="server" value={id} checked={server === id} onChange={() => setServer(id)} /><span>PlayCrows {SERVERS[id].name}</span>{server === id && <Check size={15} />}</label>)}</div></fieldset>
-      <div className="download-options"><fieldset><legend>{t('site.platform')}</legend><div className="segmented platform-selector">{(['windows', 'android'] as const).map(id => <label key={id} className={platform === id ? 'selected' : ''}><input type="radio" name="platform" value={id} checked={platform === id} onChange={() => setPlatform(id)} />{id === 'windows' ? <Monitor size={19} /> : <Smartphone size={19} />}<span>{id === 'windows' ? 'Windows' : 'Android'}</span></label>)}</div></fieldset>{server === 'v1' ? <label className="client-language"><span>{t('site.clientLanguage')}</span><div><select value={language} onChange={event => setLanguage(event.target.value as ClientLanguage)}>{CLIENT_LANGUAGES.map(item => <option key={item.id} value={item.id}>{item.name}</option>)}</select><ChevronDown size={16} /></div></label> : <div className="client-language"><span>{t('site.clientLanguage')}</span><p className="multilingual-client">{t('site.multiLanguageClient')}</p></div>}</div>
-      {server === 'v2' && <p className="multilingual-note">{t('site.multiLanguageHint')}</p>}
-      <div className="download-summary" aria-live="polite"><span className={`version-emblem ${server}`}>{chosen.name}</span><div><strong>PlayCrows {chosen.name}</strong><span>{platform === 'windows' ? 'Windows · ZIP' : 'Android · APK'}<span aria-hidden="true"> · </span>{server === 'v2' ? t('site.multiLanguageClient') : CLIENT_LANGUAGES.find(item => item.id === language)?.name}</span></div></div>
+      <div className="download-options"><fieldset><legend>{t('site.platform')}</legend><div className="segmented platform-selector">{(['windows', 'android'] as const).map(id => <label key={id} className={platform === id ? 'selected' : ''}><input type="radio" name="platform" value={id} checked={platform === id} onChange={() => setPlatform(id)} />{id === 'windows' ? <Monitor size={19} /> : <Smartphone size={19} />}<span>{id === 'windows' ? 'Windows' : 'Android'}</span></label>)}</div></fieldset><div className="client-language"><span>{t('site.clientLanguage')}</span><p className="multilingual-client">{t('site.multiLanguageClient')}</p></div></div>
+      <p className="multilingual-note">{t('site.multiLanguageHint')}</p>
+      <div className="download-summary" aria-live="polite"><span className={`version-emblem ${server}`}>{chosen.name}</span><div><strong>PlayCrows {chosen.name}</strong><span>{platform === 'windows' ? 'Windows · ZIP' : 'Android · APK'}<span aria-hidden="true"> · </span>{t('site.multiLanguageClient')}</span></div></div>
       <a className="btn-primary download-button" href={downloadUrl} target="_blank" rel="noopener noreferrer"><Download size={19} />{t('site.download')} — {chosen.name}<ArrowUpRight size={18} /></a>
       <a className="download-register" href={chosen.register} target="_blank" rel="noopener noreferrer"><UserPlus size={16} />{t('site.registerFor', { server: chosen.name })}<ArrowUpRight size={15} /></a>
       <p className="download-help">{t('site.downloadHelp')} <a href={LINKS.discord} target="_blank" rel="noopener noreferrer">{t('site.askCommunity')}</a></p>
-      <details className="download-mirrors"><summary>{t('site.allDownloads')}<ChevronDown size={14} /></summary><div>{(['windows', 'android'] as const).map(os => <div key={os}><strong>{os === 'windows' ? 'Windows' : 'Android'}</strong>{server === 'v2' ? <a href={SERVERS.v2.downloads[os]} target="_blank" rel="noopener noreferrer">{chosen.name} · {t('site.multiLanguageClient')}<Download size={14} /></a> : CLIENT_LANGUAGES.map(client => <a key={client.id} href={SERVERS.v1.downloads[os][client.id]} target="_blank" rel="noopener noreferrer">{chosen.name} · {client.name}<Download size={14} /></a>)}</div>)}</div></details>
+      <details className="download-mirrors"><summary>{t('site.allDownloads')}<ChevronDown size={14} /></summary><div>{(['windows', 'android'] as const).map(os => <div key={os}><strong>{os === 'windows' ? 'Windows' : 'Android'}</strong><a href={chosen.downloads[os]} target="_blank" rel="noopener noreferrer">{chosen.name} · {t('site.multiLanguageClient')}<Download size={14} /></a></div>)}</div></details>
     </div>
   </section>
 }
