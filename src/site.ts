@@ -14,18 +14,10 @@ export const LINKS = {
 export const SERVERS = {
   v1: {
     name: 'V1',
-    register: 'https://account.playcrows.com/regchannel.php?pid=3006',
+    register: 'https://account.playcrows.com/regchannel.php?pid=3024',
     downloads: {
-      windows: {
-        en: 'http://download.playcrows.com/p/play-pc-en10.zip',
-        tw: 'http://download.playcrows.com/p/play-pc-tw10.zip',
-        kr: 'http://download.playcrows.com/p/play-pc-kr10.zip',
-      },
-      android: {
-        en: 'http://download.playcrows.com/p/play-az-en-10.apk',
-        tw: 'http://download.playcrows.com/p/play-az-tw-10.apk',
-        kr: 'http://download.playcrows.com/p/play-az-kr-10.apk',
-      },
+      windows: 'http://download.playcrows.com/p/PlayV1-PC-all-11.zip',
+      android: 'http://download.playcrows.com/p/PlayAZ-v1-all-11.apk',
     },
   },
   v2: {
