@@ -4,7 +4,7 @@ V1 is now the only playable server advertised on the website.
 
 - Removed the retired server's registration, downloads, rewards, selectors,
   promotional text, and Tower of Trial announcement and artwork.
-- Preserved V1 registration, Windows and Android clients, and existing rewards.
+- Preserved V1 registration and rewards; updated PC and Android downloads to version 15.
 - Added a V2-to-V1 account guide beside the V1 server card, with navigation,
   download-section, and footer links.
 - The guide uses https://www.playcrows.com/v3gethequacc/ exactly as supplied.

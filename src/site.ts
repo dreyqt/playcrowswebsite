@@ -15,8 +15,8 @@ export const SERVERS = {
     name: 'V1',
     register: 'https://account.playcrows.com/regchannel.php?pid=3024',
     downloads: {
-      windows: 'http://download.playcrows.com/p/PlayV1-PC-all-11.zip',
-      android: 'http://download.playcrows.com/p/PlayAZ-v1-all-12.apk',
+      windows: 'https://download.playcrows.com/p/PlayV1-PC-all-15.zip',
+      android: 'https://download.playcrows.com/p/PlayAZ-v1-all-15.apk',
     },
   },
 } as const

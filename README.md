@@ -58,8 +58,8 @@ lookup displays existing records; it does not create or change accounts.
 It is linked from desktop/mobile navigation, downloads, and the footer.
 The guide includes Discord support if the page is unavailable or lookup fails.
 
-V1 registration and both original download destinations are retained, including
-the download URLs' HTTP scheme. Existing V1 rewards are unchanged. Article bodies
+V1 registration and rewards are unchanged. Windows and Android downloads use
+the owner-supplied version 15 HTTPS links in `src/site.ts`. Article bodies
 remain in English, with a notice when another interface language is selected.
 
 ## Artwork
