@@ -242,23 +242,21 @@
     "language": "網站語言",
     "heroEyebrow": "全新冒險，從這裡開始",
     "heroTitle": "開啟全新篇章，",
-    "heroDescription": "熟悉的世界，專屬於你的旅程。召集公會夥伴、選擇伺服器，與 PlayCrows 社群一同體驗 Night Crows。",
+    "heroDescription": "熟悉的世界，專屬於你的旅程。召集公會夥伴，與 PlayCrows V1 社群一同體驗 Night Crows。",
     "globalCommunity": "國際玩家社群",
     "beginJourney": "開啟冒險",
     "downloadGame": "下載遊戲",
-    "findRealm": "尋找你的伺服器",
+    "findRealm": "探索 PlayCrows V1",
     "playVideo": "播放背景影片",
     "pauseVideo": "暫停背景影片",
-    "chooseChapter": "兩個世界，你的故事",
+    "chooseChapter": "同一個世界，你的故事",
     "ourServers": "我們的伺服器",
-    "serverIntro": "選擇你的 PlayCrows 伺服器，全新冒險即將開始。",
-    "v1Tag": "初始伺服器",
-    "v2Tag": "第二伺服器",
-    "v1Description": "PlayCrows 的初始伺服器。召集盟友，繼續書寫你的故事。",
-    "v2Description": "在 PlayCrows 第二伺服器展開下一篇章，在戰場上找到屬於你的位置。",
+    "serverIntro": "加入 PlayCrows V1，全新冒險即將開始。",
+    "v1Tag": "共同的冒險世界",
+    "v1Description": "在 PlayCrows V1 召集盟友，繼續書寫你的故事。",
     "createAccount": "註冊帳號",
     "features": "伺服器特色",
-    "accountNote": "註冊帳號與下載遊戲客戶端時，請選擇相同伺服器。",
+    "accountNote": "帳號註冊與遊戲下載均適用於 PlayCrows V1。",
     "fromRealm": "來自 PlayCrows",
     "newsTitle": "最新消息與公告",
     "announcements": "公告",
@@ -270,31 +268,28 @@
     "startPlaying": "開始遊玩",
     "getStarted": "加入冒險",
     "realmAwaits": "你的世界，等你到來。",
-    "downloadIntro": "選擇伺服器與遊戲平台，踏入 PlayCrows 的世界。",
-    "chooseServer": "選擇伺服器",
-    "chooseServerHint": "V1 或 V2 — 找到適合你的冒險世界。",
-    "createAccountHint": "為你選擇的伺服器註冊帳號。",
+    "downloadIntro": "選擇遊戲平台，踏入 PlayCrows V1 的世界。",
+    "createAccountHint": "新玩家？註冊 PlayCrows V1 帳號。",
     "enterWorld": "進入遊戲世界",
-    "enterWorldHint": "安裝相應客戶端，展開你的旅程。",
-    "selectServer": "01 / 伺服器",
-    "platform": "02 / 平台",
-    "clientLanguage": "03 / 遊戲語言",
+    "enterWorldHint": "安裝適用於你所用平台的 V1 用戶端，展開旅程。",
+    "platform": "01 / 平台",
+    "clientLanguage": "02 / 遊戲語言",
     "multiLanguageClient": "多語言用戶端",
     "multiLanguageHint": "每個平台只需一個用戶端，即包含多種語言。",
     "registerFor": "註冊 {{server}} 帳號",
     "downloadHelp": "安裝需要協助？",
     "askCommunity": "向社群詢問",
-    "allDownloads": "查看此伺服器的所有下載",
+    "allDownloads": "查看所有 V1 下載",
     "betterTogether": "一起冒險，更精彩。",
     "communityDescription": "尋找公會、結識玩家，掌握公告與活動消息。與社群一起展開你的下一場冒險。",
     "joinDiscord": "加入 Discord",
     "supportJourney": "支持這段旅程。",
     "shopDescription": "前往 PlayCrows 網頁商店，查看禮包、贊助套裝及玩家活動。",
     "visitShop": "前往網頁商店",
-    "shopNote": "請在商店確認適用伺服器及禮包內容。",
+    "shopNote": "請在商店確認禮包內容。",
     "playRespectfully": "尊重彼此，共享世界",
     "rules": "伺服器規則",
-    "footerDescription": "開啟 Night Crows 的全新篇章。兩個 PlayCrows 世界，同一份冒險熱情。",
+    "footerDescription": "開啟 Night Crows 的全新篇章。加入 PlayCrows V1 社群，一同分享冒險。",
     "explore": "探索",
     "contactSupport": "聯絡支援",
     "independentNote": "獨立社群伺服器，與 Night Crows 官方服務無關。",
@@ -304,43 +299,34 @@
     "notFound": "找不到這篇文章。",
     "backNews": "返回公告",
     "backUpdates": "返回更新",
-    "articleEnglish": "此文章內文以英文提供。"
+    "articleEnglish": "此文章內文以英文提供。",
+    "mergeGuide": "帳號合併"
   },
   "serverRewards": {
-    "title": "伺服器專屬獎勵",
-    "sharedInfo": "V1 與 V2 的伺服器倍率和特色相同。請選擇伺服器查看對應獎勵。",
-    "selectServer": "選擇要查看獎勵的伺服器",
-    "v2": {
-      "starterRewards": {
-        "heading": "新玩家新手獎勵",
-        "description": "每位新冒險者都會收到新手禮包，助您展開冒險旅程！",
-        "items": [
-          "封裝英雄武器選擇箱（已鑄印）×1",
-          "封裝英雄飾品選擇箱（已鑄印）×1",
-          "封裝英雄防具選擇箱（已鑄印）×6",
-          "簽到活動第 3 天獎勵（綁定）×1",
-          "+5 夜鷹裝備 I / II / III / IV 選擇箱（已鑄印）×6"
-        ],
-        "checkInHeading": "簽到活動第 3 天獎勵包含：",
-        "checkInItems": [
-          "[L] 坐騎召喚（綁定）×1",
-          "[L] 武器外觀召喚選擇（綁定）×1",
-          "深夜之風套裝（綁定）",
-          "魔晶（Morion，綁定）×100",
-          "金幣 ×2,000,000",
-          "金幣 ×500,000"
-        ]
+    "title": "PlayCrows V1 獎勵",
+    "sharedInfo": "為 V1 冒險準備的新手與每日獎勵。"
+  },
+  "accountMerge": {
+    "eyebrow": "回歸玩家指南",
+    "title": "V2 → V1 帳號指南",
+    "description": "V2 已合併至 V1。請透過帳號合併頁面查詢合併後的帳號，並在 V1 繼續遊玩。",
+    "openPage": "開啟帳號合併頁面",
+    "support": "需要協助？聯絡支援",
+    "steps": [
+      {
+        "title": "查詢原有帳號",
+        "description": "開啟帳號合併頁面，輸入原有 V2 帳號 ID（Original Account ID）與密碼（Original Password），然後選擇「Find Accounts」。"
       },
-      "dailyRewards": {
-        "heading": "每日登入獎勵",
-        "description": "每天登入即可獲得實用資源，持續強化您的角色。",
-        "items": [
-          "里程 ×10,000",
-          "食物籃（持有）×10",
-          "夜鴉成長強化劑（綁定）×10",
-          "時間補充選擇箱（綁定）×4"
-        ]
+      {
+        "title": "找到角色對應的 V1 帳號",
+        "description": "在查詢結果（Lookup Results）中，確認你的角色所對應的新帳號。此查詢僅顯示已存在的合併後帳號，不會建立或變更帳號。"
+      },
+      {
+        "title": "在 V1 繼續遊玩",
+        "description": "下載 Windows 或 Android 版 V1 用戶端，然後使用角色所對應的新帳號登入。"
       }
-    }
+    ],
+    "help": "若無法開啟頁面或找不到帳號，請透過 Discord 聯絡我們的支援團隊。",
+    "download": "下載 V1"
   }
 }

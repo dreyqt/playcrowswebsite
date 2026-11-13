@@ -1,7 +1,7 @@
-export type ServerId = 'v1' | 'v2'
 export type Platform = 'windows' | 'android'
 
 export const LINKS = {
+  accountMerge: 'https://www.playcrows.com/v3gethequacc/',
   webshop: 'https://playcrowsweb.vercel.app/',
   discord: 'https://discord.gg/rq8Sfu7ZqW',
   facebook: 'https://www.facebook.com/PlayCrows',
@@ -17,14 +17,6 @@ export const SERVERS = {
     downloads: {
       windows: 'http://download.playcrows.com/p/PlayV1-PC-all-11.zip',
       android: 'http://download.playcrows.com/p/PlayAZ-v1-all-12.apk',
-    },
-  },
-  v2: {
-    name: 'V2',
-    register: 'https://account002.playcrows.com/regchannel.php?pid=3050',
-    downloads: {
-      windows: 'http://download.playcrows.com/pv2/PlayV2-PC-all-7.zip',
-      android: 'http://download.playcrows.com/pv2/PlayAZ-v2-all-7.apk',
     },
   },
 } as const

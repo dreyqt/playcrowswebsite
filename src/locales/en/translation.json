@@ -230,7 +230,7 @@
   "site": {
     "pageTitle": "Your next chapter in Night Crows",
     "mainNavigation": "Main navigation",
-    "servers": "Servers",
+    "servers": "Server",
     "community": "Community",
     "news": "News",
     "gameInfo": "Game info",
@@ -242,23 +242,21 @@
     "language": "Website language",
     "heroEyebrow": "A new home for your adventure",
     "heroTitle": "Your next chapter in",
-    "heroDescription": "The world you know. A journey of your own. Bring your guild, choose your realm, and experience Night Crows with the PlayCrows community.",
+    "heroDescription": "The world you know. A journey of your own. Bring your guild and experience Night Crows with the PlayCrows V1 community.",
     "globalCommunity": "International community",
     "beginJourney": "Begin your journey",
     "downloadGame": "Download game",
-    "findRealm": "Find your realm",
+    "findRealm": "Explore PlayCrows V1",
     "playVideo": "Play background video",
     "pauseVideo": "Pause background video",
-    "chooseChapter": "Two realms. Your story.",
-    "ourServers": "Our servers",
-    "serverIntro": "Choose your PlayCrows realm. Your next adventure starts here.",
-    "v1Tag": "Original realm",
-    "v2Tag": "Second realm",
-    "v1Description": "The original PlayCrows realm. Gather your allies and continue your story.",
-    "v2Description": "Your next chapter in the second PlayCrows realm. Find your place on the battlefield.",
+    "chooseChapter": "One realm. Your story.",
+    "ourServers": "Our server",
+    "serverIntro": "Join PlayCrows V1. Your next adventure starts here.",
+    "v1Tag": "Our shared realm",
+    "v1Description": "Gather your allies in PlayCrows V1 and continue your story.",
     "createAccount": "Create account",
     "features": "Features",
-    "accountNote": "Choose the same server when you register and download your game client.",
+    "accountNote": "Registration and game downloads are for PlayCrows V1.",
     "fromRealm": "From the realm",
     "newsTitle": "News & announcements",
     "announcements": "Announcements",
@@ -270,31 +268,28 @@
     "startPlaying": "Start playing",
     "getStarted": "Join the adventure",
     "realmAwaits": "Your realm awaits.",
-    "downloadIntro": "Everything you need to begin. Choose your server, select your platform, and step into PlayCrows.",
-    "chooseServer": "Choose your server",
-    "chooseServerHint": "V1 or V2 — find the realm for your adventure.",
-    "createAccountHint": "Register an account for your chosen server.",
+    "downloadIntro": "Everything you need to begin. Select your platform and step into PlayCrows V1.",
+    "createAccountHint": "New player? Register a PlayCrows V1 account.",
     "enterWorld": "Enter the world",
-    "enterWorldHint": "Install the matching client and begin your journey.",
-    "selectServer": "01 / Server",
-    "platform": "02 / Platform",
-    "clientLanguage": "03 / Game language",
+    "enterWorldHint": "Install the V1 client for your platform and begin your journey.",
+    "platform": "01 / Platform",
+    "clientLanguage": "02 / Game language",
     "multiLanguageClient": "Multi-language client",
     "multiLanguageHint": "One client per platform with multiple languages included.",
     "registerFor": "Register for {{server}}",
     "downloadHelp": "Need help installing?",
     "askCommunity": "Ask our community",
-    "allDownloads": "View all downloads for this server",
+    "allDownloads": "View all V1 downloads",
     "betterTogether": "Better together.",
     "communityDescription": "Find your guild, meet other players, and keep up with announcements and events. Your next adventure begins with your community.",
     "joinDiscord": "Join Discord",
     "supportJourney": "Support the journey.",
     "shopDescription": "Explore gift packs, support packages, and player events in the PlayCrows webshop.",
     "visitShop": "Visit the webshop",
-    "shopNote": "Check server availability and package details in the shop.",
+    "shopNote": "Check package details in the shop.",
     "playRespectfully": "Respect the realm",
     "rules": "Server rules",
-    "footerDescription": "Your next chapter in Night Crows. Two PlayCrows realms. One shared passion for the adventure.",
+    "footerDescription": "Your next chapter in Night Crows. Join the PlayCrows V1 community and share the adventure.",
     "explore": "Explore",
     "contactSupport": "Contact support",
     "independentNote": "Independent community server. Not affiliated with the official Night Crows service.",
@@ -304,43 +299,34 @@
     "notFound": "This article could not be found.",
     "backNews": "Back to announcements",
     "backUpdates": "Back to updates",
-    "articleEnglish": "This article is available in English."
+    "articleEnglish": "This article is available in English.",
+    "mergeGuide": "Account merge"
   },
   "serverRewards": {
-    "title": "Rewards for your server",
-    "sharedInfo": "Server rates and features are the same in V1 and V2. Select a server to see its rewards.",
-    "selectServer": "Select a server to view its rewards",
-    "v2": {
-      "starterRewards": {
-        "heading": "New Player Starter Rewards",
-        "description": "Every new adventurer receives a New Player Gift Pack to help kick-start their journey!",
-        "items": [
-          "Sealed Hero Weapon Selection Box (Attribution) ×1",
-          "Sealed Hero Accessory Selection Box (Attribution) ×1",
-          "Sealed Hero Armor Selection Box (Attribution) ×6",
-          "Check-in Event Day 3 Reward (Bound) ×1",
-          "+5 Nighthawk Equipment I / II / III / IV Selection Boxes (Attributed) ×6"
-        ],
-        "checkInHeading": "Check-in Event Day 3 Reward contains:",
-        "checkInItems": [
-          "[L] Mount Summon (Bound) ×1",
-          "[L] Weapon Style Summon Selection (Bound) ×1",
-          "Deep Night's Wind Suit (Bound)",
-          "Morion (Bound) ×100",
-          "Gold ×2,000,000",
-          "Gold ×500,000"
-        ]
+    "title": "PlayCrows V1 rewards",
+    "sharedInfo": "Starter and daily rewards for your adventure in V1."
+  },
+  "accountMerge": {
+    "eyebrow": "For returning players",
+    "title": "V2 → V1 account guide",
+    "description": "V2 has merged into V1. Use the account merge page to find your merged account and continue playing on V1.",
+    "openPage": "Open account merge page",
+    "support": "Need help? Contact support",
+    "steps": [
+      {
+        "title": "Look up your original account",
+        "description": "Open the account merge page. Enter your original V2 account ID and password, then select “Find Accounts”."
       },
-      "dailyRewards": {
-        "heading": "Daily Login Rewards",
-        "description": "Log in every day to receive useful resources and continue strengthening your character.",
-        "items": [
-          "Mileage ×10,000",
-          "Food Basket (Owned) ×10",
-          "Night Crows Stimulant of Growth (Bound) ×10",
-          "Time Recharger Selection Chest (Bound) ×4"
-        ]
+      {
+        "title": "Find your character’s V1 account",
+        "description": "Match your character with the new account shown in Lookup Results. This lookup displays existing merged accounts; it does not create or change accounts."
+      },
+      {
+        "title": "Continue on V1",
+        "description": "Download the V1 client for Windows or Android, then log in with the new account associated with your character."
       }
-    }
+    ],
+    "help": "If the page is unavailable or you cannot find your account, contact our support team on Discord.",
+    "download": "Download V1"
   }
 }

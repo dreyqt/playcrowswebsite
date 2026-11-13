@@ -3,17 +3,17 @@ import { useTranslation, Trans } from 'react-i18next'
 import { ArrowDown, ArrowRight, ArrowUpRight, BookOpen, Check, ChevronDown, Download, Gift, Globe2, Monitor, Pause, Play, Shield, ShoppingBag, Smartphone, Sparkles, Swords, UserPlus, Users } from 'lucide-react'
 import type { Page, Lang } from '../data'
 import { ANNOUNCEMENTS, UPDATES } from '../data'
-import { LINKS, SERVERS, type Platform, type ServerId } from '../site'
+import { LINKS, SERVERS, type Platform } from '../site'
 import heroVideo from '../assets/hero.mp4'
 import heroPoster from '../assets/hero-poster.png'
-import serverV1 from '../assets/announcement.png'
+import announcementArt from '../assets/announcement.png'
 import knight from '../assets/night-crows-knight.png'
-import mage from '../assets/night-crows-mage.png'
 import world from '../assets/night-crows-world.png'
-import serverV2 from '../assets/update.png'
+import updateArt from '../assets/update.png'
 import newsArt from '../assets/game.png'
 import crest from '../assets/playcrows-emblem.png'
 import { IcoDiscordSmall } from './Icons'
+import AccountMergeGuide from './AccountMergeGuide'
 
 export function Hero({ scrollTo }: { scrollTo: (id: string) => void }) {
   const { t } = useTranslation()
@@ -45,7 +45,7 @@ export function Hero({ scrollTo }: { scrollTo: (id: string) => void }) {
       <p className="eyebrow"><span className="eyebrow-line" />{t('site.heroEyebrow')}</p>
       <h1>{t('site.heroTitle')}<br /><em>Night Crows.</em></h1>
       <p className="hero-description">{t('site.heroDescription')}</p>
-      <div className="hero-perks"><span><Swords size={16} />V1 & V2</span><span><Monitor size={16} />Windows & Android</span><span><Globe2 size={16} />{t('site.globalCommunity')}</span></div>
+      <div className="hero-perks"><span><Swords size={16} />PlayCrows V1</span><span><Monitor size={16} />Windows & Android</span><span><Globe2 size={16} />{t('site.globalCommunity')}</span></div>
       <div className="hero-buttons"><button className="btn-primary" onClick={() => scrollTo('servers')}><UserPlus size={18} />{t('site.beginJourney')}<ArrowRight size={17} /></button><button className="btn-secondary" onClick={() => scrollTo('download')}><Download size={17} />{t('site.downloadGame')}</button></div>
       <a className="hero-explore" href="#servers">{t('site.findRealm')}<ArrowDown size={14} /></a>
     </div>
@@ -54,20 +54,22 @@ export function Hero({ scrollTo }: { scrollTo: (id: string) => void }) {
   </section>
 }
 
-export function ServerSection({ onDownload, onFeatures }: { onDownload: (server: ServerId) => void; onFeatures: (server: ServerId) => void }) {
+export function ServerSection({ onDownload }: { onDownload: () => void }) {
   const { t } = useTranslation()
+  const server = SERVERS.v1
   return <section id="servers" className="section servers-section">
     <div className="section-heading"><div><p className="eyebrow">{t('site.chooseChapter')}</p><h2>{t('site.ourServers')}</h2></div><p>{t('site.serverIntro')}</p></div>
     <div className="servers-grid">
-      {(['v1', 'v2'] as const).map((id, index) => <article id={`server-${id}`} key={id} className={`server-card ${id}`}>
+      <article id="server-v1" className="server-card v1">
         <div className="server-scene">
           <img src={world} alt="" className="server-art" loading="lazy" width={960} height={540} />
-          <div className="server-shade" /><img src={id === 'v1' ? knight : mage} className="server-character" alt="" loading="lazy" width={id === 'v1' ? 1655 : 1346} height={id === 'v1' ? 1763 : 1726} />
-          <span className="server-number" aria-hidden="true">0{index + 1}</span>
-          <div className="server-copy"><p className="server-kicker">NIGHT CROWS</p><h3>PLAYCROWS <span>{SERVERS[id].name}</span></h3><div className="short-rule" /><p>{t(`site.${id}Description`)}</p><a className="btn-primary" href={SERVERS[id].register} target="_blank" rel="noopener noreferrer"><UserPlus size={16} />{t('site.createAccount')}<ArrowUpRight size={16} /></a></div>
+          <div className="server-shade" /><img src={knight} className="server-character" alt="" loading="lazy" width={1655} height={1763} />
+          <span className="server-number" aria-hidden="true">01</span>
+          <div className="server-copy"><p className="server-kicker">NIGHT CROWS</p><h3>PLAYCROWS <span>{server.name}</span></h3><div className="short-rule" /><p>{t('site.v1Description')}</p><a className="btn-primary" href={server.register} target="_blank" rel="noopener noreferrer"><UserPlus size={16} />{t('site.createAccount')}<ArrowUpRight size={16} /></a></div>
         </div>
-        <div className="server-card-footer"><div><strong>PlayCrows {SERVERS[id].name}</strong><span className="server-tag">{t(`site.${id}Tag`)}</span><small>Windows · Android</small></div><div className="server-card-actions"><a href="#game-info" onClick={() => onFeatures(id)} aria-label={`${SERVERS[id].name} — ${t('site.features')}`}><BookOpen size={15} />{t('site.features')}</a><button onClick={() => onDownload(id)} aria-label={`${SERVERS[id].name} — ${t('site.download')}`}><Download size={15} />{t('site.download')}</button></div></div>
-      </article>)}
+        <div className="server-card-footer"><div><strong>PlayCrows {server.name}</strong><span className="server-tag">{t('site.v1Tag')}</span><small>Windows · Android</small></div><div className="server-card-actions"><a href="#game-info" aria-label={`${server.name} — ${t('site.features')}`}><BookOpen size={15} />{t('site.features')}</a><button onClick={onDownload} aria-label={`${server.name} — ${t('site.download')}`}><Download size={15} />{t('site.download')}</button></div></div>
+      </article>
+      <AccountMergeGuide />
     </div>
     <p className="server-note"><Shield size={14} />{t('site.accountNote')}</p>
   </section>
@@ -77,8 +79,8 @@ export function NewsGrid({ navigate }: { navigate: (page: Page) => void }) {
   const { t, i18n } = useTranslation()
   const lang = (['en', 'kr', 'th', 'tw', 'br'].includes(i18n.language) ? i18n.language : 'en') as Lang
   const featured = [
-    { item: ANNOUNCEMENTS[0], category: t('site.announcements'), image: ANNOUNCEMENTS[0].banner ?? serverV1, page: { view: 'announcement', id: ANNOUNCEMENTS[0].id } as Page },
-    { item: UPDATES[0], category: t('site.updates'), image: serverV2, page: { view: 'update', id: UPDATES[0].id } as Page },
+    { item: ANNOUNCEMENTS[0], category: t('site.announcements'), image: ANNOUNCEMENTS[0].banner ?? announcementArt, page: { view: 'announcement', id: ANNOUNCEMENTS[0].id } as Page },
+    { item: UPDATES[0], category: t('site.updates'), image: updateArt, page: { view: 'update', id: UPDATES[0].id } as Page },
     { item: ANNOUNCEMENTS[1], category: t('site.announcements'), image: ANNOUNCEMENTS[1].banner ?? newsArt, page: { view: 'announcement', id: ANNOUNCEMENTS[1].id } as Page },
   ]
   return <section id="news" className="section news-section">
@@ -90,12 +92,11 @@ export function NewsGrid({ navigate }: { navigate: (page: Page) => void }) {
   </section>
 }
 
-export function GameInfoSection({ server, setServer }: { server: ServerId; setServer: (server: ServerId) => void }) {
+export function GameInfoSection() {
   const { t } = useTranslation()
-  const rewardPrefix = server === 'v1' ? 'donation' : 'serverRewards.v2'
+  const rewardPrefix = 'donation'
   const starterItems = t(`${rewardPrefix}.starterRewards.items`, { returnObjects: true }) as string[]
   const dailyItems = t(`${rewardPrefix}.dailyRewards.items`, { returnObjects: true }) as string[]
-  const checkInItems = server === 'v2' ? t('serverRewards.v2.starterRewards.checkInItems', { returnObjects: true }) as string[] : []
   const features = [
     { key: 'expRate', icon: Swords },
     { key: 'dropRate', icon: Sparkles },
@@ -107,43 +108,34 @@ export function GameInfoSection({ server, setServer }: { server: ServerId; setSe
   return <section id="game-info" className="section game-section">
     <div className="feature-banner"><img src={world} alt="" loading="lazy" width={2560} height={1080} /><div className="feature-banner-shade" /><div className="feature-intro"><p className="eyebrow">{t('site.gameInfo')}</p><h2>{t('site.familiarWorld')}<br /><em>{t('site.differentPace')}</em></h2><p>{t('site.featuresDescription')}</p><a className="text-link" href="#download">{t('site.startPlaying')}<ArrowRight size={17} /></a></div><div className="feature-brand" aria-hidden="true"><img src={crest} alt="" loading="lazy" width={200} height={200} /><span>THE PLAYCROWS EXPERIENCE</span></div></div>
     <div className="features-grid">{features.map(({ key, icon: Icon }) => <div className="feature-item" key={key}><Icon size={22} /><div><strong>{t(`gameInfo.items.${key}.value`)}</strong><span>{t(`gameInfo.items.${key}.title`)}</span></div></div>)}</div>
-    <div className="reward-switcher">
+    <div className="reward-heading">
       <div><h3>{t('serverRewards.title')}</h3><p>{t('serverRewards.sharedInfo')}</p></div>
-      <fieldset className="reward-server-selector">
-        <legend className="sr-only">{t('serverRewards.selectServer')}</legend>
-        <div className="segmented">{(['v1', 'v2'] as const).map(id => <label key={id} className={server === id ? 'selected' : ''}>
-          <input type="radio" name="reward-server" value={id} checked={server === id} onChange={() => setServer(id)} />
-          <span>PlayCrows {SERVERS[id].name}</span>{server === id && <Check size={15} />}
-        </label>)}</div>
-      </fieldset>
     </div>
-    <div className="reward-accordions" data-reward-server={server}>
+    <div className="reward-accordions">
       <details className="reward-detail">
-        <summary><Gift size={18} /><span><b className={`reward-server-badge ${server}`}>{SERVERS[server].name}</b>{t(`${rewardPrefix}.starterRewards.heading`).replace(/^[^\p{L}]+/u, '')}</span><ChevronDown size={17} /></summary>
+        <summary><Gift size={18} /><span><b className="reward-server-badge">V1</b>{t(`${rewardPrefix}.starterRewards.heading`).replace(/^[^\p{L}]+/u, '')}</span><ChevronDown size={17} /></summary>
         <div className="detail-content"><p>{t(`${rewardPrefix}.starterRewards.description`)}</p><ul>{starterItems.map(item => <li key={item}>{item}</li>)}</ul>
-          {server === 'v2' && <div className="checkin-reward"><h4><Gift size={17} />{t('serverRewards.v2.starterRewards.checkInHeading')}</h4><ul>{checkInItems.map(item => <li key={item}>{item}</li>)}</ul></div>}
         </div>
       </details>
       <details className="reward-detail">
-        <summary><Gift size={18} /><span><b className={`reward-server-badge ${server}`}>{SERVERS[server].name}</b>{t(`${rewardPrefix}.dailyRewards.heading`).replace(/^[^\p{L}]+/u, '')}</span><ChevronDown size={17} /></summary>
+        <summary><Gift size={18} /><span><b className="reward-server-badge">V1</b>{t(`${rewardPrefix}.dailyRewards.heading`).replace(/^[^\p{L}]+/u, '')}</span><ChevronDown size={17} /></summary>
         <div className="detail-content"><p>{t(`${rewardPrefix}.dailyRewards.description`)}</p><ul>{dailyItems.map(item => <li key={item}>{item}</li>)}</ul></div>
       </details>
     </div>
   </section>
 }
 
-export function DownloadSection({ server, setServer }: { server: ServerId; setServer: (id: ServerId) => void }) {
+export function DownloadSection() {
   const { t } = useTranslation()
   const [platform, setPlatform] = useState<Platform>('windows')
-  const chosen = SERVERS[server]
+  const chosen = SERVERS.v1
   const downloadUrl = chosen.downloads[platform]
   return <section id="download" className="section download-panel">
-    <div className="download-intro"><p className="eyebrow">{t('site.getStarted')}</p><h2>{t('site.realmAwaits')}</h2><p>{t('site.downloadIntro')}</p><ol className="onboarding-steps"><li><span>01</span><div><strong>{t('site.chooseServer')}</strong><p>{t('site.chooseServerHint')}</p></div></li><li><span>02</span><div><strong>{t('site.createAccount')}</strong><p>{t('site.createAccountHint')}</p></div></li><li><span>03</span><div><strong>{t('site.enterWorld')}</strong><p>{t('site.enterWorldHint')}</p></div></li></ol></div>
+    <div className="download-intro"><p className="eyebrow">{t('site.getStarted')}</p><h2>{t('site.realmAwaits')}</h2><p>{t('site.downloadIntro')}</p><ol className="onboarding-steps"><li><span>01</span><div><strong>{t('site.createAccount')}</strong><p>{t('site.createAccountHint')}</p></div></li><li><span>02</span><div><strong>{t('site.enterWorld')}</strong><p>{t('site.enterWorldHint')}</p></div></li></ol><a className="text-link" href="#account-merge">{t('site.mergeGuide')}<ArrowRight size={16} /></a></div>
     <div className="download-controls">
-      <fieldset><legend>{t('site.selectServer')}</legend><div className="segmented server-selector">{(['v1', 'v2'] as const).map(id => <label key={id} className={server === id ? 'selected' : ''}><input type="radio" name="server" value={id} checked={server === id} onChange={() => setServer(id)} /><span>PlayCrows {SERVERS[id].name}</span>{server === id && <Check size={15} />}</label>)}</div></fieldset>
       <div className="download-options"><fieldset><legend>{t('site.platform')}</legend><div className="segmented platform-selector">{(['windows', 'android'] as const).map(id => <label key={id} className={platform === id ? 'selected' : ''}><input type="radio" name="platform" value={id} checked={platform === id} onChange={() => setPlatform(id)} />{id === 'windows' ? <Monitor size={19} /> : <Smartphone size={19} />}<span>{id === 'windows' ? 'Windows' : 'Android'}</span></label>)}</div></fieldset><div className="client-language"><span>{t('site.clientLanguage')}</span><p className="multilingual-client">{t('site.multiLanguageClient')}</p></div></div>
       <p className="multilingual-note">{t('site.multiLanguageHint')}</p>
-      <div className="download-summary" aria-live="polite"><span className={`version-emblem ${server}`}>{chosen.name}</span><div><strong>PlayCrows {chosen.name}</strong><span>{platform === 'windows' ? 'Windows · ZIP' : 'Android · APK'}<span aria-hidden="true"> · </span>{t('site.multiLanguageClient')}</span></div></div>
+      <div className="download-summary" aria-live="polite"><span className="version-emblem">{chosen.name}</span><div><strong>PlayCrows {chosen.name}</strong><span>{platform === 'windows' ? 'Windows · ZIP' : 'Android · APK'}<span aria-hidden="true"> · </span>{t('site.multiLanguageClient')}</span></div></div>
       <a className="btn-primary download-button" href={downloadUrl} target="_blank" rel="noopener noreferrer"><Download size={19} />{t('site.download')} — {chosen.name}<ArrowUpRight size={18} /></a>
       <a className="download-register" href={chosen.register} target="_blank" rel="noopener noreferrer"><UserPlus size={16} />{t('site.registerFor', { server: chosen.name })}<ArrowUpRight size={15} /></a>
       <p className="download-help">{t('site.downloadHelp')} <a href={LINKS.discord} target="_blank" rel="noopener noreferrer">{t('site.askCommunity')}</a></p>
