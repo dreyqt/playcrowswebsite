@@ -3,7 +3,7 @@ export type Platform = 'windows' | 'android'
 
 export const LINKS = {
   webshop: 'https://playcrowsweb.vercel.app/',
-  discord: 'https://discord.gg/ayxHdychr',
+  discord: 'https://discord.gg/rq8Sfu7ZqW',
   facebook: 'https://www.facebook.com/PlayCrows',
   rules: 'https://playcrows.base44.app',
   report: 'https://discord.com/channels/1527607490840100955/1527609980625227866',
