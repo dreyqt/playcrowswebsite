@@ -59,7 +59,7 @@ It is linked from desktop/mobile navigation, downloads, and the footer.
 The guide includes Discord support if the page is unavailable or lookup fails.
 
 V1 registration and rewards are unchanged. Windows and Android downloads use
-the owner-supplied version 15 HTTPS links in `src/site.ts`. Article bodies
+the owner-supplied version 16 HTTPS links in `src/site.ts`. Article bodies
 remain in English, with a notice when another interface language is selected.
 
 ## Artwork
