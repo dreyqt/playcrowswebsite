@@ -59,7 +59,8 @@ It is linked from desktop/mobile navigation, downloads, and the footer.
 The guide includes Discord support if the page is unavailable or lookup fails.
 
 V1 registration and rewards are unchanged. Windows and Android downloads use
-the owner-supplied HTTPS links in `src/site.ts` (PC version 16, Android version 18). Article bodies
+the owner-supplied HTTPS links in `src/site.ts` (PC and Android version 19, released 2026-11-17).
+The official Discord invite is also configured there. Article bodies
 remain in English, with a notice when another interface language is selected.
 
 ## Artwork

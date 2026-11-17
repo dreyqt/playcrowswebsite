@@ -1,4 +1,5 @@
 import type { ReactNode } from 'react'
+import { LINKS } from './site'
 import heroVideo from './assets/hero.mp4'
 import heroPoster from './assets/hero-poster.png'
 import referralBanner from './assets/events/referral-event.png'
@@ -398,7 +399,7 @@ function ContentStream() {
       <p>Get your stream ready, invite your friends, and join us as we celebrate the official launch of PlayCrows!</p>
       <p>See you on the battlefield!</p>
       <div style={{ marginTop: 28 }}>
-        <a href="https://discord.gg/ayxHdychr" target="_blank" rel="noopener noreferrer" className="btn-primary inline-block no-underline" style={{ fontSize: 13 }}>
+        <a href={LINKS.discord} target="_blank" rel="noopener noreferrer" className="btn-primary inline-block no-underline" style={{ fontSize: 13 }}>
           <span>Share Your Stream</span>
         </a>
       </div>
@@ -412,7 +413,7 @@ function ContentServerRates() {
       <p>Full server rates and feature details will be published here. Stay tuned for the official announcement.</p>
       <p>Join our Discord for the latest updates and announcements.</p>
       <div style={{ marginTop: 28 }}>
-        <a href="https://discord.gg/ayxHdychr" target="_blank" rel="noopener noreferrer" className="btn-primary inline-block no-underline" style={{ fontSize: 13 }}>
+        <a href={LINKS.discord} target="_blank" rel="noopener noreferrer" className="btn-primary inline-block no-underline" style={{ fontSize: 13 }}>
           <span>Join Discord</span>
         </a>
       </div>
